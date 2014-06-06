@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
+		AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E41942784500AC16AE /* CoreGraphics.framework */; };
+		AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E61942784500AC16AE /* UIKit.framework */; };
+		AE02C8ED1942784500AC16AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE02C8EB1942784500AC16AE /* InfoPlist.strings */; };
+		AE02C8EF1942784500AC16AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C8EE1942784500AC16AE /* main.m */; };
+		AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C8F21942784500AC16AE /* CDAppDelegate.m */; };
+		AE02C8F61942784500AC16AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02C8F41942784500AC16AE /* Main.storyboard */; };
+		AE02C8F91942784500AC16AE /* CDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C8F81942784500AC16AE /* CDViewController.m */; };
+		AE02C8FB1942784500AC16AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE02C8FA1942784500AC16AE /* Images.xcassets */; };
+		AE02C9021942784500AC16AE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C9011942784500AC16AE /* XCTest.framework */; };
+		AE02C9031942784500AC16AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
+		AE02C9041942784500AC16AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E61942784500AC16AE /* UIKit.framework */; };
+		AE02C90C1942784500AC16AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE02C90A1942784500AC16AE /* InfoPlist.strings */; };
+		AE02C90E1942784500AC16AE /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C90D1942784500AC16AE /* ____Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE02C9051942784500AC16AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE02C8D71942784500AC16AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE02C8DE1942784500AC16AE;
+			remoteInfo = "吐槽百科";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE02C8DF1942784500AC16AE /* 吐槽百科.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "吐槽百科.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE02C8E21942784500AC16AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AE02C8E41942784500AC16AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AE02C8E61942784500AC16AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AE02C8EA1942784500AC16AE /* 吐槽百科-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "吐槽百科-Info.plist"; sourceTree = "<group>"; };
+		AE02C8EC1942784500AC16AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AE02C8EE1942784500AC16AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AE02C8F01942784500AC16AE /* 吐槽百科-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "吐槽百科-Prefix.pch"; sourceTree = "<group>"; };
+		AE02C8F11942784500AC16AE /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
+		AE02C8F21942784500AC16AE /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
+		AE02C8F51942784500AC16AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE02C8F71942784500AC16AE /* CDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDViewController.h; sourceTree = "<group>"; };
+		AE02C8F81942784500AC16AE /* CDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDViewController.m; sourceTree = "<group>"; };
+		AE02C8FA1942784500AC16AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "吐槽百科Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE02C9011942784500AC16AE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AE02C9091942784500AC16AE /* 吐槽百科Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "吐槽百科Tests-Info.plist"; sourceTree = "<group>"; };
+		AE02C90B1942784500AC16AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AE02C90D1942784500AC16AE /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE02C8DC1942784500AC16AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
+				AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */,
+				AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE02C8FD1942784500AC16AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE02C9021942784500AC16AE /* XCTest.framework in Frameworks */,
+				AE02C9041942784500AC16AE /* UIKit.framework in Frameworks */,
+				AE02C9031942784500AC16AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE02C8D61942784500AC16AE = {
+			isa = PBXGroup;
+			children = (
+				AE02C8E81942784500AC16AE /* 吐槽百科 */,
+				AE02C9071942784500AC16AE /* 吐槽百科Tests */,
+				AE02C8E11942784500AC16AE /* Frameworks */,
+				AE02C8E01942784500AC16AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE02C8E01942784500AC16AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C8DF1942784500AC16AE /* 吐槽百科.app */,
+				AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE02C8E11942784500AC16AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C8E21942784500AC16AE /* Foundation.framework */,
+				AE02C8E41942784500AC16AE /* CoreGraphics.framework */,
+				AE02C8E61942784500AC16AE /* UIKit.framework */,
+				AE02C9011942784500AC16AE /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE02C8E81942784500AC16AE /* 吐槽百科 */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C8F11942784500AC16AE /* CDAppDelegate.h */,
+				AE02C8F21942784500AC16AE /* CDAppDelegate.m */,
+				AE02C8F41942784500AC16AE /* Main.storyboard */,
+				AE02C8F71942784500AC16AE /* CDViewController.h */,
+				AE02C8F81942784500AC16AE /* CDViewController.m */,
+				AE02C8FA1942784500AC16AE /* Images.xcassets */,
+				AE02C8E91942784500AC16AE /* Supporting Files */,
+			);
+			path = "吐槽百科";
+			sourceTree = "<group>";
+		};
+		AE02C8E91942784500AC16AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C8EA1942784500AC16AE /* 吐槽百科-Info.plist */,
+				AE02C8EB1942784500AC16AE /* InfoPlist.strings */,
+				AE02C8EE1942784500AC16AE /* main.m */,
+				AE02C8F01942784500AC16AE /* 吐槽百科-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE02C9071942784500AC16AE /* 吐槽百科Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C90D1942784500AC16AE /* ____Tests.m */,
+				AE02C9081942784500AC16AE /* Supporting Files */,
+			);
+			path = "吐槽百科Tests";
+			sourceTree = "<group>";
+		};
+		AE02C9081942784500AC16AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C9091942784500AC16AE /* 吐槽百科Tests-Info.plist */,
+				AE02C90A1942784500AC16AE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE02C8DE1942784500AC16AE /* 吐槽百科 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE02C9111942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科" */;
+			buildPhases = (
+				AE02C8DB1942784500AC16AE /* Sources */,
+				AE02C8DC1942784500AC16AE /* Frameworks */,
+				AE02C8DD1942784500AC16AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "吐槽百科";
+			productName = "吐槽百科";
+			productReference = AE02C8DF1942784500AC16AE /* 吐槽百科.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE02C8FF1942784500AC16AE /* 吐槽百科Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科Tests" */;
+			buildPhases = (
+				AE02C8FC1942784500AC16AE /* Sources */,
+				AE02C8FD1942784500AC16AE /* Frameworks */,
+				AE02C8FE1942784500AC16AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE02C9061942784500AC16AE /* PBXTargetDependency */,
+			);
+			name = "吐槽百科Tests";
+			productName = "吐槽百科Tests";
+			productReference = AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE02C8D71942784500AC16AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = CDFLS;
+				TargetAttributes = {
+					AE02C8FF1942784500AC16AE = {
+						TestTargetID = AE02C8DE1942784500AC16AE;
+					};
+				};
+			};
+			buildConfigurationList = AE02C8DA1942784500AC16AE /* Build configuration list for PBXProject "吐槽百科" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE02C8D61942784500AC16AE;
+			productRefGroup = AE02C8E01942784500AC16AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE02C8DE1942784500AC16AE /* 吐槽百科 */,
+				AE02C8FF1942784500AC16AE /* 吐槽百科Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE02C8DD1942784500AC16AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE02C8FB1942784500AC16AE /* Images.xcassets in Resources */,
+				AE02C8ED1942784500AC16AE /* InfoPlist.strings in Resources */,
+				AE02C8F61942784500AC16AE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE02C8FE1942784500AC16AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE02C90C1942784500AC16AE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE02C8DB1942784500AC16AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE02C8EF1942784500AC16AE /* main.m in Sources */,
+				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
+				AE02C8F91942784500AC16AE /* CDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE02C8FC1942784500AC16AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE02C90E1942784500AC16AE /* ____Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE02C9061942784500AC16AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE02C8DE1942784500AC16AE /* 吐槽百科 */;
+			targetProxy = AE02C9051942784500AC16AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AE02C8EB1942784500AC16AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE02C8EC1942784500AC16AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AE02C8F41942784500AC16AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE02C8F51942784500AC16AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE02C90A1942784500AC16AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE02C90B1942784500AC16AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE02C90F1942784500AC16AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AE02C9101942784500AC16AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE02C9121942784500AC16AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
+				INFOPLIST_FILE = "吐槽百科/吐槽百科-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AE02C9131942784500AC16AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
+				INFOPLIST_FILE = "吐槽百科/吐槽百科-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AE02C9151942784500AC16AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/吐槽百科.app/吐槽百科";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "吐槽百科Tests/吐槽百科Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AE02C9161942784500AC16AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/吐槽百科.app/吐槽百科";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
+				INFOPLIST_FILE = "吐槽百科Tests/吐槽百科Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE02C8DA1942784500AC16AE /* Build configuration list for PBXProject "吐槽百科" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE02C90F1942784500AC16AE /* Debug */,
+				AE02C9101942784500AC16AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE02C9111942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE02C9121942784500AC16AE /* Debug */,
+				AE02C9131942784500AC16AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE02C9151942784500AC16AE /* Debug */,
+				AE02C9161942784500AC16AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE02C8D71942784500AC16AE /* Project object */;
+}
