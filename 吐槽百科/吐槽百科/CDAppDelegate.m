@@ -12,6 +12,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //check for necessary infomation
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey])
+    {
+        UIDevice *device = [UIDevice currentDevice];
+        NSString *uniqueDeviceID = [[device identifierForVendor]UUIDString];
+        [[NSUserDefaults standardUserDefaults] setObject:uniqueDeviceID forKey:UserNameKey];
+        NSLog(@"Unique user ID = %@",uniqueDeviceID);
+    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"匿名者" forKey:NickNameKey];
+    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:UserLoginKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:UserLoginKey];
+    }
     // Override point for customization after application launch.
     return YES;
 }

@@ -76,6 +76,8 @@ static int count = 1;
     self.nameField.hidden = YES;
     self.nameField.delegate = self;
     self.nameField.returnKeyType = UIReturnKeyDone;
+    self.nameField.font = [UIFont systemFontOfSize:16];
+    self.nameField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self.topField addSubview:self.nameField];
     //add cancel button
     self.cancelButton = [[FUIButton alloc] initWithFrame:CGRectMake(220, yposition + 23, 50, 30)];
@@ -190,6 +192,7 @@ static int count = 1;
     NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
 }
 
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     self.nameField.center = CGPointMake(self.nameField.center.x,self.textfieldPreviousY);
@@ -212,6 +215,11 @@ static int count = 1;
     {
         [textField resignFirstResponder];
     }
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
     return YES;
 }
 
