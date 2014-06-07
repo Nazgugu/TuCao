@@ -14,13 +14,35 @@
 		AE02C8EF1942784500AC16AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C8EE1942784500AC16AE /* main.m */; };
 		AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C8F21942784500AC16AE /* CDAppDelegate.m */; };
 		AE02C8F61942784500AC16AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02C8F41942784500AC16AE /* Main.storyboard */; };
-		AE02C8F91942784500AC16AE /* CDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C8F81942784500AC16AE /* CDViewController.m */; };
 		AE02C8FB1942784500AC16AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE02C8FA1942784500AC16AE /* Images.xcassets */; };
 		AE02C9021942784500AC16AE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C9011942784500AC16AE /* XCTest.framework */; };
 		AE02C9031942784500AC16AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE02C9041942784500AC16AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E61942784500AC16AE /* UIKit.framework */; };
 		AE02C90C1942784500AC16AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE02C90A1942784500AC16AE /* InfoPlist.strings */; };
 		AE02C90E1942784500AC16AE /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C90D1942784500AC16AE /* ____Tests.m */; };
+		AE02C91A194278DE00AC16AE /* CDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C919194278DE00AC16AE /* CDLoginViewController.m */; };
+		AE02C94419427ACE00AC16AE /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C91F19427ACE00AC16AE /* FUIAlertView.m */; };
+		AE02C94519427ACE00AC16AE /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92119427ACE00AC16AE /* FUIButton.m */; };
+		AE02C94619427ACE00AC16AE /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92319427ACE00AC16AE /* FUICellBackgroundView.m */; };
+		AE02C94719427ACE00AC16AE /* FUIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92519427ACE00AC16AE /* FUIPopoverBackgroundView.m */; };
+		AE02C94819427ACE00AC16AE /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92719427ACE00AC16AE /* FUISegmentedControl.m */; };
+		AE02C94919427ACE00AC16AE /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92919427ACE00AC16AE /* FUISwitch.m */; };
+		AE02C94A19427ACE00AC16AE /* FUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92B19427ACE00AC16AE /* FUITextField.m */; };
+		AE02C94B19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92D19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m */; };
+		AE02C94C19427ACE00AC16AE /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C92F19427ACE00AC16AE /* UIColor+FlatUI.m */; };
+		AE02C94D19427ACE00AC16AE /* UIFont+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93119427ACE00AC16AE /* UIFont+FlatUI.m */; };
+		AE02C94E19427ACE00AC16AE /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93319427ACE00AC16AE /* UIImage+FlatUI.m */; };
+		AE02C94F19427ACE00AC16AE /* UINavigationBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93519427ACE00AC16AE /* UINavigationBar+FlatUI.m */; };
+		AE02C95019427ACE00AC16AE /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93719427ACE00AC16AE /* UIPopoverController+FlatUI.m */; };
+		AE02C95119427ACE00AC16AE /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93919427ACE00AC16AE /* UIProgressView+FlatUI.m */; };
+		AE02C95219427ACE00AC16AE /* UISlider+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93B19427ACE00AC16AE /* UISlider+FlatUI.m */; };
+		AE02C95319427ACE00AC16AE /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93D19427ACE00AC16AE /* UIStepper+FlatUI.m */; };
+		AE02C95419427ACE00AC16AE /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C93F19427ACE00AC16AE /* UITabBar+FlatUI.m */; };
+		AE02C95519427ACE00AC16AE /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C94119427ACE00AC16AE /* UITableViewCell+FlatUI.m */; };
+		AE02C95619427ACE00AC16AE /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02C94319427ACE00AC16AE /* UIToolbar+FlatUI.m */; };
+		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
+		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
+		AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +67,58 @@
 		AE02C8F11942784500AC16AE /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
 		AE02C8F21942784500AC16AE /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
 		AE02C8F51942784500AC16AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AE02C8F71942784500AC16AE /* CDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDViewController.h; sourceTree = "<group>"; };
-		AE02C8F81942784500AC16AE /* CDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDViewController.m; sourceTree = "<group>"; };
 		AE02C8FA1942784500AC16AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "吐槽百科Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE02C9011942784500AC16AE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AE02C9091942784500AC16AE /* 吐槽百科Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "吐槽百科Tests-Info.plist"; sourceTree = "<group>"; };
 		AE02C90B1942784500AC16AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE02C90D1942784500AC16AE /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
+		AE02C918194278DE00AC16AE /* CDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLoginViewController.h; sourceTree = "<group>"; };
+		AE02C919194278DE00AC16AE /* CDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLoginViewController.m; sourceTree = "<group>"; };
+		AE02C91D19427ACE00AC16AE /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
+		AE02C91E19427ACE00AC16AE /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		AE02C91F19427ACE00AC16AE /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		AE02C92019427ACE00AC16AE /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		AE02C92119427ACE00AC16AE /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		AE02C92219427ACE00AC16AE /* FUICellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUICellBackgroundView.h; sourceTree = "<group>"; };
+		AE02C92319427ACE00AC16AE /* FUICellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUICellBackgroundView.m; sourceTree = "<group>"; };
+		AE02C92419427ACE00AC16AE /* FUIPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverBackgroundView.h; sourceTree = "<group>"; };
+		AE02C92519427ACE00AC16AE /* FUIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverBackgroundView.m; sourceTree = "<group>"; };
+		AE02C92619427ACE00AC16AE /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
+		AE02C92719427ACE00AC16AE /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
+		AE02C92819427ACE00AC16AE /* FUISwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISwitch.h; sourceTree = "<group>"; };
+		AE02C92919427ACE00AC16AE /* FUISwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISwitch.m; sourceTree = "<group>"; };
+		AE02C92A19427ACE00AC16AE /* FUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUITextField.h; sourceTree = "<group>"; };
+		AE02C92B19427ACE00AC16AE /* FUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUITextField.m; sourceTree = "<group>"; };
+		AE02C92C19427ACE00AC16AE /* UIBarButtonItem+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C92D19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C92E19427ACE00AC16AE /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C92F19427ACE00AC16AE /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93019427ACE00AC16AE /* UIFont+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93119427ACE00AC16AE /* UIFont+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93219427ACE00AC16AE /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93319427ACE00AC16AE /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93419427ACE00AC16AE /* UINavigationBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93519427ACE00AC16AE /* UINavigationBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93619427ACE00AC16AE /* UIPopoverController+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93719427ACE00AC16AE /* UIPopoverController+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93819427ACE00AC16AE /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93919427ACE00AC16AE /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93A19427ACE00AC16AE /* UISlider+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93B19427ACE00AC16AE /* UISlider+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93C19427ACE00AC16AE /* UIStepper+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStepper+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93D19427ACE00AC16AE /* UIStepper+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStepper+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C93E19427ACE00AC16AE /* UITabBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C93F19427ACE00AC16AE /* UITabBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C94019427ACE00AC16AE /* UITableViewCell+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C94119427ACE00AC16AE /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
+		AE02C94219427ACE00AC16AE /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
+		AE02C94319427ACE00AC16AE /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
+		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AE58DAAC1942853800029A28 /* ASCFlatUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCFlatUIColor.h; sourceTree = "<group>"; };
+		AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCFlatUIColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */,
 				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
 				AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */,
 				AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */,
@@ -101,6 +168,7 @@
 		AE02C8E11942784500AC16AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE2478B1194291FE0059EC3F /* QuartzCore.framework */,
 				AE02C8E21942784500AC16AE /* Foundation.framework */,
 				AE02C8E41942784500AC16AE /* CoreGraphics.framework */,
 				AE02C8E61942784500AC16AE /* UIKit.framework */,
@@ -112,11 +180,11 @@
 		AE02C8E81942784500AC16AE /* 吐槽百科 */ = {
 			isa = PBXGroup;
 			children = (
+				AE02C91B19427A9C00AC16AE /* Components */,
+				AE02C917194278B500AC16AE /* VCs */,
 				AE02C8F11942784500AC16AE /* CDAppDelegate.h */,
 				AE02C8F21942784500AC16AE /* CDAppDelegate.m */,
 				AE02C8F41942784500AC16AE /* Main.storyboard */,
-				AE02C8F71942784500AC16AE /* CDViewController.h */,
-				AE02C8F81942784500AC16AE /* CDViewController.m */,
 				AE02C8FA1942784500AC16AE /* Images.xcassets */,
 				AE02C8E91942784500AC16AE /* Supporting Files */,
 			);
@@ -150,6 +218,89 @@
 				AE02C90A1942784500AC16AE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE02C917194278B500AC16AE /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C918194278DE00AC16AE /* CDLoginViewController.h */,
+				AE02C919194278DE00AC16AE /* CDLoginViewController.m */,
+			);
+			name = VCs;
+			sourceTree = "<group>";
+		};
+		AE02C91B19427A9C00AC16AE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AE2478AD19428FB70059EC3F /* BlurView */,
+				AE58DAAB1942848F00029A28 /* FlatColor */,
+				AE02C91C19427AAE00AC16AE /* FlatUI */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		AE02C91C19427AAE00AC16AE /* FlatUI */ = {
+			isa = PBXGroup;
+			children = (
+				AE02C91D19427ACE00AC16AE /* FlatUIKit.h */,
+				AE02C91E19427ACE00AC16AE /* FUIAlertView.h */,
+				AE02C91F19427ACE00AC16AE /* FUIAlertView.m */,
+				AE02C92019427ACE00AC16AE /* FUIButton.h */,
+				AE02C92119427ACE00AC16AE /* FUIButton.m */,
+				AE02C92219427ACE00AC16AE /* FUICellBackgroundView.h */,
+				AE02C92319427ACE00AC16AE /* FUICellBackgroundView.m */,
+				AE02C92419427ACE00AC16AE /* FUIPopoverBackgroundView.h */,
+				AE02C92519427ACE00AC16AE /* FUIPopoverBackgroundView.m */,
+				AE02C92619427ACE00AC16AE /* FUISegmentedControl.h */,
+				AE02C92719427ACE00AC16AE /* FUISegmentedControl.m */,
+				AE02C92819427ACE00AC16AE /* FUISwitch.h */,
+				AE02C92919427ACE00AC16AE /* FUISwitch.m */,
+				AE02C92A19427ACE00AC16AE /* FUITextField.h */,
+				AE02C92B19427ACE00AC16AE /* FUITextField.m */,
+				AE02C92C19427ACE00AC16AE /* UIBarButtonItem+FlatUI.h */,
+				AE02C92D19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m */,
+				AE02C92E19427ACE00AC16AE /* UIColor+FlatUI.h */,
+				AE02C92F19427ACE00AC16AE /* UIColor+FlatUI.m */,
+				AE02C93019427ACE00AC16AE /* UIFont+FlatUI.h */,
+				AE02C93119427ACE00AC16AE /* UIFont+FlatUI.m */,
+				AE02C93219427ACE00AC16AE /* UIImage+FlatUI.h */,
+				AE02C93319427ACE00AC16AE /* UIImage+FlatUI.m */,
+				AE02C93419427ACE00AC16AE /* UINavigationBar+FlatUI.h */,
+				AE02C93519427ACE00AC16AE /* UINavigationBar+FlatUI.m */,
+				AE02C93619427ACE00AC16AE /* UIPopoverController+FlatUI.h */,
+				AE02C93719427ACE00AC16AE /* UIPopoverController+FlatUI.m */,
+				AE02C93819427ACE00AC16AE /* UIProgressView+FlatUI.h */,
+				AE02C93919427ACE00AC16AE /* UIProgressView+FlatUI.m */,
+				AE02C93A19427ACE00AC16AE /* UISlider+FlatUI.h */,
+				AE02C93B19427ACE00AC16AE /* UISlider+FlatUI.m */,
+				AE02C93C19427ACE00AC16AE /* UIStepper+FlatUI.h */,
+				AE02C93D19427ACE00AC16AE /* UIStepper+FlatUI.m */,
+				AE02C93E19427ACE00AC16AE /* UITabBar+FlatUI.h */,
+				AE02C93F19427ACE00AC16AE /* UITabBar+FlatUI.m */,
+				AE02C94019427ACE00AC16AE /* UITableViewCell+FlatUI.h */,
+				AE02C94119427ACE00AC16AE /* UITableViewCell+FlatUI.m */,
+				AE02C94219427ACE00AC16AE /* UIToolbar+FlatUI.h */,
+				AE02C94319427ACE00AC16AE /* UIToolbar+FlatUI.m */,
+			);
+			name = FlatUI;
+			sourceTree = "<group>";
+		};
+		AE2478AD19428FB70059EC3F /* BlurView */ = {
+			isa = PBXGroup;
+			children = (
+				AE2478AE19428FC30059EC3F /* FXBlurView.h */,
+				AE2478AF19428FC30059EC3F /* FXBlurView.m */,
+			);
+			name = BlurView;
+			sourceTree = "<group>";
+		};
+		AE58DAAB1942848F00029A28 /* FlatColor */ = {
+			isa = PBXGroup;
+			children = (
+				AE58DAAC1942853800029A28 /* ASCFlatUIColor.h */,
+				AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */,
+			);
+			name = FlatColor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +401,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE02C95519427ACE00AC16AE /* UITableViewCell+FlatUI.m in Sources */,
+				AE02C94B19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m in Sources */,
+				AE02C94419427ACE00AC16AE /* FUIAlertView.m in Sources */,
+				AE02C95419427ACE00AC16AE /* UITabBar+FlatUI.m in Sources */,
+				AE02C94819427ACE00AC16AE /* FUISegmentedControl.m in Sources */,
+				AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */,
+				AE02C94A19427ACE00AC16AE /* FUITextField.m in Sources */,
+				AE02C95019427ACE00AC16AE /* UIPopoverController+FlatUI.m in Sources */,
 				AE02C8EF1942784500AC16AE /* main.m in Sources */,
+				AE02C95119427ACE00AC16AE /* UIProgressView+FlatUI.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
-				AE02C8F91942784500AC16AE /* CDViewController.m in Sources */,
+				AE02C94619427ACE00AC16AE /* FUICellBackgroundView.m in Sources */,
+				AE02C91A194278DE00AC16AE /* CDLoginViewController.m in Sources */,
+				AE02C94F19427ACE00AC16AE /* UINavigationBar+FlatUI.m in Sources */,
+				AE02C94E19427ACE00AC16AE /* UIImage+FlatUI.m in Sources */,
+				AE02C94D19427ACE00AC16AE /* UIFont+FlatUI.m in Sources */,
+				AE02C95219427ACE00AC16AE /* UISlider+FlatUI.m in Sources */,
+				AE02C94C19427ACE00AC16AE /* UIColor+FlatUI.m in Sources */,
+				AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */,
+				AE02C94719427ACE00AC16AE /* FUIPopoverBackgroundView.m in Sources */,
+				AE02C95619427ACE00AC16AE /* UIToolbar+FlatUI.m in Sources */,
+				AE02C94519427ACE00AC16AE /* FUIButton.m in Sources */,
+				AE02C95319427ACE00AC16AE /* UIStepper+FlatUI.m in Sources */,
+				AE02C94919427ACE00AC16AE /* FUISwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +629,7 @@
 				AE02C9131942784500AC16AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科Tests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +638,7 @@
 				AE02C9161942784500AC16AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

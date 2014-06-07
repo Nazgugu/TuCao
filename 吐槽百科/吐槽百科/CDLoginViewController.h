@@ -1,5 +1,5 @@
 //
-//  CDViewController.h
+//  CDLoginViewController.h
 //  吐槽百科
 //
 //  Created by Liu Zhe on 6/6/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CDViewController : UIViewController
+@interface CDLoginViewController : UIViewController
 
 @end
