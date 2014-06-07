@@ -16,28 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-s2-nau">
+                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-s2-nau">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="QE4-Ue-dlk" customClass="RQShineLabel">
-                                <rect key="frame" x="25" y="16" width="270" height="350"/>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="QE4-Ue-dlk" customClass="RQShineLabel">
+                                <rect key="frame" x="25" y="16" width="270" height="300"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ngr-G6-C02">
+                            <view appearanceType="aqua" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngr-G6-C02">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-X1-aQb" customClass="FUIButton">
-                                        <rect key="frame" x="50" y="468" width="220" height="40"/>
+                                    <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-X1-aQb" customClass="FUIButton">
+                                        <rect key="frame" x="50" y="467" width="220" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Q47-hj-EqF"/>
+                                            <constraint firstAttribute="width" constant="220" id="ZPD-nQ-RMw"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
                                         <state key="normal" title="我就匿名看看">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAl-x7-iUU" customClass="FUIButton">
+                                    <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAl-x7-iUU" customClass="FUIButton">
                                         <rect key="frame" x="50" y="405" width="220" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="BGL-Hq-V13"/>
+                                            <constraint firstAttribute="width" constant="220" id="Eed-qG-n7I"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
                                         <state key="normal" title="让我开个小号">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,9 +53,32 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="YAl-x7-iUU" firstAttribute="top" relation="lessThanOrEqual" secondItem="Ngr-G6-C02" secondAttribute="top" priority="750" constant="405" id="17X-ge-nX3"/>
+                                    <constraint firstItem="GcU-X1-aQb" firstAttribute="leading" secondItem="Ngr-G6-C02" secondAttribute="leading" constant="50" id="C6I-lr-IZN"/>
+                                    <constraint firstAttribute="trailing" secondItem="YAl-x7-iUU" secondAttribute="trailing" constant="50" id="CVp-6Z-vKd"/>
+                                    <constraint firstItem="YAl-x7-iUU" firstAttribute="leading" secondItem="Ngr-G6-C02" secondAttribute="leading" constant="50" id="L9X-sH-6Hd"/>
+                                    <constraint firstAttribute="bottom" secondItem="GcU-X1-aQb" secondAttribute="bottom" constant="61" id="OSE-fo-r4H"/>
+                                    <constraint firstItem="GcU-X1-aQb" firstAttribute="top" secondItem="YAl-x7-iUU" secondAttribute="bottom" constant="22" id="Ui1-r4-4T8"/>
+                                    <constraint firstAttribute="bottom" secondItem="YAl-x7-iUU" secondAttribute="bottom" constant="123" id="Y4h-kZ-4Eb"/>
+                                    <constraint firstAttribute="trailing" secondItem="GcU-X1-aQb" secondAttribute="trailing" constant="50" id="nDL-IC-4eu"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="centerX" secondItem="QE4-Ue-dlk" secondAttribute="centerX" id="4WA-Rz-eda"/>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Lge-9l-5lB"/>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="top" secondItem="Jzx-s2-nau" secondAttribute="top" id="PML-Ox-eEb"/>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="trailing" secondItem="Jzx-s2-nau" secondAttribute="trailing" id="Pgm-N8-ctc"/>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="bottom" secondItem="Jzx-s2-nau" secondAttribute="bottom" id="Xhl-Q2-d7e"/>
+                            <constraint firstAttribute="bottom" secondItem="Ngr-G6-C02" secondAttribute="bottom" id="YDe-54-KDF"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="QE4-Ue-dlk" secondAttribute="bottom" constant="252" id="aUl-Gx-4EM"/>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="leading" secondItem="Jzx-s2-nau" secondAttribute="leading" id="aux-u8-Wpt"/>
+                            <constraint firstItem="QE4-Ue-dlk" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="16" id="eoB-8J-X4B"/>
+                            <constraint firstItem="Ngr-G6-C02" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gGt-mR-EaP"/>
+                            <constraint firstItem="QE4-Ue-dlk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="25" id="nsb-8f-lqy"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageLayer1" destination="Jzx-s2-nau" id="8Wo-M1-r2a"/>

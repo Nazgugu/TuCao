@@ -59,10 +59,10 @@ static int count = 1;
     self.imageArray = @[[UIImage imageNamed:@"loginImage"], [UIImage imageNamed:@"loginimage2"], [UIImage imageNamed:@"loginimage3"]];
     self.imageLayer1.image = [self.imageArray objectAtIndex:0];
     self.textArray = @[
-                       @"With little time to talk, we all are children of loneliness.",
-                       @"It is time to break the rule, put on your mask, no one has to know each other.",
-                       @"Just speak out,  and we will hear your words.",
-                       @"Through the darkest night come with the brightest light, today, your stories are heard"
+                       @"我们都很孤单。",
+                       @"在这深夜里是时候释放自己了。",
+                       @"全部说出来吧。",
+                       @"黑夜中最明亮的光，我们会听见你的心声。"
                        ];
     _textIndex = 0;
     self.shineLabel.backgroundColor = [UIColor clearColor];
