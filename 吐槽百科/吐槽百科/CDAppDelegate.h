@@ -10,6 +10,9 @@
 static NSString * const UserLoginKey = @"isLoggedIn";
 static NSString * const UserNameKey = @"uniqueDeviceID";
 static NSString * const NickNameKey = @"userNickName";
+static NSString * const RegisterKey = @"isRegistered";
+//default password
+static NSString * const PassWordKey = @"defaultone";
 
 #import <UIKit/UIKit.h>
 

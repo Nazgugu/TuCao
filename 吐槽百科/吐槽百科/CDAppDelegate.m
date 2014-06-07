@@ -7,18 +7,21 @@
 //
 
 #import "CDAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation CDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"SXIEzUxsT2N51VFP4qfBiDKDo8b7zCyN5QKJpKY5"
+                  clientKey:@"OCx3rTWeeTunMYk3kd7I6iQFQ4pLzn7MbLV8ZJrx"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //check for necessary infomation
     if (![[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey])
     {
         UIDevice *device = [UIDevice currentDevice];
         NSString *uniqueDeviceID = [[device identifierForVendor]UUIDString];
         [[NSUserDefaults standardUserDefaults] setObject:uniqueDeviceID forKey:UserNameKey];
-        NSLog(@"Unique user ID = %@",uniqueDeviceID);
     }
     if (![[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey])
     {
@@ -28,10 +31,56 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:UserLoginKey];
     }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:RegisterKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:RegisterKey];
+    }
     // Override point for customization after application launch.
+    [self registerUser];
+    NSLog(@"Unique user ID = %@",[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]);
     return YES;
 }
-							
+
+- (void)registerUser
+{
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:RegisterKey] boolValue] == NO)
+    {
+        PFUser *newUser = [PFUser user];
+        newUser.username = [[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey];
+        newUser.password = PassWordKey;
+        newUser[@"NickName"] = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError  *error) {
+           if (!error)
+           {
+               NSLog(@"succeeded");
+               [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
+           }
+            else
+            {
+                NSString *errorString = [error userInfo][@"error"];
+                // Show the errorString somewhere and let the user try again.
+                NSLog(@"error occurred: %@",errorString);
+                [self loginUser];
+            }
+        }];
+    }
+}
+
+- (void)loginUser
+{
+    [PFUser logInWithUsernameInBackground:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey] password:PassWordKey block:^(PFUser *user, NSError *error){
+        if (user)
+        {
+            NSLog(@"loggedIn Successful");
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:UserLoginKey];
+        }
+        else
+        {
+            NSLog(@"fatal error occured: %@, check server status",[error userInfo][@"error"]);
+        }
+    }];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

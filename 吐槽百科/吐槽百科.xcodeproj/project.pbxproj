@@ -45,6 +45,20 @@
 		AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */; };
 		AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA063051942A23C00EA9856 /* RQShineLabel.m */; };
 		AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED834521942E9ED002556B8 /* Accelerate.framework */; };
+		AED8345519438ECA002556B8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
+		AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83456194396A7002556B8 /* CoreTelephony.framework */; };
+		AED83459194396B7002556B8 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83458194396B7002556B8 /* libicucore.dylib */; };
+		AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345A194396C1002556B8 /* AddressBook.framework */; };
+		AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345C194396C7002556B8 /* AddressBookUI.framework */; };
+		AED8345F194396D4002556B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345E194396D4002556B8 /* MapKit.framework */; };
+		AED83461194396E2002556B8 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83460194396E2002556B8 /* libz.1.1.3.dylib */; };
+		AED83463194396E9002556B8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83462194396E9002556B8 /* StoreKit.framework */; };
+		AED83465194396F0002556B8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83464194396F0002556B8 /* Security.framework */; };
+		AED83467194396F7002556B8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83466194396F7002556B8 /* MobileCoreServices.framework */; };
+		AED8346919439700002556B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346819439700002556B8 /* CoreLocation.framework */; };
+		AED8346B1943970B002556B8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346A1943970B002556B8 /* CFNetwork.framework */; };
+		AED8346D19439714002556B8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346C19439714002556B8 /* AudioToolbox.framework */; };
+		AED8346F19439722002556B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346E19439722002556B8 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +138,20 @@
 		AEA063041942A23C00EA9856 /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
 		AEA063051942A23C00EA9856 /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
 		AED834521942E9ED002556B8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		AED8345419438ECA002556B8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Parse.framework; sourceTree = "<group>"; };
+		AED83456194396A7002556B8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AED83458194396B7002556B8 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		AED8345A194396C1002556B8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AED8345C194396C7002556B8 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		AED8345E194396D4002556B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AED83460194396E2002556B8 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		AED83462194396E9002556B8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AED83464194396F0002556B8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AED83466194396F7002556B8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AED8346819439700002556B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AED8346A1943970B002556B8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AED8346C19439714002556B8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AED8346E19439722002556B8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +159,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
+				AED8346F19439722002556B8 /* SystemConfiguration.framework in Frameworks */,
+				AED8346D19439714002556B8 /* AudioToolbox.framework in Frameworks */,
+				AED8346B1943970B002556B8 /* CFNetwork.framework in Frameworks */,
+				AED8346919439700002556B8 /* CoreLocation.framework in Frameworks */,
+				AED83467194396F7002556B8 /* MobileCoreServices.framework in Frameworks */,
+				AED83465194396F0002556B8 /* Security.framework in Frameworks */,
+				AED83463194396E9002556B8 /* StoreKit.framework in Frameworks */,
+				AED83461194396E2002556B8 /* libz.1.1.3.dylib in Frameworks */,
+				AED8345F194396D4002556B8 /* MapKit.framework in Frameworks */,
+				AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */,
+				AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */,
+				AED83459194396B7002556B8 /* libicucore.dylib in Frameworks */,
+				AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */,
+				AED8345519438ECA002556B8 /* Parse.framework in Frameworks */,
 				AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */,
 				AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */,
-				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
 				AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */,
 				AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */,
 			);
@@ -174,6 +216,20 @@
 		AE02C8E11942784500AC16AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AED8346E19439722002556B8 /* SystemConfiguration.framework */,
+				AED8346C19439714002556B8 /* AudioToolbox.framework */,
+				AED8346A1943970B002556B8 /* CFNetwork.framework */,
+				AED8346819439700002556B8 /* CoreLocation.framework */,
+				AED83466194396F7002556B8 /* MobileCoreServices.framework */,
+				AED83464194396F0002556B8 /* Security.framework */,
+				AED83462194396E9002556B8 /* StoreKit.framework */,
+				AED83460194396E2002556B8 /* libz.1.1.3.dylib */,
+				AED8345E194396D4002556B8 /* MapKit.framework */,
+				AED8345C194396C7002556B8 /* AddressBookUI.framework */,
+				AED8345A194396C1002556B8 /* AddressBook.framework */,
+				AED83458194396B7002556B8 /* libicucore.dylib */,
+				AED83456194396A7002556B8 /* CoreTelephony.framework */,
+				AED8345419438ECA002556B8 /* Parse.framework */,
 				AED834521942E9ED002556B8 /* Accelerate.framework */,
 				AE2478B1194291FE0059EC3F /* QuartzCore.framework */,
 				AE02C8E21942784500AC16AE /* Foundation.framework */,
@@ -567,9 +623,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/liuzhe/Developer/PJ2,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
 				INFOPLIST_FILE = "吐槽百科/吐槽百科-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -580,9 +641,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/liuzhe/Developer/PJ2,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
 				INFOPLIST_FILE = "吐槽百科/吐槽百科-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

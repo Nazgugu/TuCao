@@ -11,6 +11,7 @@
 #import "FXBlurView.h"
 #import "ASCFlatUIColor.h"
 #import "RQShineLabel.h"
+#import <Accelerate/Accelerate.h>
 
 static int count = 1;
 
