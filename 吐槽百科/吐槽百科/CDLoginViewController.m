@@ -8,20 +8,24 @@
 
 #import "CDLoginViewController.h"
 #import "FlatUIKit.h"
+#import "FXBlurView.h"
 #import "ASCFlatUIColor.h"
 #import "RQShineLabel.h"
 
 static int count = 1;
 
-@interface CDLoginViewController ()
+@interface CDLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet FUIButton *noNameButton;
 @property (weak, nonatomic) IBOutlet FUIButton *nickNameButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLayer1;
 @property (strong, nonatomic) NSArray *imageArray;
 @property (strong, nonatomic) NSArray *textArray;
 @property (nonatomic) NSInteger textIndex;
+@property (strong, nonatomic) FUITextField *nameField;
+@property (strong, nonatomic) FUIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet RQShineLabel *shineLabel;
-//@property (nonatomic) BOOL autoStart;
+@property (nonatomic) BOOL isBlured;
+@property (weak, nonatomic) IBOutlet UIView *topField;
 @end
 
 @implementation CDLoginViewController
@@ -38,6 +42,15 @@ static int count = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //NSNotificationcenter
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     // Do any additional setup after loading the view.
     [self.noNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     self.noNameButton.buttonColor = [UIColor clearColor];
@@ -49,13 +62,37 @@ static int count = 1;
     self.noNameButton.shadowHeight = 1.5f;
     [self.nickNameButton setTitleColor:[[UIColor midnightBlueColor] colorWithAlphaComponent:0.3f] forState:UIControlStateNormal];
     self.nickNameButton.buttonColor = [UIColor clearColor];
-    self.nickNameButton.layer.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.5f].CGColor;
+    self.nickNameButton.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f].CGColor;
     self.nickNameButton.layer.cornerRadius = 12.0f;
     self.nickNameButton.highlightedColor = [[UIColor silverColor] colorWithAlphaComponent:0.8];
     self.nickNameButton.shadowColor = [UIColor silverColor];
     self.nickNameButton.shadowHeight = 1.5f;
     self.nickNameButton.cornerRadius = 12.0f;
-    //self.autoStart = YES;
+    //NSLog(@"%f, %f",self.nickNameButton.center.x,self.nickNameButton.center.y);
+    _isBlured = NO;
+    //add namefield
+    CGFloat yposition = self.nickNameButton.frame.origin.y;
+    self.nameField = [[FUITextField alloc] initWithFrame:CGRectMake(50, yposition + 23 ,160, 30)];
+    self.nameField.borderWidth = 1.0f;
+    self.nameField.borderColor = [UIColor clearColor];
+    self.nameField.cornerRadius = 12.0f;
+    self.nameField.textFieldColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.5f];
+    self.nameField.placeholder = @"输入昵称";
+    self.nameField.hidden = YES;
+    self.nameField.delegate = self;
+    [self.topField addSubview:self.nameField];
+    //add cancel button
+    self.cancelButton = [[FUIButton alloc] initWithFrame:CGRectMake(220, yposition + 23, 50, 30)];
+    self.cancelButton.layer.backgroundColor = [[UIColor alizarinColor] colorWithAlphaComponent:0.7f].CGColor;
+    [self.cancelButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+    self.cancelButton.buttonColor = [UIColor clearColor];
+    self.cancelButton.highlightedColor = [[UIColor alizarinColor] colorWithAlphaComponent:0.8f];
+    self.cancelButton.cornerRadius = 12.0f;
+    self.cancelButton.layer.cornerRadius = 12.0f;
+    self.cancelButton.hidden = YES;
+    [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [self.cancelButton addTarget:self action:@selector(backToNormal:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topField addSubview:self.cancelButton];
     self.imageArray = @[[UIImage imageNamed:@"loginImage"], [UIImage imageNamed:@"loginimage2"], [UIImage imageNamed:@"loginimage3"]];
     self.imageLayer1.image = [self.imageArray objectAtIndex:0];
     self.textArray = @[
@@ -68,7 +105,6 @@ static int count = 1;
     self.shineLabel.backgroundColor = [UIColor clearColor];
     self.shineLabel.text = [self.textArray objectAtIndex:self.textIndex];
     [self.shineLabel sizeToFit];
-    //self.shineLabel.autoStart = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -79,28 +115,82 @@ static int count = 1;
     }];
 }
 
-/*- (void)Animate
+- (IBAction)backToNormal:(id)sender
 {
-    if (self.shineLabel.isVisible)
+    CGFloat topY = self.nickNameButton.center.y;
+    self.nameField.hidden = YES;
+    self.cancelButton.hidden = YES;
+    [UIView animateWithDuration:0.2f animations:^{
+        //self.noNameButton.center = CGPointMake(self.noNameButton.center.x, buttonY + 25);
+        self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, topY + 25);
+        [self.nickNameButton setTitle:@"让我开个小号" forState:UIControlStateNormal];
+        self.nickNameButton.buttonColor = [UIColor clearColor];
+        self.nickNameButton.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f].CGColor;
+        self.nickNameButton.shadowColor = [UIColor silverColor];
+        [self.nickNameButton setTitleColor:[[UIColor midnightBlueColor] colorWithAlphaComponent:0.3f] forState:UIControlStateNormal];
+        [self.nickNameButton setNeedsDisplay];
+        [self.view endEditing:YES];
+    }
+                     completion:^(BOOL complete)
+     {
+         if (complete)
+         {
+             self.isBlured = NO;
+        }
+     }];
+}
+
+- (IBAction)registerNickName:(id)sender {
+    CGFloat topY = self.nickNameButton.center.y;
+    //CGFloat buttonY = self.nickNameButton.center.y;
+    if (!self.isBlured)
     {
-        //NSLog(@"is visible");
-        [self.shineLabel fadeOutWithCompletion:^{
-            NSLog(@"text = %@",self.shineLabel.text);
-            [self changeText];
-            [self startAnimatingBackground];
-            [self.shineLabel shineWithCompletion:^{
-                [self Animate];
-            }];
-            //[self startAnimatingBackground];
+        self.isBlured = YES;
+        [UIView animateWithDuration:0.2f animations:^{
+        //self.noNameButton.center = CGPointMake(self.noNameButton.center.x, buttonY + 25);
+       self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, topY - 25);
+            [self.nickNameButton setTitle:@"就是它了" forState:UIControlStateNormal];
+            self.nickNameButton.buttonColor = [UIColor clearColor];
+            self.nickNameButton.shadowColor = [[UIColor emerlandColor] colorWithAlphaComponent:0.5f];
+            self.nickNameButton.layer.backgroundColor = [[UIColor emerlandColor] colorWithAlphaComponent:0.3f].CGColor;
+            [self.nickNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+            [self.nickNameButton setNeedsDisplay];
+        } completion:^(BOOL complete){
+            if (complete)
+            {
+                self.nameField.hidden = NO;
+                self.cancelButton.hidden = NO;
+            }
         }];
     }
-    else
-    {
-        [self.shineLabel shineWithCompletion:^{
-        [self Animate];
-        }];
-    }
-}*/
+}
+
+//handle keyboard
+- (void)keyboardWillHide:(NSNotification *)aNotification
+{
+    // the keyboard is hiding reset the table's height
+    NSTimeInterval animationDuration =
+    [[[aNotification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect frame = self.view.frame;
+    frame.origin.y += 160;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    self.view.frame = frame;
+    [UIView commitAnimations];
+}
+
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    // the keyboard is showing so resize the table's height
+    NSTimeInterval animationDuration =
+    [[[aNotification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect frame = self.view.frame;
+    frame.origin.y -= 160;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    self.view.frame = frame;
+    [UIView commitAnimations];
+}
 
 - (void)startAnimatingBackground
 {
@@ -109,7 +199,13 @@ static int count = 1;
          {
              //NSLog(@"start animating background");
              UIImage *image = [self.imageArray objectAtIndex:(count % [self.imageArray count])];
-             [UIView transitionWithView:self.imageLayer1
+             if (self.isBlured)
+             {
+                 image = [image blurredImageWithRadius:20.0f
+                                              iterations:2
+                                               tintColor:[UIColor cloudsColor]];
+             }
+            [UIView transitionWithView:self.imageLayer1
                       duration:3.0f
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
@@ -133,12 +229,6 @@ static int count = 1;
      });
 }
 
-- (void)changeText
-{
-    //NSLog(@"Text changed");
-    //NSLog(@"text = %@",self.shineLabel.text);
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -155,5 +245,10 @@ static int count = 1;
     // Pass the selected object to the new view controller.
 }
 */
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 @end

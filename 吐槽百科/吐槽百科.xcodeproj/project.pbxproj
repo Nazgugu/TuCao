@@ -44,6 +44,7 @@
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */; };
 		AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA063051942A23C00EA9856 /* RQShineLabel.m */; };
+		AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED834521942E9ED002556B8 /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCFlatUIColor.m; sourceTree = "<group>"; };
 		AEA063041942A23C00EA9856 /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
 		AEA063051942A23C00EA9856 /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
+		AED834521942E9ED002556B8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */,
 				AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */,
 				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
 				AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */,
@@ -171,6 +174,7 @@
 		AE02C8E11942784500AC16AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AED834521942E9ED002556B8 /* Accelerate.framework */,
 				AE2478B1194291FE0059EC3F /* QuartzCore.framework */,
 				AE02C8E21942784500AC16AE /* Foundation.framework */,
 				AE02C8E41942784500AC16AE /* CoreGraphics.framework */,
