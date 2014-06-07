@@ -18,6 +18,9 @@ static int count = 1;
 @property (weak, nonatomic) IBOutlet FUIButton *noNameButton;
 @property (weak, nonatomic) IBOutlet FUIButton *nickNameButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLayer1;
+@property (nonatomic) CGFloat textfieldPreviousY;
+@property (nonatomic) CGFloat nameButtonPreviousY;
+@property (nonatomic) CGFloat shiftedPosition;
 @property (strong, nonatomic) NSArray *imageArray;
 @property (strong, nonatomic) NSArray *textArray;
 @property (nonatomic) NSInteger textIndex;
@@ -43,14 +46,6 @@ static int count = 1;
 {
     [super viewDidLoad];
     //NSNotificationcenter
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
     // Do any additional setup after loading the view.
     [self.noNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     self.noNameButton.buttonColor = [UIColor clearColor];
@@ -80,6 +75,7 @@ static int count = 1;
     self.nameField.placeholder = @"输入昵称";
     self.nameField.hidden = YES;
     self.nameField.delegate = self;
+    self.nameField.returnKeyType = UIReturnKeyDone;
     [self.topField addSubview:self.nameField];
     //add cancel button
     self.cancelButton = [[FUIButton alloc] initWithFrame:CGRectMake(220, yposition + 23, 50, 30)];
@@ -93,6 +89,12 @@ static int count = 1;
     [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [self.cancelButton addTarget:self action:@selector(backToNormal:) forControlEvents:UIControlEventTouchUpInside];
     [self.topField addSubview:self.cancelButton];
+    self.textfieldPreviousY = self.nameField.center.y;
+    self.nameButtonPreviousY = self.nickNameButton.center.y;
+    self.shiftedPosition = self.nickNameButton.center.y - 25;
+    NSLog(@"original textfield center position y = %f",self.textfieldPreviousY);
+    NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
+    NSLog(@"original shifted center position y = %f",self.shiftedPosition);
     self.imageArray = @[[UIImage imageNamed:@"loginImage"], [UIImage imageNamed:@"loginimage2"], [UIImage imageNamed:@"loginimage3"]];
     self.imageLayer1.image = [self.imageArray objectAtIndex:0];
     self.textArray = @[
@@ -117,19 +119,20 @@ static int count = 1;
 
 - (IBAction)backToNormal:(id)sender
 {
-    CGFloat topY = self.nickNameButton.center.y;
+    NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
+    self.nameField.center = CGPointMake(self.nameField.center.x, self.textfieldPreviousY);
+    self.cancelButton.center = CGPointMake(self.cancelButton.center.x, self.textfieldPreviousY);
     self.nameField.hidden = YES;
     self.cancelButton.hidden = YES;
+    [self.view endEditing:YES];
     [UIView animateWithDuration:0.2f animations:^{
-        //self.noNameButton.center = CGPointMake(self.noNameButton.center.x, buttonY + 25);
-        self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, topY + 25);
+        self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.nameButtonPreviousY);
         [self.nickNameButton setTitle:@"让我开个小号" forState:UIControlStateNormal];
         self.nickNameButton.buttonColor = [UIColor clearColor];
         self.nickNameButton.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f].CGColor;
         self.nickNameButton.shadowColor = [UIColor silverColor];
         [self.nickNameButton setTitleColor:[[UIColor midnightBlueColor] colorWithAlphaComponent:0.3f] forState:UIControlStateNormal];
         [self.nickNameButton setNeedsDisplay];
-        [self.view endEditing:YES];
     }
                      completion:^(BOOL complete)
      {
@@ -138,17 +141,19 @@ static int count = 1;
              self.isBlured = NO;
         }
      }];
+    NSLog(@"original textfield center position y(shifted back to) = %f",self.nameField.center.y);
+    NSLog(@"original namebutton center position y(shifted back to) = %f",self.nickNameButton.center.y);
+    //NSLog(@"original shifted center position y(shifted back to) = %f",self.cancelButton.center.y);
 }
 
 - (IBAction)registerNickName:(id)sender {
-    CGFloat topY = self.nickNameButton.center.y;
     //CGFloat buttonY = self.nickNameButton.center.y;
     if (!self.isBlured)
     {
         self.isBlured = YES;
         [UIView animateWithDuration:0.2f animations:^{
         //self.noNameButton.center = CGPointMake(self.noNameButton.center.x, buttonY + 25);
-       self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, topY - 25);
+       self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.nameButtonPreviousY -25);
             [self.nickNameButton setTitle:@"就是它了" forState:UIControlStateNormal];
             self.nickNameButton.buttonColor = [UIColor clearColor];
             self.nickNameButton.shadowColor = [[UIColor emerlandColor] colorWithAlphaComponent:0.5f];
@@ -162,36 +167,55 @@ static int count = 1;
                 self.cancelButton.hidden = NO;
             }
         }];
+        NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
     }
 }
 
 //handle keyboard
-- (void)keyboardWillHide:(NSNotification *)aNotification
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    // the keyboard is hiding reset the table's height
-    NSTimeInterval animationDuration =
-    [[[aNotification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    CGRect frame = self.view.frame;
-    frame.origin.y += 160;
+    CGRect rect = self.nameField.frame;
+    rect.origin.y = self.view.frame.size.height - 216 - 70;
+    CGRect buttonRect = self.nickNameButton.frame;
+    buttonRect.origin.y = self.view.frame.size.height - 216 - 120;
+    CGRect cancelButtonRect = self.cancelButton.frame;
+    cancelButtonRect.origin.y = self.view.frame.size.height - 216 - 70;
+    NSTimeInterval animationDuration = 0.3f;
     [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
     [UIView setAnimationDuration:animationDuration];
-    self.view.frame = frame;
+    self.nickNameButton.frame = buttonRect;
+    self.nameField.frame = rect;
+    self.cancelButton.frame = cancelButtonRect;
     [UIView commitAnimations];
+    NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
 }
 
-- (void)keyboardWillShow:(NSNotification *)aNotification
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    // the keyboard is showing so resize the table's height
-    NSTimeInterval animationDuration =
-    [[[aNotification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    CGRect frame = self.view.frame;
-    frame.origin.y -= 160;
-    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    self.view.frame = frame;
-    [UIView commitAnimations];
+    self.nameField.center = CGPointMake(self.nameField.center.x,self.textfieldPreviousY);
+    self.cancelButton.center = CGPointMake(self.cancelButton.center.x, self.textfieldPreviousY);
+    self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.shiftedPosition);
+    return YES;
 }
 
+//touch outside to dismiss keyboard
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+//return to dismiss keyboard
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([textField isKindOfClass:[FUITextField class]])
+    {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+//animation
 - (void)startAnimatingBackground
 {
      dispatch_async(dispatch_get_main_queue(), ^{
