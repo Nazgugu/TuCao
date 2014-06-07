@@ -156,7 +156,7 @@ static int count = 1;
         self.isBlured = YES;
         [UIView animateWithDuration:0.2f animations:^{
         //self.noNameButton.center = CGPointMake(self.noNameButton.center.x, buttonY + 25);
-       self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.nameButtonPreviousY -25);
+       self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.nameButtonPreviousY - 25);
             [self.nickNameButton setTitle:@"就是它了" forState:UIControlStateNormal];
             self.nickNameButton.buttonColor = [UIColor clearColor];
             self.nickNameButton.shadowColor = [[UIColor emerlandColor] colorWithAlphaComponent:0.5f];

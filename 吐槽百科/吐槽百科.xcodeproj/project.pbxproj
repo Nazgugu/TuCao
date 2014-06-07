@@ -59,6 +59,7 @@
 		AED8346B1943970B002556B8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346A1943970B002556B8 /* CFNetwork.framework */; };
 		AED8346D19439714002556B8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346C19439714002556B8 /* AudioToolbox.framework */; };
 		AED8346F19439722002556B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346E19439722002556B8 /* SystemConfiguration.framework */; };
+		AED834731943A2BB002556B8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834721943A2BB002556B8 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,8 @@
 		AED8346A1943970B002556B8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AED8346C19439714002556B8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AED8346E19439722002556B8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AED834711943A2BB002556B8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AED834721943A2BB002556B8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +298,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AED834701943A2A8002556B8 /* ConnectivityCheck */,
 				AEA063031942A22500EA9856 /* ShiningLabel */,
 				AE2478AD19428FB70059EC3F /* BlurView */,
 				AE58DAAB1942848F00029A28 /* FlatColor */,
@@ -374,6 +378,15 @@
 				AEA063051942A23C00EA9856 /* RQShineLabel.m */,
 			);
 			name = ShiningLabel;
+			sourceTree = "<group>";
+		};
+		AED834701943A2A8002556B8 /* ConnectivityCheck */ = {
+			isa = PBXGroup;
+			children = (
+				AED834711943A2BB002556B8 /* Reachability.h */,
+				AED834721943A2BB002556B8 /* Reachability.m */,
+			);
+			name = ConnectivityCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED834731943A2BB002556B8 /* Reachability.m in Sources */,
 				AE02C95519427ACE00AC16AE /* UITableViewCell+FlatUI.m in Sources */,
 				AE02C94B19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m in Sources */,
 				AE02C94419427ACE00AC16AE /* FUIAlertView.m in Sources */,

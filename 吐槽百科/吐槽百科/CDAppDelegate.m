@@ -8,6 +8,11 @@
 
 #import "CDAppDelegate.h"
 #import <Parse/Parse.h>
+#import "Reachability.h"
+
+@interface CDAppDelegate()
+@property (nonatomic) Reachability *netWorkConnection;
+@end
 
 @implementation CDAppDelegate
 
@@ -35,8 +40,9 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:RegisterKey];
     }
+    [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
-    [self registerUser];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     NSLog(@"Unique user ID = %@",[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]);
     return YES;
 }
@@ -54,6 +60,7 @@
            {
                NSLog(@"succeeded");
                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
+               [[NSUserDefaults standardUserDefaults] synchronize];
            }
             else
             {
@@ -72,7 +79,9 @@
         if (user)
         {
             NSLog(@"loggedIn Successful");
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:UserLoginKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
         else
         {
@@ -101,6 +110,37 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    //check for network connectivity
+    self.netWorkConnection = [Reachability reachabilityForInternetConnection];
+    [self.netWorkConnection startNotifier];
+    [self doSetUpWithReachability:self.netWorkConnection];
+    
+}
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability *newStats = [note object];
+    NSParameterAssert([newStats isKindOfClass:[Reachability class]]);
+    [self doSetUpWithReachability:self.netWorkConnection];
+}
+
+- (void)doSetUpWithReachability:(Reachability *)reachability
+{
+    if (reachability == self.netWorkConnection)
+    {
+        NetworkStatus stats = [reachability currentReachabilityStatus];
+        //NSlog(@"status = %@",stats);
+        if (stats == NotReachable)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+            [alertView show];
+        }
+        else
+        {
+            NSLog(@"network connection is established");
+            [self registerUser];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
