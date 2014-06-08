@@ -146,6 +146,7 @@ static int count = 1;
          if (complete)
          {
              self.isBlured = NO;
+             self.nameField.text = @"";
         }
      }];
     //NSLog(@"original textfield center position y(shifted back to) = %f",self.nameField.center.y);
@@ -248,7 +249,9 @@ static int count = 1;
                NSLog(@"situation 2");
                //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
                PFObject *tempObject = [objects lastObject];
-               if ([tempObject[userKey] isEqual:[PFUser currentUser]])
+               //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
+              //NSLog(@"current user = %@",[PFUser currentUser].objectId);
+               if ([[tempObject[userKey] objectId] isEqualToString:[PFUser currentUser].objectId])
                {
                    NSLog(@"no collision");
                    //go ahead perform the segue
