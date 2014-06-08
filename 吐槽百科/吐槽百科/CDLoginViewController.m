@@ -153,14 +153,19 @@ static int count = 1;
     //NSLog(@"original shifted center position y(shifted back to) = %f",self.cancelButton.center.y);
 }
 
-- (IBAction)registerNickName:(id)sender {
-    //CGFloat buttonY = self.nickNameButton.center.y;
+- (void)login
+{
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:UserLoginKey] boolValue] == NO)
     {
         [PFUser logInWithUsernameInBackground:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey] password:PassWordKey];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:UserLoginKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+}
+
+- (IBAction)registerNickName:(id)sender {
+    //CGFloat buttonY = self.nickNameButton.center.y;
+    [self login];
     if (!self.isBlured)
     {
         self.isBlured = YES;
@@ -263,6 +268,16 @@ static int count = 1;
             NSLog(@": %@ %@", error, [error userInfo]);
         }
     }];
+}
+
+- (IBAction)anonymousLogin:(id)sender {
+    [self login];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == NO)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:AnonymousKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    [self performSegueWithIdentifier:@"contents" sender:self];
 }
 
 //handle keyboard

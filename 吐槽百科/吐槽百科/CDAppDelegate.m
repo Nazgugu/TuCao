@@ -40,6 +40,10 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:RegisterKey];
     }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

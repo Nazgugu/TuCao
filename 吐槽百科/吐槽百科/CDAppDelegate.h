@@ -16,6 +16,7 @@ static NSString * const tempName = @"temporaryName";
 static NSString * const userKey = @"PFUser";
 //default password
 static NSString * const PassWordKey = @"defaultone";
+static NSString * const AnonymousKey = @"isAnonymoused";
 
 #import <UIKit/UIKit.h>
 
