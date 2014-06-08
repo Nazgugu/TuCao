@@ -12,6 +12,8 @@
 #import "ASCFlatUIColor.h"
 #import "RQShineLabel.h"
 #import <Accelerate/Accelerate.h>
+#import <Parse/Parse.h>//
+#import "CDAppDelegate.h"
 
 static int count = 1;
 
@@ -33,6 +35,8 @@ static int count = 1;
 @end
 
 @implementation CDLoginViewController
+
+- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue {}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -95,9 +99,9 @@ static int count = 1;
     self.textfieldPreviousY = self.nameField.center.y;
     self.nameButtonPreviousY = self.nickNameButton.center.y;
     self.shiftedPosition = self.nickNameButton.center.y - 25;
-    NSLog(@"original textfield center position y = %f",self.textfieldPreviousY);
-    NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
-    NSLog(@"original shifted center position y = %f",self.shiftedPosition);
+    //NSLog(@"original textfield center position y = %f",self.textfieldPreviousY);
+    //NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
+    //NSLog(@"original shifted center position y = %f",self.shiftedPosition);
     self.imageArray = @[[UIImage imageNamed:@"loginImage"], [UIImage imageNamed:@"loginimage2"], [UIImage imageNamed:@"loginimage3"]];
     self.imageLayer1.image = [self.imageArray objectAtIndex:0];
     self.textArray = @[
@@ -122,7 +126,7 @@ static int count = 1;
 
 - (IBAction)backToNormal:(id)sender
 {
-    NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
+    //NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
     self.nameField.center = CGPointMake(self.nameField.center.x, self.textfieldPreviousY);
     self.cancelButton.center = CGPointMake(self.cancelButton.center.x, self.textfieldPreviousY);
     self.nameField.hidden = YES;
@@ -144,13 +148,19 @@ static int count = 1;
              self.isBlured = NO;
         }
      }];
-    NSLog(@"original textfield center position y(shifted back to) = %f",self.nameField.center.y);
-    NSLog(@"original namebutton center position y(shifted back to) = %f",self.nickNameButton.center.y);
+    //NSLog(@"original textfield center position y(shifted back to) = %f",self.nameField.center.y);
+    //NSLog(@"original namebutton center position y(shifted back to) = %f",self.nickNameButton.center.y);
     //NSLog(@"original shifted center position y(shifted back to) = %f",self.cancelButton.center.y);
 }
 
 - (IBAction)registerNickName:(id)sender {
     //CGFloat buttonY = self.nickNameButton.center.y;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:UserLoginKey] boolValue] == NO)
+    {
+        [PFUser logInWithUsernameInBackground:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey] password:PassWordKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:UserLoginKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     if (!self.isBlured)
     {
         self.isBlured = YES;
@@ -172,6 +182,87 @@ static int count = 1;
         }];
         NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
     }
+    else
+    {
+        //dealing with empty name
+        if ([self.nameField.text isEqualToString:@""])
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"不能为空" message:@"请输入昵称" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alertView show];
+        }
+        else
+        {
+            [self changeNameAndLogin];
+        }
+    }
+}
+
+//changeNameAndLogin
+- (void)changeNameAndLogin{
+    PFQuery *nickNameQuery = [PFQuery queryWithClassName:nickNameOnServer];
+    [nickNameQuery whereKey:tempName equalTo:self.nameField.text];
+    [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+       if (!error)
+       {
+           if (objects.count == 0)
+           {
+               NSLog(@"situation 1");
+               //ok to set this nickname since no one used it
+               PFQuery *newQuery = [PFQuery queryWithClassName:nickNameOnServer];
+               [newQuery whereKey:userKey equalTo:[PFUser currentUser]];
+               [newQuery findObjectsInBackgroundWithBlock:^(NSArray *object, NSError *error){
+                  if (!error)
+                  {     
+                      NSLog(@"changeName to %@",self.nameField.text);
+                      PFObject *nameChange = [object lastObject];
+                      nameChange[tempName] = self.nameField.text;
+                      [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                         if (succeeded)
+                         {
+                             [self performSegueWithIdentifier:@"contents" sender:self];
+                         }
+                      }];
+                      //performsegue
+                  }
+                   else
+                   {
+                       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有点问题。。。" message:@"一会儿帮你保存哦，先进去看看吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                       [alertView show];
+                       PFObject *lastObject = [object lastObject];
+                       lastObject[tempName] = self.nameField.text;
+                       [lastObject saveEventually];
+                       //perform the segue
+                       [self performSegueWithIdentifier:@"contents" sender:self];
+                   }
+               }];
+               [PFUser currentUser][@"NickName"] = self.nameField.text;
+               [[PFUser currentUser] saveInBackground];
+           }
+           else
+           {
+               NSLog(@"situation 2");
+               //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
+               PFObject *tempObject = [objects lastObject];
+               if ([tempObject[userKey] isEqual:[PFUser currentUser]])
+               {
+                   NSLog(@"no collision");
+                   //go ahead perform the segue
+                   [self performSegueWithIdentifier:@"contents" sender:self];
+               }
+               else
+               {
+                   //the nickname is take prompt the user to choose another one
+                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"太没创意啦～" message:@"名字已经有人使用了哦" delegate:self cancelButtonTitle:@"换一个吧" otherButtonTitles:nil];
+                   [alertView show];
+                   [self.nameField becomeFirstResponder];
+               }
+           }
+       }
+        else
+        {
+            NSLog(@": %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 //handle keyboard

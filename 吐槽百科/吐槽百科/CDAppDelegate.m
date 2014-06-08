@@ -22,15 +22,15 @@
                   clientKey:@"OCx3rTWeeTunMYk3kd7I6iQFQ4pLzn7MbLV8ZJrx"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //check for necessary infomation
+    UIDevice *device = [UIDevice currentDevice];
+    NSString *uniqueDeviceID = [[device identifierForVendor]UUIDString];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey])
     {
-        UIDevice *device = [UIDevice currentDevice];
-        NSString *uniqueDeviceID = [[device identifierForVendor]UUIDString];
         [[NSUserDefaults standardUserDefaults] setObject:uniqueDeviceID forKey:UserNameKey];
     }
     if (![[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey])
     {
-        [[NSUserDefaults standardUserDefaults] setObject:@"匿名者" forKey:NickNameKey];
+        [[NSUserDefaults standardUserDefaults] setObject:uniqueDeviceID forKey:NickNameKey];
     }
     if (![[NSUserDefaults standardUserDefaults] objectForKey:UserLoginKey])
     {
@@ -61,6 +61,23 @@
                NSLog(@"succeeded");
                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
                [[NSUserDefaults standardUserDefaults] synchronize];
+               PFUser *currentUser = [PFUser currentUser];
+               PFObject *nickName = [PFObject objectWithClassName:nickNameOnServer];
+               [nickName setObject:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey] forKey:tempName];
+               [nickName setObject:currentUser forKey:userKey];
+               [nickName saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                  if (error)
+                  {
+                      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[error userInfo] objectForKey:@"error"] message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                      [alertView show];
+                      return;
+                  }
+                   else
+                   {
+                       //successful stored
+                   }
+               }];
+               
            }
             else
             {
@@ -70,6 +87,10 @@
                 [self loginUser];
             }
         }];
+    }
+    else
+    {
+       [self loginUser]; 
     }
 }
 

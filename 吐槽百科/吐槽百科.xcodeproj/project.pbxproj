@@ -60,6 +60,7 @@
 		AED8346D19439714002556B8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346C19439714002556B8 /* AudioToolbox.framework */; };
 		AED8346F19439722002556B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346E19439722002556B8 /* SystemConfiguration.framework */; };
 		AED834731943A2BB002556B8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834721943A2BB002556B8 /* Reachability.m */; };
+		AED834761943C87D002556B8 /* CDContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834751943C87D002556B8 /* CDContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		AED8346E19439722002556B8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AED834711943A2BB002556B8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AED834721943A2BB002556B8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		AED834741943C87D002556B8 /* CDContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDContentViewController.h; sourceTree = "<group>"; };
+		AED834751943C87D002556B8 /* CDContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +294,8 @@
 			children = (
 				AE02C918194278DE00AC16AE /* CDLoginViewController.h */,
 				AE02C919194278DE00AC16AE /* CDLoginViewController.m */,
+				AED834741943C87D002556B8 /* CDContentViewController.h */,
+				AED834751943C87D002556B8 /* CDContentViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED834761943C87D002556B8 /* CDContentViewController.m in Sources */,
 				AED834731943A2BB002556B8 /* Reachability.m in Sources */,
 				AE02C95519427ACE00AC16AE /* UITableViewCell+FlatUI.m in Sources */,
 				AE02C94B19427ACE00AC16AE /* UIBarButtonItem+FlatUI.m in Sources */,
