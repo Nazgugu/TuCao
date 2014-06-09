@@ -296,9 +296,12 @@ static int count = 1;
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    self.nameField.center = CGPointMake(self.nameField.center.x,self.textfieldPreviousY);
-    self.cancelButton.center = CGPointMake(self.cancelButton.center.x, self.textfieldPreviousY);
-    self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.shiftedPosition);
+    [UIView animateWithDuration:0.3f animations:^{
+        self.nameField.center = CGPointMake(self.nameField.center.x,self.textfieldPreviousY);
+        self.cancelButton.center = CGPointMake(self.cancelButton.center.x, self.textfieldPreviousY);
+        self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.shiftedPosition);
+    }];
+    
     return YES;
 }
 
