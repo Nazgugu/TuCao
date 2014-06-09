@@ -1,18 +1,18 @@
 //
-//  CDContentViewController.m
+//  CDFeedViewController.m
 //  吐槽百科
 //
 //  Created by Liu Zhe on 14/6/7.
 //  Copyright (c) 2014年 CDFLS. All rights reserved.
 //
 
-#import "CDContentViewController.h"
+#import "CDFeedViewController.h"
 
-@interface CDContentViewController ()
+@interface CDFeedViewController ()
 
 @end
 
-@implementation CDContentViewController
+@implementation CDFeedViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

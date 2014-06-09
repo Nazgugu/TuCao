@@ -1,5 +1,5 @@
 //
-//  CDContentViewController.h
+//  CDFeedViewController.h
 //  吐槽百科
 //
 //  Created by Liu Zhe on 14/6/7.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RESideMenu.h"
 
-@interface CDContentViewController : UIViewController
+@interface CDFeedViewController : UIViewController
 
 @end

@@ -13,23 +13,23 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jzx-s2-nau">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="QE4-Ue-dlk" customClass="RQShineLabel">
-                                <rect key="frame" x="25" y="16" width="270" height="212"/>
+                                <rect key="frame" x="25" y="16" width="270" height="300"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view appearanceType="aqua" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngr-G6-C02">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-X1-aQb" customClass="FUIButton">
-                                        <rect key="frame" x="50" y="379" width="220" height="40"/>
+                                        <rect key="frame" x="50" y="467" width="220" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Q47-hj-EqF"/>
                                             <constraint firstAttribute="width" constant="220" id="ZPD-nQ-RMw"/>
@@ -44,7 +44,7 @@
                                         </connections>
                                     </button>
                                     <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAl-x7-iUU" customClass="FUIButton">
-                                        <rect key="frame" x="50" y="317" width="220" height="40"/>
+                                        <rect key="frame" x="50" y="405" width="220" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="BGL-Hq-V13"/>
                                             <constraint firstAttribute="width" constant="220" id="Eed-qG-n7I"/>
@@ -91,46 +91,101 @@
                         <outlet property="noNameButton" destination="GcU-X1-aQb" id="0zw-Oe-w1c"/>
                         <outlet property="shineLabel" destination="QE4-Ue-dlk" id="Il6-5o-zI4"/>
                         <outlet property="topField" destination="Ngr-G6-C02" id="iMb-49-Tyz"/>
-                        <segue destination="T36-vf-yfm" kind="modal" identifier="contents" id="xUa-QX-Ufc"/>
+                        <segue destination="T36-vf-yfm" kind="modal" identifier="contents" modalTransitionStyle="crossDissolve" id="xUa-QX-Ufc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-205" y="329"/>
+            <point key="canvasLocation" x="-411" y="295"/>
         </scene>
-        <!--Content View Controller-->
+        <!--Left Menu View Controller-->
+        <scene sceneID="hKU-5H-Z7o">
+            <objects>
+                <viewController restorationIdentifier="leftMenuViewController" storyboardIdentifier="leftMenuViewController" id="l9R-c2-BEK" customClass="CDLeftMenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Jv-wu-DNs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Izi-eh-aj1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kMs-CL-AQT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5lm-U0-Ywi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-425" y="1008"/>
+        </scene>
+        <!--Root View Controller-->
         <scene sceneID="4ja-iL-KPD">
             <objects>
-                <viewController id="T36-vf-yfm" customClass="CDContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T36-vf-yfm" customClass="CDRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="loJ-Hk-ZXv"/>
                         <viewControllerLayoutGuide type="bottom" id="v6e-t4-H8w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X1g-WP-N0m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-Bk-uXY">
-                                <rect key="frame" x="32" y="30" width="52" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="OdU-zG-aTb"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVc-Qx-L9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="329"/>
+            <point key="canvasLocation" x="67" y="295"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="8wr-LK-fki">
+            <objects>
+                <viewController restorationIdentifier="FeedViewController" storyboardIdentifier="FeedViewController" id="ZvS-do-gIU" customClass="CDFeedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zkS-Rk-q66"/>
+                        <viewControllerLayoutGuide type="bottom" id="fhR-gq-K9F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uYn-kz-Y5H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="trw-2i-GPG">
+                        <barButtonItem key="leftBarButtonItem" title="left" id="5pE-8P-ksM">
+                            <connections>
+                                <action selector="presentLeftMenuViewController:" destination="ZvS-do-gIU" id="WnN-oK-YB6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="back" id="JE5-5R-G1Q">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="modal" modalTransitionStyle="crossDissolve" id="GtE-J3-YLr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11o-de-fI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="993"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1YQ-EF-CJj">
+            <objects>
+                <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KQc-Y3-Rqm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N6g-w9-7nD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZvS-do-gIU" kind="relationship" relationship="rootViewController" id="nwm-Eu-OyW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZk-0X-JTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39" y="993"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

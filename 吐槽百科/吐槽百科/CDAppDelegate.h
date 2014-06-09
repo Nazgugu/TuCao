@@ -11,8 +11,8 @@ static NSString * const UserLoginKey = @"isLoggedIn";
 static NSString * const UserNameKey = @"uniqueDeviceID";
 static NSString * const NickNameKey = @"userNickName";
 static NSString * const RegisterKey = @"isRegistered";
-static NSString * const nickNameOnServer = @"nickOnServer";
-static NSString * const tempName = @"temporaryName";
+//static NSString * const nickNameOnServer = @"nickOnServer";
+//static NSString * const tempName = @"temporaryName";
 static NSString * const userKey = @"PFUser";
 //default password
 static NSString * const PassWordKey = @"defaultone";

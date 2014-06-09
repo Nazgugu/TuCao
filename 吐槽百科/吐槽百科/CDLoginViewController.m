@@ -12,7 +12,7 @@
 #import "ASCFlatUIColor.h"
 #import "RQShineLabel.h"
 #import <Accelerate/Accelerate.h>
-#import <Parse/Parse.h>//
+#import <Parse/Parse.h>
 #import "CDAppDelegate.h"
 
 static int count = 1;
@@ -205,45 +205,36 @@ static int count = 1;
 
 //changeNameAndLogin
 - (void)changeNameAndLogin{
-    PFQuery *nickNameQuery = [PFQuery queryWithClassName:nickNameOnServer];
-    [nickNameQuery whereKey:tempName equalTo:self.nameField.text];
+    PFQuery *nickNameQuery = [PFUser query];
+    [nickNameQuery whereKey:NickNameKey equalTo:self.nameField.text];
+    NSLog(@"%@",self.nameField.text);
     [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
        if (!error)
        {
+           NSLog(@"%@",objects);
            if (objects.count == 0)
            {
                NSLog(@"situation 1");
                //ok to set this nickname since no one used it
-               PFQuery *newQuery = [PFQuery queryWithClassName:nickNameOnServer];
-               [newQuery whereKey:userKey equalTo:[PFUser currentUser]];
-               [newQuery findObjectsInBackgroundWithBlock:^(NSArray *object, NSError *error){
-                  if (!error)
-                  {     
-                      NSLog(@"changeName to %@",self.nameField.text);
-                      PFObject *nameChange = [object lastObject];
-                      nameChange[tempName] = self.nameField.text;
-                      [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+               PFUser *nameChange = [PFUser currentUser];
+               nameChange[NickNameKey] = self.nameField.text;
+                [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                          if (succeeded)
                          {
                              [self performSegueWithIdentifier:@"contents" sender:self];
                          }
-                      }];
+                         else
+                         {
+                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有点问题。。。" message:@"一会儿帮你保存哦，先进去看看吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                             [alertView show];
+                             [nameChange saveEventually];
+                             //perform the segue
+                             [self performSegueWithIdentifier:@"contents" sender:self];
+                         }
+
                       //performsegue
-                  }
-                   else
-                   {
-                       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有点问题。。。" message:@"一会儿帮你保存哦，先进去看看吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-                       [alertView show];
-                       PFObject *lastObject = [object lastObject];
-                       lastObject[tempName] = self.nameField.text;
-                       [lastObject saveEventually];
-                       //perform the segue
-                       [self performSegueWithIdentifier:@"contents" sender:self];
-                   }
-               }];
-               [PFUser currentUser][@"NickName"] = self.nameField.text;
-               [[PFUser currentUser] saveInBackground];
-           }
+                  }];
+            }
            else
            {
                NSLog(@"situation 2");
@@ -251,7 +242,7 @@ static int count = 1;
                PFObject *tempObject = [objects lastObject];
                //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
               //NSLog(@"current user = %@",[PFUser currentUser].objectId);
-               if ([[tempObject[userKey] objectId] isEqualToString:[PFUser currentUser].objectId])
+               if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
                {
                    NSLog(@"no collision");
                    //go ahead perform the segue
@@ -314,6 +305,7 @@ static int count = 1;
 //touch outside to dismiss keyboard
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    self.isBlured = NO;
     [self.view endEditing:YES];
 }
 

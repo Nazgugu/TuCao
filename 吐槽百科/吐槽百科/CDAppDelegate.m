@@ -58,13 +58,14 @@
         PFUser *newUser = [PFUser user];
         newUser.username = [[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey];
         newUser.password = PassWordKey;
-        newUser[@"NickName"] = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+        newUser[NickNameKey] = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError  *error) {
            if (!error)
            {
                NSLog(@"succeeded");
                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
                [[NSUserDefaults standardUserDefaults] synchronize];
+               /*
                PFUser *currentUser = [PFUser currentUser];
                PFObject *nickName = [PFObject objectWithClassName:nickNameOnServer];
                [nickName setObject:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey] forKey:tempName];
@@ -80,7 +81,7 @@
                    {
                        //successful stored
                    }
-               }];
+               }];*/
                
            }
             else
