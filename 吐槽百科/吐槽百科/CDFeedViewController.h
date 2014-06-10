@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
 
-@interface CDFeedViewController : UIViewController
+@interface CDFeedViewController : UITableViewController
 
 @end

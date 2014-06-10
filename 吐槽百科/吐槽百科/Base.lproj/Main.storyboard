@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -138,30 +138,39 @@
             <point key="canvasLocation" x="67" y="295"/>
         </scene>
         <!--Feed View Controller-->
-        <scene sceneID="8wr-LK-fki">
+        <scene sceneID="K2Z-lr-qmv">
             <objects>
-                <viewController restorationIdentifier="FeedViewController" storyboardIdentifier="FeedViewController" id="ZvS-do-gIU" customClass="CDFeedViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zkS-Rk-q66"/>
-                        <viewControllerLayoutGuide type="bottom" id="fhR-gq-K9F"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uYn-kz-Y5H">
+                <tableViewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M9n-e2-b3L" customClass="CDFeedViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lpD-7b-kMs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="trw-2i-GPG">
-                        <barButtonItem key="leftBarButtonItem" title="left" id="5pE-8P-ksM">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="58y-Em-5OH">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="58y-Em-5OH" id="fo1-eI-Iam">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="M9n-e2-b3L" id="WS0-ut-mdW"/>
+                            <outlet property="delegate" destination="M9n-e2-b3L" id="vgM-cj-wQ9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="g97-EP-gRM">
+                        <barButtonItem key="leftBarButtonItem" title="Left" id="tVd-4B-khO">
                             <connections>
-                                <action selector="presentLeftMenuViewController:" destination="ZvS-do-gIU" id="WnN-oK-YB6"/>
+                                <action selector="presentLeftMenuViewController:" destination="M9n-e2-b3L" id="QOU-Zz-gKX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="back" id="JE5-5R-G1Q"/>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="11o-de-fI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YGT-3A-Qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="993"/>
+            <point key="canvasLocation" x="492" y="941"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1YQ-EF-CJj">
@@ -174,7 +183,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZvS-do-gIU" kind="relationship" relationship="rootViewController" id="nwm-Eu-OyW"/>
+                        <segue destination="M9n-e2-b3L" kind="relationship" relationship="rootViewController" id="0HN-QZ-tBI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZk-0X-JTe" userLabel="First Responder" sceneMemberID="firstResponder"/>

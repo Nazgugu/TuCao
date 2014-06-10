@@ -8,7 +8,7 @@
 
 #import "CDFeedViewController.h"
 
-@interface CDFeedViewController ()
+@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
 }
 
