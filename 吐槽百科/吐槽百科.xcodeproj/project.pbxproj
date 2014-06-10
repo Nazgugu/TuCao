@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE01CECF1946C7260028FF11 /* UITableView+Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = AE01CECE1946C7260028FF11 /* UITableView+Wave.m */; };
 		AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E41942784500AC16AE /* CoreGraphics.framework */; };
 		AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E61942784500AC16AE /* UIKit.framework */; };
@@ -79,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE01CECD1946C7260028FF11 /* UITableView+Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Wave.h"; sourceTree = "<group>"; };
+		AE01CECE1946C7260028FF11 /* UITableView+Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Wave.m"; sourceTree = "<group>"; };
 		AE02C8DF1942784500AC16AE /* 吐槽百科.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "吐槽百科.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE02C8E21942784500AC16AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE02C8E41942784500AC16AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -215,6 +218,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE01CECC1946C7130028FF11 /* TableViewShowUp */ = {
+			isa = PBXGroup;
+			children = (
+				AE01CECD1946C7260028FF11 /* UITableView+Wave.h */,
+				AE01CECE1946C7260028FF11 /* UITableView+Wave.m */,
+			);
+			name = TableViewShowUp;
+			sourceTree = "<group>";
+		};
 		AE02C8D61942784500AC16AE = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +334,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE01CECC1946C7130028FF11 /* TableViewShowUp */,
 				AED8347819443A73002556B8 /* SideMenu */,
 				AED834701943A2A8002556B8 /* ConnectivityCheck */,
 				AEA063031942A22500EA9856 /* ShiningLabel */,
@@ -526,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE03BF9A19465801005A81FE /* FUIAlertView.m in Sources */,
+				AE01CECF1946C7260028FF11 /* UITableView+Wave.m in Sources */,
 				AE03BF9C19465801005A81FE /* FUICellBackgroundView.m in Sources */,
 				AE03BFAA19465801005A81FE /* UITabBar+FlatUI.m in Sources */,
 				AE03BFA019465801005A81FE /* FUITextField.m in Sources */,

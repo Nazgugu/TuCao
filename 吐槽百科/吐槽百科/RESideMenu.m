@@ -69,10 +69,10 @@
     _menuViewContainer = [[UIView alloc] init];
     _contentViewContainer = [[UIView alloc] init];
     
-    _animationDuration = 0.35f;
+    _animationDuration = 0.25f;
     _interactivePopGestureRecognizerEnabled = YES;
   
-    _menuViewControllerTransformation = CGAffineTransformMakeScale(1.5f, 1.5f);
+    _menuViewControllerTransformation = CGAffineTransformMakeScale(1.1f, 1.1f);
     
     _scaleContentView = YES;
     _scaleBackgroundImageView = YES;
@@ -96,8 +96,8 @@
     _contentViewShadowOpacity = 0.4f;
     _contentViewShadowRadius = 8.0f;
     _contentViewInLandscapeOffsetCenterX = 30.f;
-    _contentViewInPortraitOffsetCenterX  = 5.f;
-    _contentViewScaleValue = 0.7f;
+    _contentViewInPortraitOffsetCenterX  = -5.f;
+    _contentViewScaleValue = 0.9f;
 }
 
 #pragma mark -

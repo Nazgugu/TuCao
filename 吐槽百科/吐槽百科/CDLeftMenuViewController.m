@@ -9,11 +9,9 @@
 #import "CDLeftMenuViewController.h"
 #import "CDFeedViewController.h"
 #import "UIViewController+RESideMenu.h"
+#import "UITableView+Wave.h"
 
 @interface CDLeftMenuViewController ()
-
-@property (strong, readwrite, nonatomic) UITableView *tableView;
-
 @end
 
 @implementation CDLeftMenuViewController
@@ -43,6 +41,23 @@
     });
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.tableView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitAnimation) name:@"didShowSideView" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"view will appear");
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"view did appear");
+    //[self.tableView reloadDataAnimateWithWave];
+}
+
+- (void)commitAnimation
+{
+    [self.tableView reloadDataAnimateWithWave];
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +117,9 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
+        /*case 1:
+            [self.tableView reloadDataAnimateWithWave];
+            break;*/
         default:
             break;
     }
