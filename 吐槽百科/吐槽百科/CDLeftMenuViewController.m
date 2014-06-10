@@ -10,6 +10,7 @@
 #import "CDFeedViewController.h"
 #import "UIViewController+RESideMenu.h"
 #import "UITableView+Wave.h"
+#import "CDAppDelegate.h"
 
 @interface CDLeftMenuViewController ()
 @end
@@ -117,9 +118,11 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        /*case 1:
-            [self.tableView reloadDataAnimateWithWave];
-            break;*/
+        case 4:
+            [self performSegueWithIdentifier:@"mainMenu" sender:self];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            break;
         default:
             break;
     }

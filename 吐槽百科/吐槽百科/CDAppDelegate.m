@@ -9,6 +9,7 @@
 #import "CDAppDelegate.h"
 #import <Parse/Parse.h>
 #import "Reachability.h"
+#import "CDRootViewController.h"
 
 @interface CDAppDelegate()
 @property (nonatomic) Reachability *netWorkConnection;
@@ -43,6 +44,10 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey])
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
@@ -140,7 +145,10 @@
     self.netWorkConnection = [Reachability reachabilityForInternetConnection];
     [self.netWorkConnection startNotifier];
     [self doSetUpWithReachability:self.netWorkConnection];
-    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey] boolValue]== YES)
+    {
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootController"];
+    }
 }
 
 - (void) reachabilityChanged:(NSNotification *)note

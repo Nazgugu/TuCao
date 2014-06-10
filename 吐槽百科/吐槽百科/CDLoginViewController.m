@@ -218,6 +218,8 @@ static int count = 1;
                //ok to set this nickname since no one used it
                PFUser *nameChange = [PFUser currentUser];
                nameChange[NickNameKey] = self.nameField.text;
+               [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+               [[NSUserDefaults standardUserDefaults] synchronize];
                 [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                          if (succeeded)
                          {
@@ -231,7 +233,6 @@ static int count = 1;
                              //perform the segue
                              [self performSegueWithIdentifier:@"contents" sender:self];
                          }
-
                       //performsegue
                   }];
             }
@@ -246,6 +247,8 @@ static int count = 1;
                {
                    NSLog(@"no collision");
                    //go ahead perform the segue
+                   [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+                   [[NSUserDefaults standardUserDefaults] synchronize];
                    [self performSegueWithIdentifier:@"contents" sender:self];
                }
                else
@@ -269,6 +272,7 @@ static int count = 1;
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == NO)
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:AnonymousKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     [self performSegueWithIdentifier:@"contents" sender:self];

@@ -111,10 +111,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="mainMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ZJx-yA-jLH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5lm-U0-Ywi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-425" y="1008"/>
+            <point key="canvasLocation" x="-423" y="1054"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="4ja-iL-KPD">
@@ -153,11 +156,7 @@
                                 <action selector="presentLeftMenuViewController:" destination="ZvS-do-gIU" id="WnN-oK-YB6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="back" id="JE5-5R-G1Q">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="modal" modalTransitionStyle="crossDissolve" id="GtE-J3-YLr"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="back" id="JE5-5R-G1Q"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11o-de-fI0" userLabel="First Responder" sceneMemberID="firstResponder"/>

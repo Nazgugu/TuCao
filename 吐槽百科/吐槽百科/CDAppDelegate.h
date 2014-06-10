@@ -17,6 +17,7 @@ static NSString * const userKey = @"PFUser";
 //default password
 static NSString * const PassWordKey = @"defaultone";
 static NSString * const AnonymousKey = @"isAnonymoused";
+static NSString * const isLoggedInKey = @"isLoggedIn";
 
 #import <UIKit/UIKit.h>
 
