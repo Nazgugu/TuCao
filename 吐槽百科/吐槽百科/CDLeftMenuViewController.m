@@ -42,7 +42,7 @@
     });
     self.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.tableView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitAnimation) name:@"didShowSideView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitAnimation:) name:@"didShowSideView" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -56,9 +56,14 @@
     //[self.tableView reloadDataAnimateWithWave];
 }
 
-- (void)commitAnimation
+- (void)commitAnimation:(NSNotification *)notification
 {
+    NSDictionary *userInfo = [notification userInfo];
+    NSLog(@"current page is %@",[userInfo objectForKey:@"indexKey"]);
     [self.tableView reloadDataAnimateWithWave];
+    NSArray *cells = [self.tableView visibleCells];
+    UITableViewCell *cell = [cells objectAtIndex:[[userInfo objectForKey:@"indexKey"] intValue]];
+    cell.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3f].CGColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,13 +100,15 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
+        //cell.selectedBackgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
+        cell.layer.cornerRadius = 25.0f;
     }
     
-    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out"];
+    NSArray *titles = @[@"新吐槽", @"Calendar", @"Profile", @"Settings", @"Log Out"];
     //NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
     //cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];

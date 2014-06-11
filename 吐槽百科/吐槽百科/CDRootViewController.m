@@ -9,6 +9,7 @@
 #import "CDRootViewController.h"
 #import "CDLeftMenuViewController.h"
 #import "UITableView+Wave.h"
+#import "CDFeedViewController.h"
 
 @interface CDRootViewController ()
 
@@ -35,7 +36,17 @@
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
 {
     //NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"didShowSideView" object:self];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    if ([self.contentViewController isKindOfClass:[UINavigationController class]])
+        {
+             UINavigationController *navigationController = (UINavigationController *)self.contentViewController;
+             if ([navigationController.visibleViewController isKindOfClass:[CDFeedViewController class]])
+             {
+                 [userInfo setObject:[NSNumber numberWithInt:0] forKey:@"indexKey"];
+             }
+         }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didShowSideView" object:self userInfo:userInfo];
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController

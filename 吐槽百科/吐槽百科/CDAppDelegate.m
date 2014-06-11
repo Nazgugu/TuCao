@@ -22,6 +22,10 @@
     [Parse setApplicationId:@"SXIEzUxsT2N51VFP4qfBiDKDo8b7zCyN5QKJpKY5"
                   clientKey:@"OCx3rTWeeTunMYk3kd7I6iQFQ4pLzn7MbLV8ZJrx"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey] boolValue]== YES)
+    {
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootController"];
+    }
     //check for necessary infomation
     UIDevice *device = [UIDevice currentDevice];
     NSString *uniqueDeviceID = [[device identifierForVendor]UUIDString];
@@ -145,10 +149,10 @@
     self.netWorkConnection = [Reachability reachabilityForInternetConnection];
     [self.netWorkConnection startNotifier];
     [self doSetUpWithReachability:self.netWorkConnection];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey] boolValue]== YES)
+    /*if ([[[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey] boolValue]== YES)
     {
         self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootController"];
-    }
+    }*/
 }
 
 - (void) reachabilityChanged:(NSNotification *)note
