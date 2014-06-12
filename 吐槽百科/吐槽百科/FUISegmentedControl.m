@@ -105,7 +105,7 @@
                                         self.selectedFont,
                                         NSFontAttributeName,
                                         nil];
-    } else {
+    } /*else {
         // Pre-iOS6 methods
         selectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                         self.selectedFontColor,
@@ -117,7 +117,7 @@
                                         self.selectedFont,
                                         UITextAttributeFont,
                                         nil];
-    }
+    }*/
     
     [self setTitleTextAttributes:selectedAttributesDictionary forState:UIControlStateSelected];
     
@@ -135,7 +135,7 @@
                                           self.deselectedFont,
                                           NSFontAttributeName,
                                           nil];
-    } else {
+    } /*else {
         // pre-iOS6 methods
         deselectedAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           self.deselectedFontColor,
@@ -147,7 +147,7 @@
                                           self.deselectedFont,
                                           UITextAttributeFont,
                                           nil];
-    }
+    }*/
     [self setTitleTextAttributes:deselectedAttributesDictionary forState:UIControlStateNormal];
 
     NSDictionary *disabledAttributesDictionary;
@@ -164,7 +164,7 @@
                 self.disabledFont,
                 NSFontAttributeName,
                 nil];
-    } else {
+    } /*else {
         // pre-iOS6 methods
         disabledAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                 self.disabledFontColor,
@@ -176,7 +176,7 @@
                 self.disabledFont,
                 UITextAttributeFont,
                 nil];
-    }
+    }*/
 
     [self setTitleTextAttributes:disabledAttributesDictionary forState:UIControlStateDisabled];
 }

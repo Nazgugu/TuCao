@@ -53,6 +53,10 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
     }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:locationOnKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:locationOnKey];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

@@ -18,6 +18,7 @@ static NSString * const userKey = @"PFUser";
 static NSString * const PassWordKey = @"defaultone";
 static NSString * const AnonymousKey = @"isAnonymoused";
 static NSString * const isLoggedInKey = @"isLoggedIn";
+static NSString * const locationOnKey = @"locationIsOn";
 
 #import <UIKit/UIKit.h>
 

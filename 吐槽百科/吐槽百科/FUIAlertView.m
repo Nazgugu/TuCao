@@ -215,11 +215,11 @@
                                                                   context:nil];
         titleHeight = titleRect.size.height;
         messageHeight = messageRect.size.height;
-    } else {
+    } /*else {
         // Pre-iOS7 methods
         titleHeight = [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
         messageHeight = [self.messageLabel.text sizeWithFont:self.messageLabel.font constrainedToSize:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
-    }
+    }*/
     
     CGFloat singleTextFieldHeight = 40;
     if (self.alertViewStyle == FUIAlertViewStyleDefault) {

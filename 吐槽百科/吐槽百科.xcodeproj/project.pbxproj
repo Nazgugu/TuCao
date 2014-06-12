@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AE01CECF1946C7260028FF11 /* UITableView+Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = AE01CECE1946C7260028FF11 /* UITableView+Wave.m */; };
-		AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E41942784500AC16AE /* CoreGraphics.framework */; };
 		AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E61942784500AC16AE /* UIKit.framework */; };
 		AE02C8ED1942784500AC16AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE02C8EB1942784500AC16AE /* InfoPlist.strings */; };
@@ -43,7 +42,10 @@
 		AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9919465801005A81FE /* UIToolbar+FlatUI.m */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
+		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
 		AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */; };
+		AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C2BE819496FE80021D1B3 /* SZTextView.m */; };
+		AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */; };
 		AE9E2BC8194914460062175A /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BC7194914460062175A /* CDNavigationViewController.m */; };
 		AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCA1949174F0062175A /* MBSwitch.m */; };
@@ -147,8 +149,12 @@
 		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AE43BCA419495CEF00373FC9 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		AE58DAAC1942853800029A28 /* ASCFlatUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCFlatUIColor.h; sourceTree = "<group>"; };
 		AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCFlatUIColor.m; sourceTree = "<group>"; };
+		AE8C2BE719496FE80021D1B3 /* SZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTextView.h; sourceTree = "<group>"; };
+		AE8C2BE819496FE80021D1B3 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLeftMenuViewController.h; sourceTree = "<group>"; };
 		AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLeftMenuViewController.m; sourceTree = "<group>"; };
 		AE9E2BC6194914460062175A /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
@@ -195,6 +201,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */,
+				AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */,
+				AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */,
 				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
 				AED8346F19439722002556B8 /* SystemConfiguration.framework in Frameworks */,
 				AED8346D19439714002556B8 /* AudioToolbox.framework in Frameworks */,
@@ -205,15 +214,12 @@
 				AED83463194396E9002556B8 /* StoreKit.framework in Frameworks */,
 				AED83461194396E2002556B8 /* libz.1.1.3.dylib in Frameworks */,
 				AED8345F194396D4002556B8 /* MapKit.framework in Frameworks */,
-				AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */,
-				AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */,
 				AED83459194396B7002556B8 /* libicucore.dylib in Frameworks */,
 				AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */,
 				AED8345519438ECA002556B8 /* Parse.framework in Frameworks */,
 				AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */,
 				AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */,
 				AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */,
-				AE02C8E31942784500AC16AE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +353,8 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE8C2BE619496FD60021D1B3 /* TextView */,
+				AE43BCA719495CF400373FC9 /* SegmentedControl */,
 				AE9E2BCC194917570062175A /* switch */,
 				AE01CECC1946C7130028FF11 /* TableViewShowUp */,
 				AED8347819443A73002556B8 /* SideMenu */,
@@ -414,6 +422,15 @@
 			name = BlurView;
 			sourceTree = "<group>";
 		};
+		AE43BCA719495CF400373FC9 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				AE43BCA419495CEF00373FC9 /* HMSegmentedControl.h */,
+				AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */,
+			);
+			name = SegmentedControl;
+			sourceTree = "<group>";
+		};
 		AE58DAAB1942848F00029A28 /* FlatColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +438,15 @@
 				AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */,
 			);
 			name = FlatColor;
+			sourceTree = "<group>";
+		};
+		AE8C2BE619496FD60021D1B3 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				AE8C2BE719496FE80021D1B3 /* SZTextView.h */,
+				AE8C2BE819496FE80021D1B3 /* SZTextView.m */,
+			);
+			name = TextView;
 			sourceTree = "<group>";
 		};
 		AE9E2BCC194917570062175A /* switch */ = {
@@ -576,6 +602,7 @@
 			files = (
 				AE03BF9A19465801005A81FE /* FUIAlertView.m in Sources */,
 				AE01CECF1946C7260028FF11 /* UITableView+Wave.m in Sources */,
+				AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */,
 				AE03BF9C19465801005A81FE /* FUICellBackgroundView.m in Sources */,
 				AE03BFAA19465801005A81FE /* UITabBar+FlatUI.m in Sources */,
 				AE03BFA019465801005A81FE /* FUITextField.m in Sources */,
@@ -583,6 +610,7 @@
 				AED8348019443A82002556B8 /* RESideMenu.m in Sources */,
 				AED834731943A2BB002556B8 /* Reachability.m in Sources */,
 				AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */,
+				AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */,
 				AE02C8EF1942784500AC16AE /* main.m in Sources */,
 				AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
