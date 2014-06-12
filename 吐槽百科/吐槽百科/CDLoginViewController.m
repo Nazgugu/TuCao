@@ -36,8 +36,6 @@ static int count = 1;
 
 @implementation CDLoginViewController
 
-- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue {}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

@@ -8,6 +8,7 @@
 
 #import "CDLeftMenuViewController.h"
 #import "CDFeedViewController.h"
+#import "CDProfileViewController.h"
 #import "UIViewController+RESideMenu.h"
 #import "UITableView+Wave.h"
 #import "CDAppDelegate.h"
@@ -59,9 +60,16 @@
 - (void)commitAnimation:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
+    NSLog(@"userinfo = %@",userInfo);
     NSLog(@"current page is %@",[userInfo objectForKey:@"indexKey"]);
+    NSLog(@"index value = %d",[[userInfo objectForKey:@"indexKey"] intValue]);
     [self.tableView reloadDataAnimateWithWave];
     NSArray *cells = [self.tableView visibleCells];
+    for (int i = 0; i < cells.count; i++)
+    {
+        UITableViewCell *temp = [cells objectAtIndex:i];
+        temp.layer.backgroundColor = [UIColor clearColor].CGColor;
+    }
     UITableViewCell *cell = [cells objectAtIndex:[[userInfo objectForKey:@"indexKey"] intValue]];
     cell.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3f].CGColor;
 }
@@ -108,7 +116,7 @@
         cell.layer.cornerRadius = 25.0f;
     }
     
-    NSArray *titles = @[@"新吐槽", @"Calendar", @"Profile", @"Settings", @"Log Out"];
+    NSArray *titles = @[@"新吐槽", @"我的主页", @"消息", @"设置", @"退出"];
     //NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
     //cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
@@ -123,6 +131,10 @@
         case 0:
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FeedViewController"]]
                                                          animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 1:
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"]] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 4:

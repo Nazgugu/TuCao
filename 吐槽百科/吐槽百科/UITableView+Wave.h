@@ -1,4 +1,4 @@
-#define kWAVE_DURATION   .25f
+#define kWAVE_DURATION   .45f
 
 
 

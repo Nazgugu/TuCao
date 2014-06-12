@@ -54,7 +54,7 @@
 {
     cell.hidden = NO;
     CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnimation.fromValue = [NSNumber numberWithFloat:1.6];
+    scaleAnimation.fromValue = [NSNumber numberWithFloat:2.0];
     scaleAnimation.toValue = [NSNumber numberWithFloat:1.0];
     scaleAnimation.autoreverses = NO;
     

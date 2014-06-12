@@ -10,12 +10,16 @@
 #import "CDLeftMenuViewController.h"
 #import "UITableView+Wave.h"
 #import "CDFeedViewController.h"
+#import "CDProfileViewController.h"
 
 @interface CDRootViewController ()
 
 @end
 
 @implementation CDRootViewController
+
+- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue {}
+
 
 - (void)awakeFromNib
 {
@@ -27,7 +31,7 @@
     self.contentViewShadowEnabled = YES;
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
-    self.backgroundImage = [UIImage imageNamed:@"loginImage"];
+    self.backgroundImage = [UIImage imageNamed:@"sideMenu"];
     self.delegate = self;
 }
 
@@ -42,8 +46,14 @@
              UINavigationController *navigationController = (UINavigationController *)self.contentViewController;
              if ([navigationController.visibleViewController isKindOfClass:[CDFeedViewController class]])
              {
-                 [userInfo setObject:[NSNumber numberWithInt:0] forKey:@"indexKey"];
+                 [userInfo setObject:@0 forKey:@"indexKey"];
              }
+            if ([navigationController.visibleViewController isKindOfClass:[CDProfileViewController class]])
+            {
+                NSLog(@"its me here");
+                [userInfo setObject:@1 forKey:@"indexKey"];
+                NSLog(@"userinfo = %@",userInfo);
+            }
          }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didShowSideView" object:self userInfo:userInfo];

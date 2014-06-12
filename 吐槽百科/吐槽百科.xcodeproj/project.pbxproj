@@ -45,7 +45,11 @@
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */; };
 		AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */; };
+		AE9E2BC8194914460062175A /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BC7194914460062175A /* CDNavigationViewController.m */; };
+		AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCA1949174F0062175A /* MBSwitch.m */; };
+		AE9E2BCF194923290062175A /* CDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCE194923290062175A /* CDProfileViewController.m */; };
 		AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA063051942A23C00EA9856 /* RQShineLabel.m */; };
+		AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED43E8319490F4D0098C080 /* CDComposingViewController.m */; };
 		AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED834521942E9ED002556B8 /* Accelerate.framework */; };
 		AED8345519438ECA002556B8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
 		AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83456194396A7002556B8 /* CoreTelephony.framework */; };
@@ -147,8 +151,16 @@
 		AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCFlatUIColor.m; sourceTree = "<group>"; };
 		AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLeftMenuViewController.h; sourceTree = "<group>"; };
 		AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLeftMenuViewController.m; sourceTree = "<group>"; };
+		AE9E2BC6194914460062175A /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
+		AE9E2BC7194914460062175A /* CDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationViewController.m; sourceTree = "<group>"; };
+		AE9E2BC91949174F0062175A /* MBSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSwitch.h; sourceTree = "<group>"; };
+		AE9E2BCA1949174F0062175A /* MBSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSwitch.m; sourceTree = "<group>"; };
+		AE9E2BCD194923290062175A /* CDProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfileViewController.h; sourceTree = "<group>"; };
+		AE9E2BCE194923290062175A /* CDProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfileViewController.m; sourceTree = "<group>"; };
 		AEA063041942A23C00EA9856 /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
 		AEA063051942A23C00EA9856 /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
+		AED43E8219490F4D0098C080 /* CDComposingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDComposingViewController.h; sourceTree = "<group>"; };
+		AED43E8319490F4D0098C080 /* CDComposingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDComposingViewController.m; sourceTree = "<group>"; };
 		AED834521942E9ED002556B8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AED8345419438ECA002556B8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Parse.framework; sourceTree = "<group>"; };
 		AED83456194396A7002556B8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -319,14 +331,15 @@
 		AE02C917194278B500AC16AE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				AED43E8119490F260098C080 /* NavigationViews */,
 				AE02C918194278DE00AC16AE /* CDLoginViewController.h */,
 				AE02C919194278DE00AC16AE /* CDLoginViewController.m */,
 				AED8348219443B48002556B8 /* CDRootViewController.h */,
 				AED8348319443B48002556B8 /* CDRootViewController.m */,
 				AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */,
 				AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */,
-				AEF7CEE119443DCD00FA112A /* CDFeedViewController.h */,
-				AEF7CEE219443DCD00FA112A /* CDFeedViewController.m */,
+				AED43E8219490F4D0098C080 /* CDComposingViewController.h */,
+				AED43E8319490F4D0098C080 /* CDComposingViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -334,6 +347,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE9E2BCC194917570062175A /* switch */,
 				AE01CECC1946C7130028FF11 /* TableViewShowUp */,
 				AED8347819443A73002556B8 /* SideMenu */,
 				AED834701943A2A8002556B8 /* ConnectivityCheck */,
@@ -409,6 +423,15 @@
 			name = FlatColor;
 			sourceTree = "<group>";
 		};
+		AE9E2BCC194917570062175A /* switch */ = {
+			isa = PBXGroup;
+			children = (
+				AE9E2BC91949174F0062175A /* MBSwitch.h */,
+				AE9E2BCA1949174F0062175A /* MBSwitch.m */,
+			);
+			name = switch;
+			sourceTree = "<group>";
+		};
 		AEA063031942A22500EA9856 /* ShiningLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +439,19 @@
 				AEA063051942A23C00EA9856 /* RQShineLabel.m */,
 			);
 			name = ShiningLabel;
+			sourceTree = "<group>";
+		};
+		AED43E8119490F260098C080 /* NavigationViews */ = {
+			isa = PBXGroup;
+			children = (
+				AEF7CEE119443DCD00FA112A /* CDFeedViewController.h */,
+				AEF7CEE219443DCD00FA112A /* CDFeedViewController.m */,
+				AE9E2BC6194914460062175A /* CDNavigationViewController.h */,
+				AE9E2BC7194914460062175A /* CDNavigationViewController.m */,
+				AE9E2BCD194923290062175A /* CDProfileViewController.h */,
+				AE9E2BCE194923290062175A /* CDProfileViewController.m */,
+			);
+			name = NavigationViews;
 			sourceTree = "<group>";
 		};
 		AED834701943A2A8002556B8 /* ConnectivityCheck */ = {
@@ -551,10 +587,14 @@
 				AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
 				AE03BFA319465801005A81FE /* UIFont+FlatUI.m in Sources */,
+				AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */,
 				AE03BF9F19465801005A81FE /* FUISwitch.m in Sources */,
 				AE03BFA719465801005A81FE /* UIProgressView+FlatUI.m in Sources */,
 				AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */,
 				AE03BF9D19465801005A81FE /* FUIPopoverBackgroundView.m in Sources */,
+				AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */,
+				AE9E2BC8194914460062175A /* CDNavigationViewController.m in Sources */,
+				AE9E2BCF194923290062175A /* CDProfileViewController.m in Sources */,
 				AE03BFA419465801005A81FE /* UIImage+FlatUI.m in Sources */,
 				AE02C91A194278DE00AC16AE /* CDLoginViewController.m in Sources */,
 				AED8348119443A82002556B8 /* UIViewController+RESideMenu.m in Sources */,
