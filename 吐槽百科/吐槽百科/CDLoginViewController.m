@@ -9,7 +9,6 @@
 #import "CDLoginViewController.h"
 #import "FlatUIKit.h"
 #import "FXBlurView.h"
-#import "ASCFlatUIColor.h"
 #import "RQShineLabel.h"
 #import <Accelerate/Accelerate.h>
 #import <Parse/Parse.h>

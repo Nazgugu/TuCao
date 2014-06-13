@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
@@ -207,21 +206,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffL-hS-GXf">
-                                        <rect key="frame" x="6" y="7" width="55" height="55"/>
+                                        <rect key="frame" x="10" y="13" width="39" height="39"/>
                                     </imageView>
                                     <view appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuo-zL-Mlo" customClass="MBSwitch">
                                         <rect key="frame" x="165" y="35" width="40" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWA-F0-eor">
-                                        <rect key="frame" x="278" y="10" width="37" height="30"/>
-                                        <state key="normal" title="back">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="TVm-HY-E8n" kind="unwind" unwindAction="unwindToThisViewController:" id="aOW-iT-i5D"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </view>
                             <view appearanceType="aqua" alpha="0.29999999999999966" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-Qq-zlG">
@@ -233,31 +223,54 @@
                                 </constraints>
                             </view>
                             <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-k5-9MB" customClass="SZTextView">
-                                <rect key="frame" x="10" y="134" width="300" height="179"/>
+                                <rect key="frame" x="10" y="126" width="300" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="750" constant="179" id="bax-FD-gNS"/>
+                                    <constraint firstAttribute="height" priority="750" constant="162" id="bax-FD-gNS"/>
                                     <constraint firstAttribute="width" constant="300" id="nZR-ME-LqQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWA-F0-eor" customClass="FUIButton">
+                                <rect key="frame" x="40" y="290" width="90" height="25"/>
+                                <state key="normal" title="取消">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TVm-HY-E8n" kind="unwind" identifier="unwind" unwindAction="unwindToThisViewController:" id="aOW-iT-i5D"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuE-1D-Ag1" customClass="FUIButton">
+                                <rect key="frame" x="190" y="290" width="90" height="25"/>
+                                <state key="normal" title="发送">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postUpdate:" destination="mTo-7c-9a3" eventType="touchUpInside" id="ZbU-vO-OUf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tSv-Qq-zlG" firstAttribute="leading" secondItem="DJk-Ye-pLw" secondAttribute="leading" constant="10" id="IJ2-Wk-MWj"/>
-                            <constraint firstItem="rIV-k5-9MB" firstAttribute="top" secondItem="tSv-Qq-zlG" secondAttribute="bottom" constant="13" id="RTd-Pn-Q03"/>
+                            <constraint firstItem="rIV-k5-9MB" firstAttribute="top" secondItem="tSv-Qq-zlG" secondAttribute="bottom" constant="5" id="RTd-Pn-Q03"/>
                             <constraint firstAttribute="trailing" secondItem="tSv-Qq-zlG" secondAttribute="trailing" constant="10" id="YuR-8b-y0f"/>
                             <constraint firstAttribute="trailing" secondItem="rIV-k5-9MB" secondAttribute="trailing" constant="10" id="Zjb-01-yaS"/>
-                            <constraint firstItem="WDa-8Z-KPO" firstAttribute="top" secondItem="rIV-k5-9MB" secondAttribute="bottom" constant="255" id="cOG-Y1-Znw"/>
+                            <constraint firstItem="WDa-8Z-KPO" firstAttribute="top" secondItem="rIV-k5-9MB" secondAttribute="bottom" constant="280" id="cOG-Y1-Znw"/>
                             <constraint firstItem="rIV-k5-9MB" firstAttribute="leading" secondItem="DJk-Ye-pLw" secondAttribute="leading" constant="10" id="qSc-Rd-vyD"/>
                             <constraint firstItem="tSv-Qq-zlG" firstAttribute="top" secondItem="DJk-Ye-pLw" secondAttribute="top" constant="120" id="wSr-fH-mnQ"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="avatar" destination="ffL-hS-GXf" id="XOb-2E-zdv"/>
+                        <outlet property="cancelButton" destination="GWA-F0-eor" id="6ix-1L-meJ"/>
                         <outlet property="locationSwitch" destination="tuo-zL-Mlo" id="5V3-rU-hiR"/>
                         <outlet property="locationText" destination="JKW-kI-hIy" id="6ER-qc-FhV"/>
+                        <outlet property="postButton" destination="FuE-1D-Ag1" id="uWW-jn-S0i"/>
                         <outlet property="textView" destination="rIV-k5-9MB" id="3ln-tm-uGB"/>
                         <outlet property="topView" destination="ASa-ZX-0tc" id="BIP-j7-31t"/>
                     </connections>

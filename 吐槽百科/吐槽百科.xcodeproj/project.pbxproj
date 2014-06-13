@@ -43,7 +43,6 @@
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
-		AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */; };
 		AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C2BE819496FE80021D1B3 /* SZTextView.m */; };
 		AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */; };
@@ -151,8 +150,6 @@
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AE43BCA419495CEF00373FC9 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
-		AE58DAAC1942853800029A28 /* ASCFlatUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCFlatUIColor.h; sourceTree = "<group>"; };
-		AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCFlatUIColor.m; sourceTree = "<group>"; };
 		AE8C2BE719496FE80021D1B3 /* SZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTextView.h; sourceTree = "<group>"; };
 		AE8C2BE819496FE80021D1B3 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLeftMenuViewController.h; sourceTree = "<group>"; };
@@ -361,7 +358,6 @@
 				AED834701943A2A8002556B8 /* ConnectivityCheck */,
 				AEA063031942A22500EA9856 /* ShiningLabel */,
 				AE2478AD19428FB70059EC3F /* BlurView */,
-				AE58DAAB1942848F00029A28 /* FlatColor */,
 				AE02C91C19427AAE00AC16AE /* FlatUI */,
 			);
 			name = Components;
@@ -429,15 +425,6 @@
 				AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */,
 			);
 			name = SegmentedControl;
-			sourceTree = "<group>";
-		};
-		AE58DAAB1942848F00029A28 /* FlatColor */ = {
-			isa = PBXGroup;
-			children = (
-				AE58DAAC1942853800029A28 /* ASCFlatUIColor.h */,
-				AE58DAAD1942853800029A28 /* ASCFlatUIColor.m */,
-			);
-			name = FlatColor;
 			sourceTree = "<group>";
 		};
 		AE8C2BE619496FD60021D1B3 /* TextView */ = {
@@ -630,7 +617,6 @@
 				AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */,
 				AE03BFA819465801005A81FE /* UISlider+FlatUI.m in Sources */,
 				AED8348419443B48002556B8 /* CDRootViewController.m in Sources */,
-				AE58DAAE1942853800029A28 /* ASCFlatUIColor.m in Sources */,
 				AE03BFA619465801005A81FE /* UIPopoverController+FlatUI.m in Sources */,
 				AE03BFA519465801005A81FE /* UINavigationBar+FlatUI.m in Sources */,
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,

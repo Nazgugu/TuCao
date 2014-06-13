@@ -57,6 +57,10 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:locationOnKey];
     }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:AvatarKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:2] forKey:AvatarKey];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

@@ -140,6 +140,7 @@
         case 4:
             [self performSegueWithIdentifier:@"mainMenu" sender:self];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
             break;
         default:
