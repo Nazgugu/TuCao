@@ -40,6 +40,7 @@
 		AE03BFAA19465801005A81FE /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9519465801005A81FE /* UITabBar+FlatUI.m */; };
 		AE03BFAB19465801005A81FE /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9719465801005A81FE /* UITableViewCell+FlatUI.m */; };
 		AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9919465801005A81FE /* UIToolbar+FlatUI.m */; };
+		AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
@@ -52,7 +53,6 @@
 		AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA063051942A23C00EA9856 /* RQShineLabel.m */; };
 		AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED43E8319490F4D0098C080 /* CDComposingViewController.m */; };
 		AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED834521942E9ED002556B8 /* Accelerate.framework */; };
-		AED8345519438ECA002556B8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
 		AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83456194396A7002556B8 /* CoreTelephony.framework */; };
 		AED83459194396B7002556B8 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83458194396B7002556B8 /* libicucore.dylib */; };
 		AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345A194396C1002556B8 /* AddressBook.framework */; };
@@ -198,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */,
 				AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */,
 				AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */,
 				AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */,
@@ -213,7 +214,6 @@
 				AED8345F194396D4002556B8 /* MapKit.framework in Frameworks */,
 				AED83459194396B7002556B8 /* libicucore.dylib in Frameworks */,
 				AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */,
-				AED8345519438ECA002556B8 /* Parse.framework in Frameworks */,
 				AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */,
 				AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */,
 				AE02C8E71942784500AC16AE /* UIKit.framework in Frameworks */,
@@ -752,6 +752,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Developer/PJ2,
+					/Users/liuzhe/Developer/TuCao,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
@@ -770,6 +771,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Developer/PJ2,
+					/Users/liuzhe/Developer/TuCao,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
