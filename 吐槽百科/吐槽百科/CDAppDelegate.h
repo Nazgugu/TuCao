@@ -21,6 +21,7 @@ static NSString * const AnonymousKey = @"isAnonymoused";
 static NSString * const isLoggedInKey = @"isLoggedIn";
 static NSString * const locationOnKey = @"locationIsOn";
 static NSString * const AvatarKey = @"userAvatar";
+static NSString * const connectionKey = @"isInternetAccessible";
 
 //post keys
 static NSString * const postKey = @"TuCao";

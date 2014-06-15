@@ -61,6 +61,10 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:2] forKey:AvatarKey];
     }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:connectionKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:connectionKey];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -180,12 +184,15 @@
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
             [alertView show];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:connectionKey];
         }
         else
         {
             NSLog(@"network connection is established");
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:connectionKey];
             [self registerUser];
         }
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

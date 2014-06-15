@@ -13,6 +13,7 @@
 #import <Accelerate/Accelerate.h>
 #import <Parse/Parse.h>
 #import "CDAppDelegate.h"
+#import "Reachability.h"
 
 static int count = 1;
 
@@ -31,6 +32,8 @@ static int count = 1;
 @property (weak, nonatomic) IBOutlet RQShineLabel *shineLabel;
 @property (nonatomic) BOOL isBlured;
 @property (weak, nonatomic) IBOutlet UIView *topField;
+//reachability check
+@property (nonatomic) Reachability *netWorkConnection;
 @end
 
 @implementation CDLoginViewController
@@ -111,6 +114,36 @@ static int count = 1;
     self.shineLabel.backgroundColor = [UIColor clearColor];
     self.shineLabel.text = [self.textArray objectAtIndex:self.textIndex];
     [self.shineLabel sizeToFit];
+    self.netWorkConnection = [Reachability reachabilityForInternetConnection];
+    [self.netWorkConnection startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+}
+
+//nectWork thing
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability *newStats = [note object];
+    NSParameterAssert([newStats isKindOfClass:[Reachability class]]);
+    [self doSetUpWithReachability:self.netWorkConnection];
+}
+
+- (void)doSetUpWithReachability:(Reachability *)reachability
+{
+    if (reachability == self.netWorkConnection)
+    {
+        NetworkStatus stats = [reachability currentReachabilityStatus];
+        //NSlog(@"status = %@",stats);
+        if (stats == NotReachable)
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:connectionKey];
+        }
+        else
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:connectionKey];
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -202,22 +235,29 @@ static int count = 1;
 
 //changeNameAndLogin
 - (void)changeNameAndLogin{
-    PFQuery *nickNameQuery = [PFUser query];
-    [nickNameQuery whereKey:NickNameKey equalTo:self.nameField.text];
-    NSLog(@"%@",self.nameField.text);
-    [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-       if (!error)
-       {
-           NSLog(@"%@",objects);
-           if (objects.count == 0)
-           {
-               NSLog(@"situation 1");
-               //ok to set this nickname since no one used it
-               PFUser *nameChange = [PFUser currentUser];
-               nameChange[NickNameKey] = self.nameField.text;
-               [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
-               [[NSUserDefaults standardUserDefaults] synchronize];
-                [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else
+    {
+        PFQuery *nickNameQuery = [PFUser query];
+        [nickNameQuery whereKey:NickNameKey equalTo:self.nameField.text];
+        NSLog(@"%@",self.nameField.text);
+        [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if (!error)
+            {
+                NSLog(@"%@",objects);
+                if (objects.count == 0)
+                {
+                    NSLog(@"situation 1");
+                    //ok to set this nickname since no one used it
+                    PFUser *nameChange = [PFUser currentUser];
+                    nameChange[NickNameKey] = self.nameField.text;
+                    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                          if (succeeded)
                          {
                              [self performSegueWithIdentifier:@"contents" sender:self];
@@ -232,47 +272,56 @@ static int count = 1;
                          }
                       //performsegue
                   }];
+                }
+                else
+                {
+                    NSLog(@"situation 2");
+                    //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
+                    PFObject *tempObject = [objects lastObject];
+                    //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
+                    //NSLog(@"current user = %@",[PFUser currentUser].objectId);
+                    if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
+                    {
+                        NSLog(@"no collision");
+                        //go ahead perform the segue
+                        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        [self performSegueWithIdentifier:@"contents" sender:self];
+                    }
+                    else
+                    {
+                        //the nickname is take prompt the user to choose another one
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"太没创意啦～" message:@"名字已经有人使用了哦" delegate:self cancelButtonTitle:@"换一个吧" otherButtonTitles:nil];
+                        [alertView show];
+                        [self.nameField becomeFirstResponder];
+                    }
+                }
             }
-           else
-           {
-               NSLog(@"situation 2");
-               //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
-               PFObject *tempObject = [objects lastObject];
-               //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
-              //NSLog(@"current user = %@",[PFUser currentUser].objectId);
-               if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
-               {
-                   NSLog(@"no collision");
-                   //go ahead perform the segue
-                   [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
-                   [[NSUserDefaults standardUserDefaults] synchronize];
-                   [self performSegueWithIdentifier:@"contents" sender:self];
-               }
-               else
-               {
-                   //the nickname is take prompt the user to choose another one
-                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"太没创意啦～" message:@"名字已经有人使用了哦" delegate:self cancelButtonTitle:@"换一个吧" otherButtonTitles:nil];
-                   [alertView show];
-                   [self.nameField becomeFirstResponder];
-               }
-           }
-       }
-        else
-        {
-            NSLog(@": %@ %@", error, [error userInfo]);
-        }
-    }];
+            else
+            {
+                NSLog(@": %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
 }
 
 - (IBAction)anonymousLogin:(id)sender {
-    [self login];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == NO)
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
     {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:AnonymousKey];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alertView show];
     }
+    else
+    {
+        [self login];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == NO)
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:AnonymousKey];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     [self performSegueWithIdentifier:@"contents" sender:self];
+    }
 }
 
 //handle keyboard
