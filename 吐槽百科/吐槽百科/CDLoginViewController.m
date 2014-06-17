@@ -239,6 +239,7 @@ static int count = 1;
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
         [alertView show];
+        return;
     }
     else
     {
@@ -310,6 +311,7 @@ static int count = 1;
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
         [alertView show];
+        return;
     }
     else
     {
@@ -320,7 +322,7 @@ static int count = 1;
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
-    [self performSegueWithIdentifier:@"contents" sender:self];
+        [self performSegueWithIdentifier:@"contents" sender:self];
     }
 }
 
