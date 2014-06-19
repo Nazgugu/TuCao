@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *unhappyButton;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tuCao;
+@property (weak, nonatomic) IBOutlet UIButton *emojiButton;
 
 @end

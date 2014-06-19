@@ -155,7 +155,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTi-Hk-UBe">
-                                            <rect key="frame" x="6" y="2" width="30" height="30"/>
+                                            <rect key="frame" x="6" y="2" width="25" height="25"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmt-i1-Tsz">
                                             <rect key="frame" x="6" y="83" width="20" height="20"/>
@@ -197,8 +197,8 @@
                                             </state>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ES-84-64h">
-                                            <rect key="frame" x="45" y="6" width="95" height="20"/>
-                                            <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                            <rect key="frame" x="35" y="6" width="95" height="20"/>
+                                            <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="10"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -216,6 +216,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarImage" destination="VTi-Hk-UBe" id="aW9-ib-hco"/>
+                                    <outlet property="emojiButton" destination="WMG-oa-tBy" id="Da3-mb-Dbp"/>
                                     <outlet property="likeButton" destination="9Or-fr-dWZ" id="0fL-a5-dFH"/>
                                     <outlet property="nameLabel" destination="4ES-84-64h" id="VpR-uz-84y"/>
                                     <outlet property="soWhatButton" destination="Enx-af-hq0" id="3ap-Ul-dyR"/>

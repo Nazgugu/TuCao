@@ -22,6 +22,8 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    self.avatarImage.layer.cornerRadius = 5.0f;
+    self.emojiButton.layer.cornerRadius = 3.0f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,12 +78,13 @@
     CDTuCaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuCao"];
     if (!cell)
     {
+        NSLog(@"create new");
         cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
-        cell.avatarImage.image = [UIImage imageNamed:@"2a"];
-        cell.likeButton.titleLabel.text = @"25";
-        cell.soWhatButton.titleLabel.text = @"10";
-        cell.unhappyButton.titleLabel.text = @"5";
     }
+    cell.avatarImage.image = [UIImage imageNamed:@"2a"];
+    [cell.likeButton setTitle:@"25" forState:UIControlStateNormal];
+    [cell.soWhatButton setTitle:@"10" forState:UIControlStateNormal];
+    [cell.unhappyButton setTitle:@"5" forState:UIControlStateNormal];
     return cell;
 }
 
