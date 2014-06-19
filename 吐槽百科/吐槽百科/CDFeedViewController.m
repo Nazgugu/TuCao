@@ -7,12 +7,16 @@
 //
 
 #import "CDFeedViewController.h"
+#import "NYSegmentedControl.h"
+#import "FlatUIKit.h"
+#import "CDTuCaoTableViewCell.h"
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+@property (strong,nonatomic) NYSegmentedControl *topControl;
 @end
 
 @implementation CDFeedViewController
+@synthesize topControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,12 +33,58 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
+    topControl = [[NYSegmentedControl alloc] initWithItems:@[@"新鲜",@"周边",@"热门"]];
+    [topControl addTarget:self action:@selector(segmentControlChanged) forControlEvents:UIControlEventValueChanged];
+    //topControl.borderColor = [UIColor colorWithWhite:0.20f alpha:1.0f];
+    topControl.titleTextColor = [UIColor colorWithRed:0.38f green:0.68f blue:0.93f alpha:1.0f];
+    topControl.selectedTitleTextColor = [UIColor whiteColor];
+    topControl.segmentIndicatorBackgroundColor = [UIColor colorFromHexCode:@"00BDEF"];
+    topControl.borderWidth = 1.0f;
+    topControl.segmentIndicatorBorderWidth = 0.0f;
+    topControl.segmentIndicatorInset = 1.0f;
+    topControl.segmentIndicatorBorderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3f];
+    [topControl sizeToFit];
+    topControl.cornerRadius = CGRectGetHeight(topControl.frame) / 2.0f;
+    topControl.borderColor = [UIColor whiteColor];
+    topControl.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.titleView = topControl;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)segmentControlChanged
+{
+    NSLog(@"selectedIndex = %ld",topControl.selectedSegmentIndex);
+}
+
+//tableView delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CDTuCaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuCao"];
+    if (!cell)
+    {
+        cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
+        cell.avatarImage.image = [UIImage imageNamed:@"2a"];
+        cell.likeButton.titleLabel.text = @"25";
+        cell.soWhatButton.titleLabel.text = @"10";
+        cell.unhappyButton.titleLabel.text = @"5";
+    }
+    return cell;
 }
 
 /*

@@ -68,7 +68,7 @@
     self.postButton.shadowHeight = 1.0f;
     self.postButton.cornerRadius = 10.0f;
     // Do any additional setup after loading the view.
-    self.topView.backgroundColor = [UIColor wetAsphaltColor] ;
+    self.topView.backgroundColor = [UIColor colorFromHexCode:@"59BAF3"];
     HMSegmentedControl *emotionSelection = [[HMSegmentedControl alloc] initWithSectionImages:@[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"],[UIImage imageNamed:@"5"],[UIImage imageNamed:@"6"],[UIImage imageNamed:@"7"],[UIImage imageNamed:@"8"],[UIImage imageNamed:@"9"],[UIImage imageNamed:@"10"],[UIImage imageNamed:@"11"],[UIImage imageNamed:@"12"],[UIImage imageNamed:@"13"],[UIImage imageNamed:@"14"],[UIImage imageNamed:@"15"],[UIImage imageNamed:@"16"],[UIImage imageNamed:@"17"],[UIImage imageNamed:@"18"]] sectionSelectedImages:@[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"],[UIImage imageNamed:@"5"],[UIImage imageNamed:@"6"],[UIImage imageNamed:@"7"],[UIImage imageNamed:@"8"],[UIImage imageNamed:@"9"],[UIImage imageNamed:@"10"],[UIImage imageNamed:@"11"],[UIImage imageNamed:@"12"],[UIImage imageNamed:@"13"],[UIImage imageNamed:@"14"],[UIImage imageNamed:@"15"],[UIImage imageNamed:@"16"],[UIImage imageNamed:@"17"],[UIImage imageNamed:@"18"]]];
     emotionSelection.frame = CGRectMake(10, 75, 300, 35);
     emotionSelection.backgroundColor = [UIColor clearColor];

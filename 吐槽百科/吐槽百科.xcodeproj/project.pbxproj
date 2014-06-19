@@ -40,6 +40,9 @@
 		AE03BFAA19465801005A81FE /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9519465801005A81FE /* UITabBar+FlatUI.m */; };
 		AE03BFAB19465801005A81FE /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9719465801005A81FE /* UITableViewCell+FlatUI.m */; };
 		AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE03BF9919465801005A81FE /* UIToolbar+FlatUI.m */; };
+		AE04481E19503C3400370FD8 /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04481919503C3400370FD8 /* NYSegment.m */; };
+		AE04481F19503C3400370FD8 /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04481B19503C3400370FD8 /* NYSegmentedControl.m */; };
+		AE04482019503C3400370FD8 /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04481D19503C3400370FD8 /* NYSegmentIndicator.m */; };
 		AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
@@ -51,6 +54,7 @@
 		AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCA1949174F0062175A /* MBSwitch.m */; };
 		AE9E2BCF194923290062175A /* CDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCE194923290062175A /* CDProfileViewController.m */; };
 		AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA063051942A23C00EA9856 /* RQShineLabel.m */; };
+		AEA7135D1951497B0078FBA6 /* CDTuCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */; };
 		AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED43E8319490F4D0098C080 /* CDComposingViewController.m */; };
 		AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED834521942E9ED002556B8 /* Accelerate.framework */; };
 		AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83456194396A7002556B8 /* CoreTelephony.framework */; };
@@ -145,6 +149,12 @@
 		AE03BF9719465801005A81FE /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
 		AE03BF9819465801005A81FE /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
 		AE03BF9919465801005A81FE /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
+		AE04481819503C3400370FD8 /* NYSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegment.h; sourceTree = "<group>"; };
+		AE04481919503C3400370FD8 /* NYSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegment.m; sourceTree = "<group>"; };
+		AE04481A19503C3400370FD8 /* NYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegmentedControl.h; sourceTree = "<group>"; };
+		AE04481B19503C3400370FD8 /* NYSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegmentedControl.m; sourceTree = "<group>"; };
+		AE04481C19503C3400370FD8 /* NYSegmentIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegmentIndicator.h; sourceTree = "<group>"; };
+		AE04481D19503C3400370FD8 /* NYSegmentIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegmentIndicator.m; sourceTree = "<group>"; };
 		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -162,6 +172,8 @@
 		AE9E2BCE194923290062175A /* CDProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfileViewController.m; sourceTree = "<group>"; };
 		AEA063041942A23C00EA9856 /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
 		AEA063051942A23C00EA9856 /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
+		AEA7135B1951497B0078FBA6 /* CDTuCaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTuCaoTableViewCell.h; sourceTree = "<group>"; };
+		AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTuCaoTableViewCell.m; sourceTree = "<group>"; };
 		AED43E8219490F4D0098C080 /* CDComposingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDComposingViewController.h; sourceTree = "<group>"; };
 		AED43E8319490F4D0098C080 /* CDComposingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDComposingViewController.m; sourceTree = "<group>"; };
 		AED834521942E9ED002556B8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -350,6 +362,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AEA713581951492B0078FBA6 /* TableViewCell */,
 				AE8C2BE619496FD60021D1B3 /* TextView */,
 				AE43BCA719495CF400373FC9 /* SegmentedControl */,
 				AE9E2BCC194917570062175A /* switch */,
@@ -421,6 +434,12 @@
 		AE43BCA719495CF400373FC9 /* SegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
+				AE04481819503C3400370FD8 /* NYSegment.h */,
+				AE04481919503C3400370FD8 /* NYSegment.m */,
+				AE04481A19503C3400370FD8 /* NYSegmentedControl.h */,
+				AE04481B19503C3400370FD8 /* NYSegmentedControl.m */,
+				AE04481C19503C3400370FD8 /* NYSegmentIndicator.h */,
+				AE04481D19503C3400370FD8 /* NYSegmentIndicator.m */,
 				AE43BCA419495CEF00373FC9 /* HMSegmentedControl.h */,
 				AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */,
 			);
@@ -452,6 +471,15 @@
 				AEA063051942A23C00EA9856 /* RQShineLabel.m */,
 			);
 			name = ShiningLabel;
+			sourceTree = "<group>";
+		};
+		AEA713581951492B0078FBA6 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEA7135B1951497B0078FBA6 /* CDTuCaoTableViewCell.h */,
+				AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		AED43E8119490F260098C080 /* NavigationViews */ = {
@@ -602,10 +630,12 @@
 				AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
 				AE03BFA319465801005A81FE /* UIFont+FlatUI.m in Sources */,
+				AEA7135D1951497B0078FBA6 /* CDTuCaoTableViewCell.m in Sources */,
 				AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */,
 				AE03BF9F19465801005A81FE /* FUISwitch.m in Sources */,
 				AE03BFA719465801005A81FE /* UIProgressView+FlatUI.m in Sources */,
 				AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */,
+				AE04481F19503C3400370FD8 /* NYSegmentedControl.m in Sources */,
 				AE03BF9D19465801005A81FE /* FUIPopoverBackgroundView.m in Sources */,
 				AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */,
 				AE9E2BC8194914460062175A /* CDNavigationViewController.m in Sources */,
@@ -614,9 +644,11 @@
 				AE02C91A194278DE00AC16AE /* CDLoginViewController.m in Sources */,
 				AED8348119443A82002556B8 /* UIViewController+RESideMenu.m in Sources */,
 				AE03BFAB19465801005A81FE /* UITableViewCell+FlatUI.m in Sources */,
+				AE04481E19503C3400370FD8 /* NYSegment.m in Sources */,
 				AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */,
 				AE03BFA819465801005A81FE /* UISlider+FlatUI.m in Sources */,
 				AED8348419443B48002556B8 /* CDRootViewController.m in Sources */,
+				AE04482019503C3400370FD8 /* NYSegmentIndicator.m in Sources */,
 				AE03BFA619465801005A81FE /* UIPopoverController+FlatUI.m in Sources */,
 				AE03BFA519465801005A81FE /* UINavigationBar+FlatUI.m in Sources */,
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,
