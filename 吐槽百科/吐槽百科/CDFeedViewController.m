@@ -81,10 +81,6 @@
         NSLog(@"create new");
         cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
     }
-    cell.avatarImage.image = [UIImage imageNamed:@"2a"];
-    [cell.likeButton setTitle:@"25" forState:UIControlStateNormal];
-    [cell.soWhatButton setTitle:@"10" forState:UIControlStateNormal];
-    [cell.unhappyButton setTitle:@"5" forState:UIControlStateNormal];
     return cell;
 }
 

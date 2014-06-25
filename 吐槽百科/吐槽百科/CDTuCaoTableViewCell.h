@@ -10,11 +10,10 @@
 
 @interface CDTuCaoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
-@property (weak, nonatomic) IBOutlet UIButton *soWhatButton;
-@property (weak, nonatomic) IBOutlet UIButton *unhappyButton;
+@property (weak, nonatomic) UIButton *likeButton;
+@property (weak, nonatomic) UIButton *soWhatButton;
+@property (weak, nonatomic) UIButton *unhappyButton;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tuCao;
-@property (weak, nonatomic) IBOutlet UIButton *emojiButton;
 
 @end

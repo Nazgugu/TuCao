@@ -43,6 +43,13 @@
 		AE04481E19503C3400370FD8 /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04481919503C3400370FD8 /* NYSegment.m */; };
 		AE04481F19503C3400370FD8 /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04481B19503C3400370FD8 /* NYSegmentedControl.m */; };
 		AE04482019503C3400370FD8 /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04481D19503C3400370FD8 /* NYSegmentIndicator.m */; };
+		AE05B6B31953E20900B21629 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05B6A71953E20900B21629 /* UIView+AutoLayout.m */; };
+		AE05B6B41953E20900B21629 /* UIButton+PPiAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05B6A91953E20900B21629 /* UIButton+PPiAwesome.m */; };
+		AE05B6B51953E20900B21629 /* UIAwesomeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05B6AB1953E20900B21629 /* UIAwesomeButton.m */; };
+		AE05B6B61953E20900B21629 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05B6AD1953E20900B21629 /* FAImageView.m */; };
+		AE05B6B71953E20900B21629 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05B6AF1953E20900B21629 /* NSString+FontAwesome.m */; };
+		AE05B6B81953E20900B21629 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05B6B11953E20900B21629 /* UIFont+FontAwesome.m */; };
+		AE05B6B91953E20900B21629 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE05B6B21953E20900B21629 /* FontAwesome.ttf */; };
 		AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
@@ -155,6 +162,19 @@
 		AE04481B19503C3400370FD8 /* NYSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegmentedControl.m; sourceTree = "<group>"; };
 		AE04481C19503C3400370FD8 /* NYSegmentIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegmentIndicator.h; sourceTree = "<group>"; };
 		AE04481D19503C3400370FD8 /* NYSegmentIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegmentIndicator.m; sourceTree = "<group>"; };
+		AE05B6A61953E20900B21629 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		AE05B6A71953E20900B21629 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		AE05B6A81953E20900B21629 /* UIButton+PPiAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PPiAwesome.h"; sourceTree = "<group>"; };
+		AE05B6A91953E20900B21629 /* UIButton+PPiAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PPiAwesome.m"; sourceTree = "<group>"; };
+		AE05B6AA1953E20900B21629 /* UIAwesomeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAwesomeButton.h; sourceTree = "<group>"; };
+		AE05B6AB1953E20900B21629 /* UIAwesomeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAwesomeButton.m; sourceTree = "<group>"; };
+		AE05B6AC1953E20900B21629 /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
+		AE05B6AD1953E20900B21629 /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
+		AE05B6AE1953E20900B21629 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		AE05B6AF1953E20900B21629 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		AE05B6B01953E20900B21629 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		AE05B6B11953E20900B21629 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		AE05B6B21953E20900B21629 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -210,11 +230,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
 				AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */,
 				AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */,
 				AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */,
 				AED8345B194396C1002556B8 /* AddressBook.framework in Frameworks */,
-				AE02C8E51942784500AC16AE /* CoreGraphics.framework in Frameworks */,
 				AED8346F19439722002556B8 /* SystemConfiguration.framework in Frameworks */,
 				AED8346D19439714002556B8 /* AudioToolbox.framework in Frameworks */,
 				AED8346B1943970B002556B8 /* CFNetwork.framework in Frameworks */,
@@ -362,6 +382,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE05B6A51953E1CC00B21629 /* UIButton+Image */,
 				AEA713581951492B0078FBA6 /* TableViewCell */,
 				AE8C2BE619496FD60021D1B3 /* TextView */,
 				AE43BCA719495CF400373FC9 /* SegmentedControl */,
@@ -420,6 +441,26 @@
 				AE03BF9919465801005A81FE /* UIToolbar+FlatUI.m */,
 			);
 			name = FlatUI;
+			sourceTree = "<group>";
+		};
+		AE05B6A51953E1CC00B21629 /* UIButton+Image */ = {
+			isa = PBXGroup;
+			children = (
+				AE05B6A61953E20900B21629 /* UIView+AutoLayout.h */,
+				AE05B6A71953E20900B21629 /* UIView+AutoLayout.m */,
+				AE05B6A81953E20900B21629 /* UIButton+PPiAwesome.h */,
+				AE05B6A91953E20900B21629 /* UIButton+PPiAwesome.m */,
+				AE05B6AA1953E20900B21629 /* UIAwesomeButton.h */,
+				AE05B6AB1953E20900B21629 /* UIAwesomeButton.m */,
+				AE05B6AC1953E20900B21629 /* FAImageView.h */,
+				AE05B6AD1953E20900B21629 /* FAImageView.m */,
+				AE05B6AE1953E20900B21629 /* NSString+FontAwesome.h */,
+				AE05B6AF1953E20900B21629 /* NSString+FontAwesome.m */,
+				AE05B6B01953E20900B21629 /* UIFont+FontAwesome.h */,
+				AE05B6B11953E20900B21629 /* UIFont+FontAwesome.m */,
+				AE05B6B21953E20900B21629 /* FontAwesome.ttf */,
+			);
+			name = "UIButton+Image";
 			sourceTree = "<group>";
 		};
 		AE2478AD19428FB70059EC3F /* BlurView */ = {
@@ -597,6 +638,7 @@
 				AE02C8FB1942784500AC16AE /* Images.xcassets in Resources */,
 				AE02C8ED1942784500AC16AE /* InfoPlist.strings in Resources */,
 				AE02C8F61942784500AC16AE /* Main.storyboard in Resources */,
+				AE05B6B91953E20900B21629 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,12 +662,15 @@
 				AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */,
 				AE03BF9C19465801005A81FE /* FUICellBackgroundView.m in Sources */,
 				AE03BFAA19465801005A81FE /* UITabBar+FlatUI.m in Sources */,
+				AE05B6B51953E20900B21629 /* UIAwesomeButton.m in Sources */,
+				AE05B6B31953E20900B21629 /* UIView+AutoLayout.m in Sources */,
 				AE03BFA019465801005A81FE /* FUITextField.m in Sources */,
 				AE03BFA919465801005A81FE /* UIStepper+FlatUI.m in Sources */,
 				AED8348019443A82002556B8 /* RESideMenu.m in Sources */,
 				AED834731943A2BB002556B8 /* Reachability.m in Sources */,
 				AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */,
 				AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */,
+				AE05B6B61953E20900B21629 /* FAImageView.m in Sources */,
 				AE02C8EF1942784500AC16AE /* main.m in Sources */,
 				AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
@@ -635,6 +680,7 @@
 				AE03BF9F19465801005A81FE /* FUISwitch.m in Sources */,
 				AE03BFA719465801005A81FE /* UIProgressView+FlatUI.m in Sources */,
 				AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */,
+				AE05B6B81953E20900B21629 /* UIFont+FontAwesome.m in Sources */,
 				AE04481F19503C3400370FD8 /* NYSegmentedControl.m in Sources */,
 				AE03BF9D19465801005A81FE /* FUIPopoverBackgroundView.m in Sources */,
 				AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */,
@@ -645,6 +691,7 @@
 				AED8348119443A82002556B8 /* UIViewController+RESideMenu.m in Sources */,
 				AE03BFAB19465801005A81FE /* UITableViewCell+FlatUI.m in Sources */,
 				AE04481E19503C3400370FD8 /* NYSegment.m in Sources */,
+				AE05B6B41953E20900B21629 /* UIButton+PPiAwesome.m in Sources */,
 				AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */,
 				AE03BFA819465801005A81FE /* UISlider+FlatUI.m in Sources */,
 				AED8348419443B48002556B8 /* CDRootViewController.m in Sources */,
@@ -652,6 +699,7 @@
 				AE03BFA619465801005A81FE /* UIPopoverController+FlatUI.m in Sources */,
 				AE03BFA519465801005A81FE /* UINavigationBar+FlatUI.m in Sources */,
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,
+				AE05B6B71953E20900B21629 /* NSString+FontAwesome.m in Sources */,
 				AE03BFA119465801005A81FE /* UIBarButtonItem+FlatUI.m in Sources */,
 				AE03BFA219465801005A81FE /* UIColor+FlatUI.m in Sources */,
 				AE03BF9E19465801005A81FE /* FUISegmentedControl.m in Sources */,

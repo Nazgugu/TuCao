@@ -157,45 +157,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTi-Hk-UBe">
                                             <rect key="frame" x="6" y="2" width="25" height="25"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmt-i1-Tsz">
-                                            <rect key="frame" x="6" y="83" width="20" height="20"/>
-                                            <state key="normal" backgroundImage="smile">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Or-fr-dWZ">
-                                            <rect key="frame" x="26" y="83" width="30" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <state key="normal" title="10">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enx-af-hq0">
-                                            <rect key="frame" x="87" y="83" width="30" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <state key="normal" title="20">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-fq-OJ0">
-                                            <rect key="frame" x="67" y="83" width="20" height="20"/>
-                                            <state key="normal" backgroundImage="sowhat">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMG-oa-tBy">
-                                            <rect key="frame" x="124" y="83" width="20" height="20"/>
-                                            <state key="normal" backgroundImage="unhappy">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lci-c2-SAf">
-                                            <rect key="frame" x="144" y="83" width="30" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <state key="normal" title="30">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ES-84-64h">
                                             <rect key="frame" x="35" y="6" width="95" height="20"/>
                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="10"/>
@@ -216,12 +177,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarImage" destination="VTi-Hk-UBe" id="aW9-ib-hco"/>
-                                    <outlet property="emojiButton" destination="WMG-oa-tBy" id="Da3-mb-Dbp"/>
-                                    <outlet property="likeButton" destination="9Or-fr-dWZ" id="0fL-a5-dFH"/>
                                     <outlet property="nameLabel" destination="4ES-84-64h" id="VpR-uz-84y"/>
-                                    <outlet property="soWhatButton" destination="Enx-af-hq0" id="3ap-Ul-dyR"/>
                                     <outlet property="tuCao" destination="Rm0-KV-gRg" id="mEs-Um-W3i"/>
-                                    <outlet property="unhappyButton" destination="Lci-c2-SAf" id="FKr-QP-3DW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -400,11 +357,6 @@
             <point key="canvasLocation" x="49" y="1047"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="smile" width="46" height="46"/>
-        <image name="sowhat" width="46" height="46"/>
-        <image name="unhappy" width="46" height="46"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
