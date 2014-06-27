@@ -10,9 +10,16 @@
 #import "NYSegmentedControl.h"
 #import "FlatUIKit.h"
 #import "CDTuCaoTableViewCell.h"
+#import <Parse/Parse.h>
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NYSegmentedControl *topControl;
+@property (strong, nonatomic) IBOutlet UITableView *newsTable;
+@property (strong, nonatomic) CDTuCaoTableViewCell *newsCell;
+@property (strong, nonatomic) NSMutableArray *newsTitle;
+@property (strong, nonatomic) NSMutableArray *newsImage;
+@property (strong, nonatomic) NSMutableArray *newsContent;
+@property (strong, nonatomic) NSMutableArray *newsTime;
 @end
 
 @implementation CDFeedViewController
@@ -49,6 +56,51 @@
     topControl.borderColor = [UIColor whiteColor];
     topControl.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = topControl;
+    [self fetchContent];
+}
+
+- (void)fetchContent
+{
+    NSDateFormatter *formatter;
+    formatter.dateFormat = @"MM/DD/YYYY";
+    PFQuery *newsQuery = [PFQuery queryWithClassName:@"news"];
+    [newsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+         if (!error)
+         {
+             if (!self.newsTitle)
+             {
+                 self.newsTitle = [[NSMutableArray alloc] init];
+             }
+             if (!self.newsImage)
+             {
+                 self.newsImage = [[NSMutableArray alloc] init];
+             }
+             if (!self.newsTime)
+             {
+                 self.newsTime = [[NSMutableArray alloc] init];
+             }
+             if (!self.newsContent)
+             {
+                 self.newsContent = [[NSMutableArray alloc] init];
+             }
+             [self.newsTitle removeAllObjects];
+             [self.newsImage removeAllObjects];
+             [self.newsTime removeAllObjects];
+             [self.newsContent removeAllObjects];
+             for (int i = 0; i < objects.count; i++)
+             {
+                 [self.newsTitle addObject:[[objects objectAtIndex:i] objectForKey:@"title"]];
+                 [self.newsImage addObject:[UIImage imageWithData:[[objects objectAtIndex:i] objectForKey:@"image"]]];
+                 [self.newsTime addObject:[formatter stringFromDate:[[objects objectAtIndex:i] objectForKey:@"createdAt"]]];
+                 [self.newsTime addObject:[[objects objectAtIndex:i] objectForKey:@"content"]];
+             }
+         }
+         else
+         {
+             
+         }
+     }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +120,29 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.newsCell)
+    {
+        self.newsCell = [self.newsTable dequeueReusableCellWithIdentifier:@"tuCao"];
+    }
+    self.newsCell.imageView.image = [self.newsImage objectAtIndex:indexPath.row];
+    self.newsCell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
+    self.newsCell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
+    [self.newsCell setNeedsLayout];
+    [self.newsCell layoutIfNeeded];
+    //GET THE HEIGHT FOR THE CELL
+    CGFloat height = [self.newsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    //PADDING OF 1 POINT FOR THE SEPERATOR
+    return  height + 1;
+}
+
+//load contents faster!
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 109;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
@@ -81,6 +156,9 @@
         NSLog(@"create new");
         cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
     }
+    cell.newsImage.image = [self.newsImage objectAtIndex:indexPath.row];
+    cell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
+    cell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
     return cell;
 }
 

@@ -61,8 +61,8 @@
 - (void)commonInit
 {
   // Defaults
-  _shineDuration   = 3.0;
-  _fadeoutDuration = 2.5;
+  _shineDuration   = 4.0;
+  _fadeoutDuration = 3.5;
   _autoStart       = NO;
   _fadedOut        = YES;
   self.textColor  = [UIColor whiteColor];

@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CDTuCaoTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
-@property (weak, nonatomic) UIButton *likeButton;
-@property (weak, nonatomic) UIButton *soWhatButton;
-@property (weak, nonatomic) UIButton *unhappyButton;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tuCao;
-
+@property (weak, nonatomic) IBOutlet UIImageView *newsImage;
+@property (weak, nonatomic) IBOutlet UILabel *newsTitle;
+@property (weak, nonatomic) IBOutlet UILabel *newsTime;
 @end

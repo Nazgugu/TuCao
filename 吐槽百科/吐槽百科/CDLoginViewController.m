@@ -105,14 +105,15 @@ static int count = 1;
     self.imageArray = @[[UIImage imageNamed:@"loginImage"], [UIImage imageNamed:@"loginimage2"], [UIImage imageNamed:@"loginimage3"]];
     self.imageLayer1.image = [self.imageArray objectAtIndex:0];
     self.textArray = @[
-                       @"我们都很孤单。",
-                       @"在这深夜里是时候释放自己了。",
-                       @"全部说出来吧。",
-                       @"黑夜中最明亮的光，我们会听见你的心声。"
+                       @"PEER毅恒挚友计划，是致力于促进中国城乡教育公平、改善中国欠发达地区教育资源、并发展博雅、人文与素质教育的非营利组织。毅恒挚友的前身PEER挚友计划于2007年成立，2009年于美国马赛诸塞州波士顿市注册，2011年正式与友成企业家扶贫基金会设立专项基金。",
+                       @"截至2012年8月，毅恒挚友在湖南、贵州、陕西、甘肃、广西和湖北的10所初高中累计举行了23次夏令营活动以及2次冬令营活动，总共有千余名中学生从中获益，“挚愿者”达到三百多名。从2011年春季开始，毅恒挚友亦致力于长期教育实验的开发与实践，在湖南省城步苗族自治县第一民族中学开展了第一期的“田野代言人”长期支教试点项目。截至2012年，已有三名“田野代言人”在湖南与贵州完成为期半年的支教活动。",
+                       @"我们的愿景是希望中国所有的学生都能获得应有的教育，开发自身的潜力，了解社区的需求，共创中国的未来。为了达成这个愿景，长久以来，PEER毅恒挚友一直秉承着博雅、人文与素质教育的核心理念，在推动直接支教服务项目的基础上，全力开展相关的课程、教材开发与实践，努力带动地方社区服务领域的发展，并协助地方学校及老师共同探索更好服务学生的方法。",
+                       @"最终，我们希望中国所有的学生无论在人生中选择走上何样的道路，都可以拥有自主、独立的思想与人生，取得理想的成果，并参与到其家乡与社区的发展中去。"
                        ];
     _textIndex = 0;
     self.shineLabel.backgroundColor = [UIColor clearColor];
     self.shineLabel.text = [self.textArray objectAtIndex:self.textIndex];
+    self.shineLabel.font = [UIFont systemFontOfSize:13.0f];
     [self.shineLabel sizeToFit];
     self.netWorkConnection = [Reachability reachabilityForInternetConnection];
     [self.netWorkConnection startNotifier];
@@ -395,7 +396,7 @@ static int count = 1;
                                                tintColor:[UIColor cloudsColor]];
              }
             [UIView transitionWithView:self.imageLayer1
-                      duration:3.0f
+                      duration:4.0f
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         [self.shineLabel fadeOut];
