@@ -41,7 +41,7 @@
     self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
-    topControl = [[NYSegmentedControl alloc] initWithItems:@[@"新鲜",@"周边",@"热门"]];
+    topControl = [[NYSegmentedControl alloc] initWithItems:@[@"新闻",@"活动"]];
     [topControl addTarget:self action:@selector(segmentControlChanged) forControlEvents:UIControlEventValueChanged];
     //topControl.borderColor = [UIColor colorWithWhite:0.20f alpha:1.0f];
     topControl.titleTextColor = [UIColor colorWithRed:0.38f green:0.68f blue:0.93f alpha:1.0f];
@@ -56,13 +56,22 @@
     topControl.borderColor = [UIColor whiteColor];
     topControl.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = topControl;
+    //refresh control
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    [refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
     [self fetchContent];
 }
 
 - (void)fetchContent
 {
-    NSDateFormatter *formatter;
-    formatter.dateFormat = @"MM/DD/YYYY";
+    if (topControl.selectedSegmentIndex == 0)
+    {
+    [self.refreshControl beginRefreshing];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        //PFFile *imageFile;
+        formatter.dateFormat = @"yyyy-MM-dd";
     PFQuery *newsQuery = [PFQuery queryWithClassName:@"news"];
     [newsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
@@ -84,23 +93,53 @@
              {
                  self.newsContent = [[NSMutableArray alloc] init];
              }
-             [self.newsTitle removeAllObjects];
+             if (objects.count > 0)
+             {
+            [self.newsTitle removeAllObjects];
              [self.newsImage removeAllObjects];
              [self.newsTime removeAllObjects];
              [self.newsContent removeAllObjects];
              for (int i = 0; i < objects.count; i++)
              {
-                 [self.newsTitle addObject:[[objects objectAtIndex:i] objectForKey:@"title"]];
-                 [self.newsImage addObject:[UIImage imageWithData:[[objects objectAtIndex:i] objectForKey:@"image"]]];
-                 [self.newsTime addObject:[formatter stringFromDate:[[objects objectAtIndex:i] objectForKey:@"createdAt"]]];
-                 [self.newsTime addObject:[[objects objectAtIndex:i] objectForKey:@"content"]];
+                 PFFile *imageFile = [[objects objectAtIndex:i] objectForKey:@"image"];
+                 [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+                   if (!error)
+                   {
+                       if (data)
+                       {
+                           [self.newsImage addObject:[UIImage imageWithData:data]];
+                           [self.newsTitle addObject:[[objects objectAtIndex:i] objectForKey:@"title"]];
+                           PFObject *data = [objects objectAtIndex:i];
+                           //NSDate *creation = data.createdAt;
+                           NSLog(@"date = %@",data.createdAt);
+                           [self.newsTime addObject:[formatter stringFromDate:data.createdAt]];
+                           NSLog(@"created date = %@",self.newsTime[i]);
+                           [self.newsContent addObject:[[objects objectAtIndex:i] objectForKey:@"content"]];
+                           NSLog(@"content = %@",self.newsContent[i]);
+                           NSLog(@"title = %@",self.newsTitle[i]);
+                           [self.newsTable reloadData];
+                       }
+                   }
+                 }];
+             }
+             [self.refreshControl endRefreshing];
+             }
+             else
+             {
+                 [self.refreshControl endRefreshing];
              }
          }
          else
          {
-             
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Opps" message:@"发生了一些错误" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+             [alert show];
          }
      }];
+    }
+    else if (topControl.selectedSegmentIndex == 1)
+    {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,6 +151,7 @@
 - (void)segmentControlChanged
 {
     NSLog(@"selectedIndex = %ld",topControl.selectedSegmentIndex);
+    [self fetchContent];
 }
 
 //tableView delegate
@@ -145,7 +185,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    NSInteger number;
+    if (topControl.selectedSegmentIndex == 0)
+    {
+        number = self.newsTitle.count;
+    }
+    else if (topControl.selectedSegmentIndex == 1)
+    {
+        number = 0;
+    }
+    return number;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,6 +206,10 @@
         cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
     }
     cell.newsImage.image = [self.newsImage objectAtIndex:indexPath.row];
+    if (self.newsImage[indexPath.row])
+    {
+        NSLog(@"done image");
+    }
     cell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
     cell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
     return cell;
