@@ -205,11 +205,6 @@
                                 <action selector="presentLeftMenuViewController:" destination="M9n-e2-b3L" id="QOU-Zz-gKX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="post" id="MYk-pe-4v2">
-                            <connections>
-                                <segue destination="mTo-7c-9a3" kind="modal" id="Ofr-Dx-0Lj"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="newsTable" destination="lpD-7b-kMs" id="Oc0-eN-O4e"/>
@@ -218,6 +213,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGT-3A-Qm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="497" y="1444"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="5fl-qB-i6U">
+            <objects>
+                <viewController id="4fn-up-viD" customClass="CDDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8wn-z3-QPC"/>
+                        <viewControllerLayoutGuide type="bottom" id="aGN-71-NZC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R5R-rG-HDK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xV0-AD-h0m">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgd-S8-IGG" customClass="JBKenBurnsView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="3Tx-6O-n1n"/>
+                                            <constraint firstAttribute="height" constant="200" id="8Gi-nC-cuz"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXj-MN-kC7" userLabel="content">
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="Day-ZL-3Vd"/>
+                                            <constraint firstAttribute="width" constant="300" id="dNH-30-Lef"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tgd-S8-IGG" firstAttribute="leading" secondItem="xV0-AD-h0m" secondAttribute="leading" id="D71-Wk-RIC"/>
+                                    <constraint firstItem="pXj-MN-kC7" firstAttribute="leading" secondItem="xV0-AD-h0m" secondAttribute="leading" constant="10" id="Euw-5A-TBZ"/>
+                                    <constraint firstItem="Tgd-S8-IGG" firstAttribute="top" secondItem="xV0-AD-h0m" secondAttribute="top" id="FLv-xR-aue"/>
+                                    <constraint firstItem="pXj-MN-kC7" firstAttribute="top" secondItem="Tgd-S8-IGG" secondAttribute="bottom" constant="8" id="g5c-uU-hU9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tgd-S8-IGG" secondAttribute="bottom" priority="750" constant="368" id="pRK-gp-NmD"/>
+                                    <constraint firstAttribute="trailing" secondItem="pXj-MN-kC7" secondAttribute="trailing" constant="10" id="tpF-8J-Xit"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tgd-S8-IGG" secondAttribute="trailing" id="w3X-Rf-PYx"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xV0-AD-h0m" firstAttribute="top" secondItem="R5R-rG-HDK" secondAttribute="top" id="RzS-oV-f0B"/>
+                            <constraint firstAttribute="trailing" secondItem="xV0-AD-h0m" secondAttribute="trailing" id="Txz-UE-cF5"/>
+                            <constraint firstAttribute="bottom" secondItem="xV0-AD-h0m" secondAttribute="bottom" id="WD5-fc-Wqp"/>
+                            <constraint firstItem="xV0-AD-h0m" firstAttribute="leading" secondItem="R5R-rG-HDK" secondAttribute="leading" id="gmO-eo-HiS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentLayoutConstrait" destination="Day-ZL-3Vd" id="qBg-8z-sBV"/>
+                        <outlet property="contentTextLabel" destination="pXj-MN-kC7" id="05v-LY-9Ta"/>
+                        <outlet property="detailScroll" destination="xV0-AD-h0m" id="2XM-uz-qFv"/>
+                        <outlet property="images" destination="Tgd-S8-IGG" id="45d-la-slq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uT-HE-i05" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="317"/>
         </scene>
         <!--Composing View Controller-->
         <scene sceneID="Rrv-aG-emb">
@@ -263,7 +321,7 @@
                                     <constraint firstAttribute="height" constant="1" id="qmS-Kf-Dw3"/>
                                 </constraints>
                             </view>
-                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-k5-9MB" customClass="SZTextView">
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-k5-9MB" customClass="SZTextView">
                                 <rect key="frame" x="10" y="126" width="300" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -297,7 +355,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tSv-Qq-zlG" firstAttribute="leading" secondItem="DJk-Ye-pLw" secondAttribute="leading" constant="10" id="IJ2-Wk-MWj"/>
-                            <constraint firstItem="rIV-k5-9MB" firstAttribute="leading" secondItem="DJk-Ye-pLw" secondAttribute="leading" constant="10" id="OfB-SV-2YL"/>
+                            <constraint firstItem="rIV-k5-9MB" firstAttribute="leading" secondItem="DJk-Ye-pLw" secondAttribute="leading" id="OfB-SV-2YL"/>
                             <constraint firstItem="rIV-k5-9MB" firstAttribute="top" secondItem="tSv-Qq-zlG" secondAttribute="bottom" constant="5" id="RTd-Pn-Q03"/>
                             <constraint firstAttribute="trailing" secondItem="tSv-Qq-zlG" secondAttribute="trailing" constant="10" id="YuR-8b-y0f"/>
                             <constraint firstItem="WDa-8Z-KPO" firstAttribute="top" secondItem="rIV-k5-9MB" secondAttribute="bottom" constant="280" id="cOG-Y1-Znw"/>
@@ -319,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeG-iL-zEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="261"/>
+            <point key="canvasLocation" x="917" y="195"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="wCe-TX-hip">
@@ -340,11 +398,7 @@
                                 <action selector="presentLeftMenuViewController:" destination="0HO-Iw-F6M" id="hy1-ne-DNP"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="post" id="1Dk-vm-4tq">
-                            <connections>
-                                <segue destination="mTo-7c-9a3" kind="modal" id="PB4-tW-yW5"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="post" id="1Dk-vm-4tq"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7To-SF-jU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,7 +431,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ofr-Dx-0Lj"/>
-    </inferredMetricsTieBreakers>
 </document>

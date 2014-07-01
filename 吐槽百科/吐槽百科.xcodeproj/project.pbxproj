@@ -62,6 +62,8 @@
 		AE9E2BCF194923290062175A /* CDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCE194923290062175A /* CDProfileViewController.m */; };
 		AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA063051942A23C00EA9856 /* RQShineLabel.m */; };
 		AEA7135D1951497B0078FBA6 /* CDTuCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */; };
+		AEC0119D1962689500F280BE /* CDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC0119C1962689500F280BE /* CDDetailViewController.m */; };
+		AEC011A1196269D700F280BE /* JBKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC011A0196269D700F280BE /* JBKenBurnsView.m */; };
 		AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED43E8319490F4D0098C080 /* CDComposingViewController.m */; };
 		AED834531942E9ED002556B8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED834521942E9ED002556B8 /* Accelerate.framework */; };
 		AED83457194396A7002556B8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83456194396A7002556B8 /* CoreTelephony.framework */; };
@@ -194,6 +196,10 @@
 		AEA063051942A23C00EA9856 /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
 		AEA7135B1951497B0078FBA6 /* CDTuCaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTuCaoTableViewCell.h; sourceTree = "<group>"; };
 		AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTuCaoTableViewCell.m; sourceTree = "<group>"; };
+		AEC0119B1962689500F280BE /* CDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDetailViewController.h; sourceTree = "<group>"; };
+		AEC0119C1962689500F280BE /* CDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDetailViewController.m; sourceTree = "<group>"; };
+		AEC0119F196269D700F280BE /* JBKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBKenBurnsView.h; sourceTree = "<group>"; };
+		AEC011A0196269D700F280BE /* JBKenBurnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBKenBurnsView.m; sourceTree = "<group>"; };
 		AED43E8219490F4D0098C080 /* CDComposingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDComposingViewController.h; sourceTree = "<group>"; };
 		AED43E8319490F4D0098C080 /* CDComposingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDComposingViewController.m; sourceTree = "<group>"; };
 		AED834521942E9ED002556B8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -375,6 +381,8 @@
 				AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */,
 				AED43E8219490F4D0098C080 /* CDComposingViewController.h */,
 				AED43E8319490F4D0098C080 /* CDComposingViewController.m */,
+				AEC0119B1962689500F280BE /* CDDetailViewController.h */,
+				AEC0119C1962689500F280BE /* CDDetailViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AEC0119E196269B000F280BE /* KBurn */,
 				AE05B6A51953E1CC00B21629 /* UIButton+Image */,
 				AEA713581951492B0078FBA6 /* TableViewCell */,
 				AE8C2BE619496FD60021D1B3 /* TextView */,
@@ -521,6 +530,15 @@
 				AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */,
 			);
 			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		AEC0119E196269B000F280BE /* KBurn */ = {
+			isa = PBXGroup;
+			children = (
+				AEC0119F196269D700F280BE /* JBKenBurnsView.h */,
+				AEC011A0196269D700F280BE /* JBKenBurnsView.m */,
+			);
+			name = KBurn;
 			sourceTree = "<group>";
 		};
 		AED43E8119490F260098C080 /* NavigationViews */ = {
@@ -664,6 +682,7 @@
 				AE03BFAA19465801005A81FE /* UITabBar+FlatUI.m in Sources */,
 				AE05B6B51953E20900B21629 /* UIAwesomeButton.m in Sources */,
 				AE05B6B31953E20900B21629 /* UIView+AutoLayout.m in Sources */,
+				AEC0119D1962689500F280BE /* CDDetailViewController.m in Sources */,
 				AE03BFA019465801005A81FE /* FUITextField.m in Sources */,
 				AE03BFA919465801005A81FE /* UIStepper+FlatUI.m in Sources */,
 				AED8348019443A82002556B8 /* RESideMenu.m in Sources */,
@@ -700,6 +719,7 @@
 				AE03BFA519465801005A81FE /* UINavigationBar+FlatUI.m in Sources */,
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,
 				AE05B6B71953E20900B21629 /* NSString+FontAwesome.m in Sources */,
+				AEC011A1196269D700F280BE /* JBKenBurnsView.m in Sources */,
 				AE03BFA119465801005A81FE /* UIBarButtonItem+FlatUI.m in Sources */,
 				AE03BFA219465801005A81FE /* UIColor+FlatUI.m in Sources */,
 				AE03BF9E19465801005A81FE /* FUISegmentedControl.m in Sources */,
