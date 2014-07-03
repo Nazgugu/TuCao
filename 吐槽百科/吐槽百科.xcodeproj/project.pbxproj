@@ -54,6 +54,7 @@
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
+		AE63751619654FB800ECD00A /* DCCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE63751519654FB800ECD00A /* DCCommentView.m */; };
 		AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C2BE819496FE80021D1B3 /* SZTextView.m */; };
 		AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */; };
@@ -181,6 +182,8 @@
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AE43BCA419495CEF00373FC9 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		AE63751419654FB800ECD00A /* DCCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommentView.h; sourceTree = "<group>"; };
+		AE63751519654FB800ECD00A /* DCCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCommentView.m; sourceTree = "<group>"; };
 		AE8C2BE719496FE80021D1B3 /* SZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTextView.h; sourceTree = "<group>"; };
 		AE8C2BE819496FE80021D1B3 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLeftMenuViewController.h; sourceTree = "<group>"; };
@@ -386,6 +389,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE63751319654F9F00ECD00A /* commentBox */,
 				AEC0119E196269B000F280BE /* KBurn */,
 				AE05B6A51953E1CC00B21629 /* UIButton+Image */,
 				AEA713581951492B0078FBA6 /* TableViewCell */,
@@ -490,6 +494,15 @@
 				AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */,
 			);
 			name = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		AE63751319654F9F00ECD00A /* commentBox */ = {
+			isa = PBXGroup;
+			children = (
+				AE63751419654FB800ECD00A /* DCCommentView.h */,
+				AE63751519654FB800ECD00A /* DCCommentView.m */,
+			);
+			name = commentBox;
 			sourceTree = "<group>";
 		};
 		AE8C2BE619496FD60021D1B3 /* TextView */ = {
@@ -700,6 +713,7 @@
 				AE03BFA319465801005A81FE /* UIFont+FlatUI.m in Sources */,
 				AEA7135D1951497B0078FBA6 /* CDTuCaoTableViewCell.m in Sources */,
 				AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */,
+				AE63751619654FB800ECD00A /* DCCommentView.m in Sources */,
 				AE03BF9F19465801005A81FE /* FUISwitch.m in Sources */,
 				AE03BFA719465801005A81FE /* UIProgressView+FlatUI.m in Sources */,
 				AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */,
@@ -854,7 +868,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Developer/PJ2,

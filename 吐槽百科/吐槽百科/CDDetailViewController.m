@@ -10,8 +10,10 @@
 #import "JBKenBurnsView.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Parse/Parse.h>
+#import "DCCommentView.h"
+#import "FlatUIKit.h"
 
-@interface CDDetailViewController ()<KenBurnsViewDelegate>
+@interface CDDetailViewController ()<KenBurnsViewDelegate, DCCommentViewDelegate>
 @property (weak, nonatomic) IBOutlet JBKenBurnsView *images;
 @property (weak, nonatomic) IBOutlet UILabel *contentTextLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *detailScroll;
@@ -19,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 @property (strong, nonatomic) NSMutableArray *animationImages;
 @property (nonatomic) NSUInteger imageCount;
-
+@property (strong, nonatomic) PFObject *news;
+@property (strong, nonatomic) DCCommentView *commentView;
 @end
 
 @implementation CDDetailViewController
@@ -41,6 +44,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(animates) name:@"completeDownloading" object:nil];
     NSLog(@"THE CONTENT IS = %@",self.contentText);
     NSLog(@"the object id is = %@",self.objectID);
+    self.commentView = [DCCommentView new];
+    self.commentView.delegate = self;
+    self.commentView.tintColor = [UIColor turquoiseColor];
 }
 
 - (void)animates
@@ -68,6 +74,20 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [self.commentView bindToScrollView:self.detailScroll superview:self.view];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.commentView resignFirstResponder];
+}
+
+#pragma commentView delegate
+- (void)didSendComment:(NSString *)text
+{
+    NSLog(@"comment text = %@",text);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -98,6 +118,11 @@
            if (object)
            {
                NSLog(@"got object");
+               if (!self.news)
+               {
+                   self.news = [[PFObject alloc] init];
+               }
+               self.news = object;
                PFRelation *imagesRelation = [object relationForKey:@"imageArray"];
                PFQuery *getImages = [imagesRelation query];
                [getImages findObjectsInBackgroundWithBlock:^(NSArray *images, NSError *error){

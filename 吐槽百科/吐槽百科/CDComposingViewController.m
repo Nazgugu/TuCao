@@ -50,7 +50,7 @@
     [super viewDidLoad];
     self.locationText.text = @"位置已关闭";
     locationManager = [[CLLocationManager alloc] init];
-    [locationManager requestWhenInUseAuthorization];
+    //[locationManager requestWhenInUseAuthorization];
     self.locationSwitch.onTintColor = [UIColor turquoiseColor];
     self.locationSwitch.offTintColor = [UIColor whiteColor];
     self.locationSwitch.thumbTintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
