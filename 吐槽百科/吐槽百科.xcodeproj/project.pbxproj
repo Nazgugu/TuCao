@@ -72,7 +72,6 @@
 		AED8345D194396C7002556B8 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345C194396C7002556B8 /* AddressBookUI.framework */; };
 		AED8345F194396D4002556B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345E194396D4002556B8 /* MapKit.framework */; };
 		AED83461194396E2002556B8 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83460194396E2002556B8 /* libz.1.1.3.dylib */; };
-		AED83463194396E9002556B8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83462194396E9002556B8 /* StoreKit.framework */; };
 		AED83465194396F0002556B8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83464194396F0002556B8 /* Security.framework */; };
 		AED83467194396F7002556B8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED83466194396F7002556B8 /* MobileCoreServices.framework */; };
 		AED8346919439700002556B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8346819439700002556B8 /* CoreLocation.framework */; };
@@ -210,7 +209,6 @@
 		AED8345C194396C7002556B8 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AED8345E194396D4002556B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AED83460194396E2002556B8 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
-		AED83462194396E9002556B8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AED83464194396F0002556B8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AED83466194396F7002556B8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AED8346819439700002556B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -247,7 +245,6 @@
 				AED8346919439700002556B8 /* CoreLocation.framework in Frameworks */,
 				AED83467194396F7002556B8 /* MobileCoreServices.framework in Frameworks */,
 				AED83465194396F0002556B8 /* Security.framework in Frameworks */,
-				AED83463194396E9002556B8 /* StoreKit.framework in Frameworks */,
 				AED83461194396E2002556B8 /* libz.1.1.3.dylib in Frameworks */,
 				AED8345F194396D4002556B8 /* MapKit.framework in Frameworks */,
 				AED83459194396B7002556B8 /* libicucore.dylib in Frameworks */,
@@ -308,7 +305,6 @@
 				AED8346819439700002556B8 /* CoreLocation.framework */,
 				AED83466194396F7002556B8 /* MobileCoreServices.framework */,
 				AED83464194396F0002556B8 /* Security.framework */,
-				AED83462194396E9002556B8 /* StoreKit.framework */,
 				AED83460194396E2002556B8 /* libz.1.1.3.dylib */,
 				AED8345E194396D4002556B8 /* MapKit.framework */,
 				AED8345C194396C7002556B8 /* AddressBookUI.framework */,
@@ -624,6 +620,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = CDFLS;
 				TargetAttributes = {
+					AE02C8DE1942784500AC16AE = {
+						DevelopmentTeam = AQNTGEWRNX;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
 					AE02C8FF1942784500AC16AE = {
 						TestTargetID = AE02C8DE1942784500AC16AE;
 					};
@@ -849,6 +853,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Developer/PJ2,
@@ -868,6 +874,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liuzhe/Developer/PJ2,

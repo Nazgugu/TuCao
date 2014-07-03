@@ -11,6 +11,7 @@
 #import "FlatUIKit.h"
 #import "CDTuCaoTableViewCell.h"
 #import <Parse/Parse.h>
+#import "CDDetailViewController.h"
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NYSegmentedControl *topControl;
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *newsImage;
 @property (strong, nonatomic) NSMutableArray *newsContent;
 @property (strong, nonatomic) NSMutableArray *newsTime;
+@property (strong, nonatomic) NSMutableArray *newsID;
 @end
 
 @implementation CDFeedViewController
@@ -93,12 +95,17 @@
              {
                  self.newsContent = [[NSMutableArray alloc] init];
              }
+             if (!self.newsID)
+             {
+                 self.newsID = [[NSMutableArray alloc] init];
+             }
              if (objects.count > 0)
              {
-            [self.newsTitle removeAllObjects];
-             [self.newsImage removeAllObjects];
-             [self.newsTime removeAllObjects];
-             [self.newsContent removeAllObjects];
+                 [self.newsTitle removeAllObjects];
+                 [self.newsImage removeAllObjects];
+                 [self.newsTime removeAllObjects];
+                 [self.newsContent removeAllObjects];
+                 [self.newsID removeAllObjects];
              for (int i = 0; i < objects.count; i++)
              {
                  PFFile *imageFile = [[objects objectAtIndex:i] objectForKey:@"image"];
@@ -111,12 +118,14 @@
                            [self.newsTitle addObject:[[objects objectAtIndex:i] objectForKey:@"title"]];
                            PFObject *data = [objects objectAtIndex:i];
                            //NSDate *creation = data.createdAt;
-                           NSLog(@"date = %@",data.createdAt);
+                           //NSLog(@"date = %@",data.createdAt);
                            [self.newsTime addObject:[formatter stringFromDate:data.createdAt]];
-                           NSLog(@"created date = %@",self.newsTime[i]);
+                           //NSLog(@"created date = %@",self.newsTime[i]);
                            [self.newsContent addObject:[[objects objectAtIndex:i] objectForKey:@"content"]];
-                           NSLog(@"content = %@",self.newsContent[i]);
-                           NSLog(@"title = %@",self.newsTitle[i]);
+                           PFObject *news = [objects objectAtIndex:i];
+                           [self.newsID addObject:news.objectId];
+                           //NSLog(@"content = %@",self.newsContent[i]);
+                           //NSLog(@"title = %@",self.newsTitle[i]);
                            [self.newsTable reloadData];
                        }
                    }
@@ -150,7 +159,7 @@
 
 - (void)segmentControlChanged
 {
-    NSLog(@"selectedIndex = %ld",topControl.selectedSegmentIndex);
+    NSLog(@"selectedIndex = %ld",(unsigned long)topControl.selectedSegmentIndex);
     [self fetchContent];
 }
 
@@ -177,6 +186,7 @@
     return  height + 1;
 }
 
+
 //load contents faster!
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -197,6 +207,8 @@
     return number;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CDTuCaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuCao"];
@@ -215,15 +227,40 @@
     return cell;
 }
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id detailVC = [self.splitViewController.viewControllers lastObject];
+    if ([detailVC isKindOfClass:[UINavigationController class]])
+         {
+             detailVC  = [((UINavigationController *)detailVC).viewControllers firstObject];
+             [self prepareViewController:detailVC forSegue:nil fromIndexPath:indexPath];
+         }
+}
+
+- (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath
+{
+    CDDetailViewController *detailNewsVC = (CDDetailViewController *)vc;
+    //if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[CDTuCaoTableViewCell class]])
+    //{
+        detailNewsVC.contentText = [self.newsContent objectAtIndex:indexPath.row];
+    NSLog(@"newsContent = %@",detailNewsVC.contentText);
+        detailNewsVC.objectID = [self.newsID objectAtIndex:indexPath.row];
+    NSLog(@"objectID = %@",detailNewsVC.objectID);
+    //}
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ //In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]])
+    {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    [self prepareViewController:segue.destinationViewController forSegue:@"detail" fromIndexPath:indexPath];
 }
-*/
 
 @end

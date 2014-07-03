@@ -19,8 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"SXIEzUxsT2N51VFP4qfBiDKDo8b7zCyN5QKJpKY5"
-                  clientKey:@"OCx3rTWeeTunMYk3kd7I6iQFQ4pLzn7MbLV8ZJrx"];
+    [Parse setApplicationId:@"1F9uIP0IYOVb0NmjAfaEx4XmwoAL3Nmh7W6C41B1"
+                  clientKey:@"c6UFwjvcddbszUd3n5XupdBKwTk4Hwght4sQMdBJ"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey] boolValue]== YES)
     {
