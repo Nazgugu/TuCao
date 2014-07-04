@@ -160,6 +160,7 @@
 - (void)segmentControlChanged
 {
     NSLog(@"selectedIndex = %ld",(unsigned long)topControl.selectedSegmentIndex);
+    [self.refreshControl endRefreshing];
     [self fetchContent];
 }
 

@@ -76,6 +76,7 @@
 {
     [super viewWillAppear:animated];
     [self.commentView bindToScrollView:self.detailScroll superview:self.view];
+    NSLog(@"scrollview content size = %f",self.detailScroll.contentSize.height);
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -99,6 +100,7 @@
     CGRect textViewFrame = self.contentTextLabel.frame;
     CGRect rect = [self.contentText boundingRectWithSize:CGSizeMake(textViewFrame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attribute context:nil];
     self.detailScroll.contentSize = CGSizeMake(CGRectGetWidth(self.detailScroll.frame), CGRectGetMaxY(self.contentTextLabel.frame) + rect.size.height + 30);
+    NSLog(@"scrollview content size = %f",self.detailScroll.contentSize.height);
     textViewFrame.size.height = expectedSize.height;
     self.contentLayoutConstrait.constant = rect.size.height;
     self.contentTextLabel.text = self.contentText;
@@ -118,10 +120,10 @@
            if (object)
            {
                NSLog(@"got object");
-               if (!self.news)
+               /*if (!self.news)
                {
                    self.news = [[PFObject alloc] init];
-               }
+               }*/
                self.news = object;
                PFRelation *imagesRelation = [object relationForKey:@"imageArray"];
                PFQuery *getImages = [imagesRelation query];
