@@ -188,50 +188,51 @@
                PFQuery *getComments = [commentRelation query];
                PFQuery *getImages = [imagesRelation query];
                NSLog(@"scrollview content size 3 = %f",self.detailScroll.contentSize.height);
-               [getImages findObjectsInBackgroundWithBlock:^(NSArray *images, NSError *error){
-                   if (!error)
-                   {
-                       if (images)
-                       {
-                           //NSLog(@"got relational images");
-                           //NSLog(@"image count = %ld",(unsigned long)images.count);
-                           self.imageCount = images.count;
-                           for (int i = 0; i < images.count; i++)
-                           {
-                               PFFile *imageFile = [[images objectAtIndex:i] objectForKey:@"newsImage"];
-                               [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
-                                  if (!error)
-                                  {
-                                      if (data)
-                                      {
-                                          if (!self.animationImages)
-                                          {
-                                              self.animationImages = [[NSMutableArray alloc] init];
-                                          }
-                                          [self.animationImages addObject:[UIImage imageWithData:data]];
-                                          //[self.images addImage:[UIImage imageWithData:data]];
-                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"completeDownloading" object:self];
-                                          NSLog(@"got one image");
-                                      }
-                                  }
-                               }];
-                           }
-                           //[[NSNotificationCenter defaultCenter] postNotificationName:@"completeDownloading" object:self];
-                       }
-                   }
-               }];
                [getComments findObjectsInBackgroundWithBlock:^(NSArray *comments, NSError *error)
                 {
-                   if (!error)
-                   {
-                       if (comments)
-                       {
-                           BBBadgeBarButtonItem *button = (BBBadgeBarButtonItem *)self.navigationItem.rightBarButtonItem;
-                           button.badgeValue = [NSString stringWithFormat:@"%ld",(unsigned long)comments.count];
-                       }
-                   }
+                    if (!error)
+                    {
+                        if (comments)
+                        {
+                            BBBadgeBarButtonItem *button = (BBBadgeBarButtonItem *)self.navigationItem.rightBarButtonItem;
+                            button.badgeValue = [NSString stringWithFormat:@"%ld",(unsigned long)comments.count];
+                            [getImages findObjectsInBackgroundWithBlock:^(NSArray *images, NSError *error){
+                                if (!error)
+                                {
+                                    if (images)
+                                    {
+                                        //NSLog(@"got relational images");
+                                        //NSLog(@"image count = %ld",(unsigned long)images.count);
+                                        self.imageCount = images.count;
+                                        for (int i = 0; i < images.count; i++)
+                                        {
+                                            PFFile *imageFile = [[images objectAtIndex:i] objectForKey:@"newsImage"];
+                                            [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+                                                if (!error)
+                                                {
+                                                    if (data)
+                                                    {
+                                                        if (!self.animationImages)
+                                                        {
+                                                            self.animationImages = [[NSMutableArray alloc] init];
+                                                        }
+                                                        [self.animationImages addObject:[UIImage imageWithData:data]];
+                                                        //[self.images addImage:[UIImage imageWithData:data]];
+                                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"completeDownloading" object:self];
+                                                        NSLog(@"got one image");
+                                                    }
+                                                }
+                                            }];
+                                        }
+                                        //[[NSNotificationCenter defaultCenter] postNotificationName:@"completeDownloading" object:self];
+                                    }
+                                }
+                            }];
+
+                        }
+                    }
                 }];
-           }
+            }
        }
     }];
 }
