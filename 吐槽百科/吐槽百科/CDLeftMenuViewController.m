@@ -91,7 +91,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,7 +116,7 @@
         cell.layer.cornerRadius = 25.0f;
     }
     
-    NSArray *titles = @[@"新吐槽", @"我的主页", @"消息", @"设置", @"退出"];
+    NSArray *titles = @[@"新事件", @"设置", @"退出"];
     //NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
     //cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
@@ -137,7 +137,7 @@
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"]] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 4:
+        case 2:
             [self performSegueWithIdentifier:@"mainMenu" sender:self];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];

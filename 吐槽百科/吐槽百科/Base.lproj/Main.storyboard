@@ -235,7 +235,7 @@
                                             <constraint firstAttribute="height" id="Day-ZL-3Vd"/>
                                             <constraint firstAttribute="width" constant="300" id="dNH-30-Lef"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

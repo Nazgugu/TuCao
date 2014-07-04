@@ -58,6 +58,7 @@
 		AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C2BE819496FE80021D1B3 /* SZTextView.m */; };
 		AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */; };
+		AE9B5591196664E000B63206 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9B5590196664E000B63206 /* BBBadgeBarButtonItem.m */; };
 		AE9E2BC8194914460062175A /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BC7194914460062175A /* CDNavigationViewController.m */; };
 		AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCA1949174F0062175A /* MBSwitch.m */; };
 		AE9E2BCF194923290062175A /* CDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9E2BCE194923290062175A /* CDProfileViewController.m */; };
@@ -100,21 +101,21 @@
 /* Begin PBXFileReference section */
 		AE01CECD1946C7260028FF11 /* UITableView+Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Wave.h"; sourceTree = "<group>"; };
 		AE01CECE1946C7260028FF11 /* UITableView+Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Wave.m"; sourceTree = "<group>"; };
-		AE02C8DF1942784500AC16AE /* 吐槽百科.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "吐槽百科.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE02C8DF1942784500AC16AE /* PeerChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE02C8E21942784500AC16AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE02C8E41942784500AC16AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AE02C8E61942784500AC16AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		AE02C8EA1942784500AC16AE /* 吐槽百科-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "吐槽百科-Info.plist"; sourceTree = "<group>"; };
+		AE02C8EA1942784500AC16AE /* PeerChina-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PeerChina-Info.plist"; sourceTree = "<group>"; };
 		AE02C8EC1942784500AC16AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE02C8EE1942784500AC16AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AE02C8F01942784500AC16AE /* 吐槽百科-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "吐槽百科-Prefix.pch"; sourceTree = "<group>"; };
+		AE02C8F01942784500AC16AE /* PeerChina-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PeerChina-Prefix.pch"; sourceTree = "<group>"; };
 		AE02C8F11942784500AC16AE /* CDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAppDelegate.h; sourceTree = "<group>"; };
 		AE02C8F21942784500AC16AE /* CDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAppDelegate.m; sourceTree = "<group>"; };
 		AE02C8F51942784500AC16AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE02C8FA1942784500AC16AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "吐槽百科Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE02C9001942784500AC16AE /* PeerChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeerChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE02C9011942784500AC16AE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		AE02C9091942784500AC16AE /* 吐槽百科Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "吐槽百科Tests-Info.plist"; sourceTree = "<group>"; };
+		AE02C9091942784500AC16AE /* PeerChinaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PeerChinaTests-Info.plist"; sourceTree = "<group>"; };
 		AE02C90B1942784500AC16AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE02C90D1942784500AC16AE /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
 		AE02C918194278DE00AC16AE /* CDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLoginViewController.h; sourceTree = "<group>"; };
@@ -188,6 +189,8 @@
 		AE8C2BE819496FE80021D1B3 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLeftMenuViewController.h; sourceTree = "<group>"; };
 		AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLeftMenuViewController.m; sourceTree = "<group>"; };
+		AE9B558F196664E000B63206 /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
+		AE9B5590196664E000B63206 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		AE9E2BC6194914460062175A /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
 		AE9E2BC7194914460062175A /* CDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationViewController.m; sourceTree = "<group>"; };
 		AE9E2BC91949174F0062175A /* MBSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSwitch.h; sourceTree = "<group>"; };
@@ -293,8 +296,8 @@
 		AE02C8E01942784500AC16AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE02C8DF1942784500AC16AE /* 吐槽百科.app */,
-				AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */,
+				AE02C8DF1942784500AC16AE /* PeerChina.app */,
+				AE02C9001942784500AC16AE /* PeerChinaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -342,10 +345,10 @@
 		AE02C8E91942784500AC16AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE02C8EA1942784500AC16AE /* 吐槽百科-Info.plist */,
+				AE02C8EA1942784500AC16AE /* PeerChina-Info.plist */,
 				AE02C8EB1942784500AC16AE /* InfoPlist.strings */,
 				AE02C8EE1942784500AC16AE /* main.m */,
-				AE02C8F01942784500AC16AE /* 吐槽百科-Prefix.pch */,
+				AE02C8F01942784500AC16AE /* PeerChina-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -362,7 +365,7 @@
 		AE02C9081942784500AC16AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE02C9091942784500AC16AE /* 吐槽百科Tests-Info.plist */,
+				AE02C9091942784500AC16AE /* PeerChinaTests-Info.plist */,
 				AE02C90A1942784500AC16AE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -389,6 +392,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE9B558E196664C000B63206 /* BarButtonItem */,
 				AE63751319654F9F00ECD00A /* commentBox */,
 				AEC0119E196269B000F280BE /* KBurn */,
 				AE05B6A51953E1CC00B21629 /* UIButton+Image */,
@@ -514,6 +518,15 @@
 			name = TextView;
 			sourceTree = "<group>";
 		};
+		AE9B558E196664C000B63206 /* BarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				AE9B558F196664E000B63206 /* BBBadgeBarButtonItem.h */,
+				AE9B5590196664E000B63206 /* BBBadgeBarButtonItem.m */,
+			);
+			name = BarButtonItem;
+			sourceTree = "<group>";
+		};
 		AE9E2BCC194917570062175A /* switch */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,9 +601,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE02C8DE1942784500AC16AE /* 吐槽百科 */ = {
+		AE02C8DE1942784500AC16AE /* PeerChina */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE02C9111942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科" */;
+			buildConfigurationList = AE02C9111942784500AC16AE /* Build configuration list for PBXNativeTarget "PeerChina" */;
 			buildPhases = (
 				AE02C8DB1942784500AC16AE /* Sources */,
 				AE02C8DC1942784500AC16AE /* Frameworks */,
@@ -600,14 +613,14 @@
 			);
 			dependencies = (
 			);
-			name = "吐槽百科";
+			name = PeerChina;
 			productName = "吐槽百科";
-			productReference = AE02C8DF1942784500AC16AE /* 吐槽百科.app */;
+			productReference = AE02C8DF1942784500AC16AE /* PeerChina.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AE02C8FF1942784500AC16AE /* 吐槽百科Tests */ = {
+		AE02C8FF1942784500AC16AE /* PeerChinaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科Tests" */;
+			buildConfigurationList = AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "PeerChinaTests" */;
 			buildPhases = (
 				AE02C8FC1942784500AC16AE /* Sources */,
 				AE02C8FD1942784500AC16AE /* Frameworks */,
@@ -618,9 +631,9 @@
 			dependencies = (
 				AE02C9061942784500AC16AE /* PBXTargetDependency */,
 			);
-			name = "吐槽百科Tests";
+			name = PeerChinaTests;
 			productName = "吐槽百科Tests";
-			productReference = AE02C9001942784500AC16AE /* 吐槽百科Tests.xctest */;
+			productReference = AE02C9001942784500AC16AE /* PeerChinaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -646,7 +659,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AE02C8DA1942784500AC16AE /* Build configuration list for PBXProject "吐槽百科" */;
+			buildConfigurationList = AE02C8DA1942784500AC16AE /* Build configuration list for PBXProject "PeerChina" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -659,8 +672,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE02C8DE1942784500AC16AE /* 吐槽百科 */,
-				AE02C8FF1942784500AC16AE /* 吐槽百科Tests */,
+				AE02C8DE1942784500AC16AE /* PeerChina */,
+				AE02C8FF1942784500AC16AE /* PeerChinaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -708,6 +721,7 @@
 				AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */,
 				AE05B6B61953E20900B21629 /* FAImageView.m in Sources */,
 				AE02C8EF1942784500AC16AE /* main.m in Sources */,
+				AE9B5591196664E000B63206 /* BBBadgeBarButtonItem.m in Sources */,
 				AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
 				AE03BFA319465801005A81FE /* UIFont+FlatUI.m in Sources */,
@@ -759,7 +773,7 @@
 /* Begin PBXTargetDependency section */
 		AE02C9061942784500AC16AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AE02C8DE1942784500AC16AE /* 吐槽百科 */;
+			target = AE02C8DE1942784500AC16AE /* PeerChina */;
 			targetProxy = AE02C9051942784500AC16AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -875,10 +889,11 @@
 					/Users/liuzhe/Developer/TuCao,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
-				INFOPLIST_FILE = "吐槽百科/吐槽百科-Info.plist";
+				GCC_PREFIX_HEADER = "吐槽百科/PeerChina-Prefix.pch";
+				INFOPLIST_FILE = "吐槽百科/PeerChina-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PeerChina;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -896,10 +911,11 @@
 					/Users/liuzhe/Developer/TuCao,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
-				INFOPLIST_FILE = "吐槽百科/吐槽百科-Info.plist";
+				GCC_PREFIX_HEADER = "吐槽百科/PeerChina-Prefix.pch";
+				INFOPLIST_FILE = "吐槽百科/PeerChina-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PeerChina;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -919,8 +935,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "吐槽百科Tests/吐槽百科Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "吐槽百科Tests/PeerChinaTests-Info.plist";
+				PRODUCT_NAME = PeerChinaTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -937,8 +953,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "吐槽百科/吐槽百科-Prefix.pch";
-				INFOPLIST_FILE = "吐槽百科Tests/吐槽百科Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "吐槽百科Tests/PeerChinaTests-Info.plist";
+				PRODUCT_NAME = PeerChinaTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -947,7 +963,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AE02C8DA1942784500AC16AE /* Build configuration list for PBXProject "吐槽百科" */ = {
+		AE02C8DA1942784500AC16AE /* Build configuration list for PBXProject "PeerChina" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE02C90F1942784500AC16AE /* Debug */,
@@ -956,7 +972,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE02C9111942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科" */ = {
+		AE02C9111942784500AC16AE /* Build configuration list for PBXNativeTarget "PeerChina" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE02C9121942784500AC16AE /* Debug */,
@@ -965,7 +981,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "吐槽百科Tests" */ = {
+		AE02C9141942784500AC16AE /* Build configuration list for PBXNativeTarget "PeerChinaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE02C9151942784500AC16AE /* Debug */,

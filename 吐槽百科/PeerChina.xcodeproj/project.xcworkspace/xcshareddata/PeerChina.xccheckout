@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D5135572-1FEA-42FC-BC28-87FA7580961D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PeerChina</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CBC12325-7E93-4D37-920B-692EEEE90F3C</key>
+		<string>https://github.com/Nazgugu/TuCao.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>吐槽百科/PeerChina.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CBC12325-7E93-4D37-920B-692EEEE90F3C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Nazgugu/TuCao.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CBC12325-7E93-4D37-920B-692EEEE90F3C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CBC12325-7E93-4D37-920B-692EEEE90F3C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TuCao</string>
+		</dict>
+	</array>
+</dict>
+</plist>

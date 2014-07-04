@@ -133,6 +133,7 @@
         else
         {
             NSLog(@"fatal error occured: %@, check server status",[error userInfo][@"error"]);
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:UserLoginKey];
         }
     }];
 }

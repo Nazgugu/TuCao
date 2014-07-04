@@ -60,9 +60,13 @@
     self.navigationItem.titleView = topControl;
     //refresh control
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSStrokeColorAttributeName:[UIColor grayColor]}];
     [refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [self fetchContent];
 }
 
@@ -71,6 +75,7 @@
     if (topControl.selectedSegmentIndex == 0)
     {
     [self.refreshControl beginRefreshing];
+        [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height)];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         //PFFile *imageFile;
         formatter.dateFormat = @"yyyy-MM-dd";
@@ -101,6 +106,7 @@
              }
              if (objects.count > 0)
              {
+                 NSLog(@"I got something");
                  [self.newsTitle removeAllObjects];
                  [self.newsImage removeAllObjects];
                  [self.newsTime removeAllObjects];
@@ -132,10 +138,12 @@
                  }];
              }
              [self.refreshControl endRefreshing];
+                 [self.tableView setContentOffset:CGPointZero];
              }
              else
              {
                  [self.refreshControl endRefreshing];
+                 [self.tableView setContentOffset:CGPointZero];
              }
          }
          else
@@ -244,9 +252,9 @@
     //if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[CDTuCaoTableViewCell class]])
     //{
         detailNewsVC.contentText = [self.newsContent objectAtIndex:indexPath.row];
-    NSLog(@"newsContent = %@",detailNewsVC.contentText);
+    //NSLog(@"newsContent = %@",detailNewsVC.contentText);
         detailNewsVC.objectID = [self.newsID objectAtIndex:indexPath.row];
-    NSLog(@"objectID = %@",detailNewsVC.objectID);
+    //NSLog(@"objectID = %@",detailNewsVC.objectID);
     //}
 }
 

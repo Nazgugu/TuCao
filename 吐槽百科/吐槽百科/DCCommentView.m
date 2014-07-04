@@ -54,7 +54,7 @@
         self.textLabel = [[UILabel alloc] init];
         self.textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.text = NSLocalizedString(@"Message", nil);
+        self.textLabel.text = NSLocalizedString(@"发表评论", nil);
         self.textLabel.textColor = [UIColor colorWithWhite:0.8 alpha:1];
         [self.backView addSubview:self.textLabel];
         

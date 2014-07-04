@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AE02C8DE1942784500AC16AE"
-               BuildableName = "&#x5410;&#x69fd;&#x767e;&#x79d1;.app"
-               BlueprintName = "&#x5410;&#x69fd;&#x767e;&#x79d1;"
-               ReferencedContainer = "container:&#x5410;&#x69fd;&#x767e;&#x79d1;.xcodeproj">
+               BuildableName = "PeerChina.app"
+               BlueprintName = "PeerChina"
+               ReferencedContainer = "container:PeerChina.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AE02C8FF1942784500AC16AE"
-               BuildableName = "&#x5410;&#x69fd;&#x767e;&#x79d1;Tests.xctest"
-               BlueprintName = "&#x5410;&#x69fd;&#x767e;&#x79d1;Tests"
-               ReferencedContainer = "container:&#x5410;&#x69fd;&#x767e;&#x79d1;.xcodeproj">
+               BuildableName = "PeerChinaTests.xctest"
+               BlueprintName = "PeerChinaTests"
+               ReferencedContainer = "container:PeerChina.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AE02C8DE1942784500AC16AE"
-            BuildableName = "&#x5410;&#x69fd;&#x767e;&#x79d1;.app"
-            BlueprintName = "&#x5410;&#x69fd;&#x767e;&#x79d1;"
-            ReferencedContainer = "container:&#x5410;&#x69fd;&#x767e;&#x79d1;.xcodeproj">
+            BuildableName = "PeerChina.app"
+            BlueprintName = "PeerChina"
+            ReferencedContainer = "container:PeerChina.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AE02C8DE1942784500AC16AE"
-            BuildableName = "&#x5410;&#x69fd;&#x767e;&#x79d1;.app"
-            BlueprintName = "&#x5410;&#x69fd;&#x767e;&#x79d1;"
-            ReferencedContainer = "container:&#x5410;&#x69fd;&#x767e;&#x79d1;.xcodeproj">
+            BuildableName = "PeerChina.app"
+            BlueprintName = "PeerChina"
+            ReferencedContainer = "container:PeerChina.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AE02C8DE1942784500AC16AE"
-            BuildableName = "&#x5410;&#x69fd;&#x767e;&#x79d1;.app"
-            BlueprintName = "&#x5410;&#x69fd;&#x767e;&#x79d1;"
-            ReferencedContainer = "container:&#x5410;&#x69fd;&#x767e;&#x79d1;.xcodeproj">
+            BuildableName = "PeerChina.app"
+            BlueprintName = "PeerChina"
+            ReferencedContainer = "container:PeerChina.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
