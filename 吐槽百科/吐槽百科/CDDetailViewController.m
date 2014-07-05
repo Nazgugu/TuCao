@@ -14,6 +14,7 @@
 #import "FlatUIKit.h"
 #import "BBBadgeBarButtonItem.h"
 #import "CDAppDelegate.h"
+#import "CDCommentsTableViewController.h"
 
 @interface CDDetailViewController ()<KenBurnsViewDelegate, DCCommentViewDelegate>
 @property (weak, nonatomic) IBOutlet JBKenBurnsView *images;
@@ -24,9 +25,11 @@
 @property (strong, nonatomic) NSMutableArray *animationImages;
 @property (nonatomic) NSUInteger imageCount;
 @property (strong, nonatomic) PFObject *news;
+@property (strong, nonatomic) PFQuery *commentQuery;
 @property (strong, nonatomic) DCCommentView *commentView;
 @property (nonatomic) CGFloat height;
 //@property (nonatomic) CGSize contentSize;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @end
 
 @implementation CDDetailViewController
@@ -46,15 +49,14 @@
     // Do any additional setup after loading the view.
     self.images.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(animates) name:@"completeDownloading" object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(correctContentSizeHeight) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(correctContentSizeHeight) name:UIKeyboardDidHideNotification object:nil];
     //NSLog(@"THE CONTENT IS = %@",self.contentText);
     //NSLog(@"the object id is = %@",self.objectID);
     self.commentView = [DCCommentView new];
     self.commentView.delegate = self;
     self.commentView.tintColor = [UIColor peterRiverColor];
-    UIButton *barButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [barButton addTarget:self action:@selector(loadCommentView) forControlEvents:UIControlEventTouchUpInside];
-    [barButton setImage:[UIImage imageNamed:@"01"] forState:UIControlStateNormal];
-    BBBadgeBarButtonItem *commentButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:barButton];
+    BBBadgeBarButtonItem *commentButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:self.rightButton];
     commentButton.badgeBGColor = [UIColor emerlandColor];
     commentButton.badgeTextColor = [UIColor whiteColor];
     commentButton.shouldHideBadgeAtZero = NO;
@@ -62,12 +64,22 @@
     commentButton.badgeOriginY = -9;
     self.title = @"新闻";
     self.navigationItem.rightBarButtonItem = commentButton;
-    NSLog(@"view did load scrollview content size = %f",self.detailScroll.contentSize.height);
+    //NSLog(@"view did load scrollview content size = %f",self.detailScroll.contentSize.height);
 }
 
-- (void)loadCommentView
+- (void)correctContentSizeHeight
 {
-    
+    //NSLog(@"content size = %f",self.detailScroll.contentSize.height);
+    [self performSelector:@selector(correct) withObject:nil afterDelay:0.1f];
+}
+
+- (void)correct
+{
+    [self.detailScroll setContentSize:CGSizeMake(self.detailScroll.frame.size.width, self.height)];
+}
+
+- (IBAction)goToSegue:(id)sender {
+    [self performSegueWithIdentifier:@"loadComments" sender:self];
 }
 
 - (void)animates
@@ -76,9 +88,9 @@
     {
         [self.loadingActivity stopAnimating];
         self.loadingActivity.hidden = YES;
-        NSLog(@"image count = %ld",(unsigned long)self.animationImages.count);
+        //NSLog(@"image count = %ld",(unsigned long)self.animationImages.count);
         [self.images animateWithImages:self.animationImages transitionDuration:6 initialDelay:0 loop:YES isLandscape:NO];
-        NSLog(@"after animating height = %f",self.detailScroll.contentSize.height);
+        //NSLog(@"after animating height = %f",self.detailScroll.contentSize.height);
     }
     //NSLog(@"scrollview content size = %f",self.detailScroll.contentSize.height);
 }
@@ -98,6 +110,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.objectID forKey:objetcIDKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     //NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
 }
 
@@ -110,6 +125,7 @@
 #pragma commentView delegate
 - (void)didSendComment:(NSString *)text
 {
+    [self.commentView resignFirstResponder];
     NSLog(@"comment text = %@",text);
     NSString *nameString;
     PFObject *comment = [PFObject objectWithClassName:@"comments"];
@@ -124,6 +140,8 @@
         comment[@"isAnonymous"] = [NSNumber numberWithBool:NO];
     }
     comment[@"commentBody"] = text;
+    comment[@"userName"] = nameString;
+    comment[@"avatarNumber"] = [[NSUserDefaults standardUserDefaults] objectForKey:AvatarKey];
     PFRelation *commentRelation = [self.news relationForKey:@"userComments"];
     [comment saveInBackgroundWithBlock:^(BOOL success, NSError *error){
        if (success)
@@ -140,11 +158,27 @@
     }];
 }
 
+- (void)didShowCommentView
+{
+    //NSLog(@"content size did show = %f",self.detailScroll.contentSize.height);
+}
+
+- (void)didDismissCommentView
+{
+    //NSLog(@"content size dismiss = %f",self.detailScroll.contentSize.height);
+}
+
+- (void)checkheight
+{
+    //NSLog(@"scrollview content size dismiss = %f",self.detailScroll.contentSize.height);
+}
+
+//
 - (void)viewDidAppear:(BOOL)animated
 {
     //self.contentTextLabel.text = self.contentText;
     //CGSize maxLabelSize = CGSizeMake(300, 9999);
-    NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
+    //NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
     self.contentTextLabel.text = self.contentText;
     [self.contentTextLabel setNeedsLayout];
     [self.contentTextLabel layoutIfNeeded];
@@ -152,24 +186,24 @@
     CGRect textViewFrame = self.contentTextLabel.frame;
     CGRect rect = [self.contentText boundingRectWithSize:CGSizeMake(textViewFrame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil];
     //NSLog(@"text = %@",self.contentText);
-    NSLog(@"rect height = %f",rect.size.height);
+    //NSLog(@"rect height = %f",rect.size.height);
     self.contentLayoutConstrait.constant = rect.size.height;
     _detailScroll.contentSize = CGSizeMake(CGRectGetWidth(_detailScroll.frame), CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50);
     _height = CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50;
-    NSLog(@"Before binding scrollview content size = %f",self.detailScroll.contentSize.height);
+    //NSLog(@"Before binding scrollview content size = %f",self.detailScroll.contentSize.height);
     //self.contentTextLabel.frame = textViewFrame;
     [self.commentView bindToScrollView:self.detailScroll superview:self.view];
-    NSLog(@"After binding scrollview content size = %f",self.detailScroll.contentSize.height);
+    //NSLog(@"After binding scrollview content size = %f",self.detailScroll.contentSize.height);
     [self setUpAnimation];
 }
 
 - (void)setUpAnimation
 {
-    NSLog(@"scrollview content size = %f",self.detailScroll.contentSize.height);
+    //NSLog(@"scrollview content size = %f",self.detailScroll.contentSize.height);
     self.loadingActivity.hidden = NO;
     [self.loadingActivity startAnimating];
     PFQuery *objectQuery = [PFQuery queryWithClassName:@"news"];
-    NSLog(@"scrollview content size 1 = %f",self.detailScroll.contentSize.height);
+    //NSLog(@"scrollview content size 1 = %f",self.detailScroll.contentSize.height);
     [objectQuery getObjectInBackgroundWithId:self.objectID block:^(PFObject *object, NSError *error){
        if (!error)
        {
@@ -186,8 +220,9 @@
                PFRelation *imagesRelation = [object relationForKey:@"imageArray"];
                PFRelation *commentRelation = [object relationForKey:@"userComments"];
                PFQuery *getComments = [commentRelation query];
+               self.commentQuery = getComments;
                PFQuery *getImages = [imagesRelation query];
-               NSLog(@"scrollview content size 3 = %f",self.detailScroll.contentSize.height);
+               //NSLog(@"scrollview content size 3 = %f",self.detailScroll.contentSize.height);
                [getComments findObjectsInBackgroundWithBlock:^(NSArray *comments, NSError *error)
                 {
                     if (!error)
@@ -219,7 +254,7 @@
                                                         [self.animationImages addObject:[UIImage imageWithData:data]];
                                                         //[self.images addImage:[UIImage imageWithData:data]];
                                                         [[NSNotificationCenter defaultCenter] postNotificationName:@"completeDownloading" object:self];
-                                                        NSLog(@"got one image");
+                                                        //NSLog(@"got one image");
                                                     }
                                                 }
                                             }];
@@ -246,19 +281,22 @@
 
 - (void)kenBurns:(JBKenBurnsView *)kenBurns didFinishAllImages:(NSArray *)images
 {
-    NSLog(@"Yay all done!");
+    //NSLog(@"Yay all done!");
 }
 
 
-/*
+
 #pragma mark - Navigation
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    return YES; // So that I can determine whether or not to perform the segue based on app logic
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareforSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"got called");
 }
-*/
+
 
 @end

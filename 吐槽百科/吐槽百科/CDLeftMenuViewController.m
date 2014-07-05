@@ -53,7 +53,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"view did appear");
+    //NSLog(@"view did appear");
     //[self.tableView reloadDataAnimateWithWave];
 }
 

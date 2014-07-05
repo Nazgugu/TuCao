@@ -106,7 +106,7 @@
              }
              if (objects.count > 0)
              {
-                 NSLog(@"I got something");
+                 //NSLog(@"I got something");
                  [self.newsTitle removeAllObjects];
                  [self.newsImage removeAllObjects];
                  [self.newsTime removeAllObjects];
@@ -229,7 +229,7 @@
     cell.newsImage.image = [self.newsImage objectAtIndex:indexPath.row];
     if (self.newsImage[indexPath.row])
     {
-        NSLog(@"done image");
+        //NSLog(@"done image");
     }
     cell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
     cell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
@@ -264,6 +264,7 @@
  //In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //NSLog(@"get called");
      NSIndexPath *indexPath = nil;
     if ([sender isKindOfClass:[UITableViewCell class]])
     {

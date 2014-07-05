@@ -55,6 +55,8 @@
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
 		AE63751619654FB800ECD00A /* DCCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE63751519654FB800ECD00A /* DCCommentView.m */; };
+		AE845A8219670B1700A431A7 /* CDCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE845A8119670B1700A431A7 /* CDCommentsTableViewController.m */; };
+		AE845A8519670D8200A431A7 /* CDTCommentableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE845A8419670D8200A431A7 /* CDTCommentableViewCell.m */; };
 		AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C2BE819496FE80021D1B3 /* SZTextView.m */; };
 		AE8C2BEA194996F70021D1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE02C8E21942784500AC16AE /* Foundation.framework */; };
 		AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */; };
@@ -185,6 +187,10 @@
 		AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		AE63751419654FB800ECD00A /* DCCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommentView.h; sourceTree = "<group>"; };
 		AE63751519654FB800ECD00A /* DCCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCommentView.m; sourceTree = "<group>"; };
+		AE845A8019670B1700A431A7 /* CDCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCommentsTableViewController.h; sourceTree = "<group>"; };
+		AE845A8119670B1700A431A7 /* CDCommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCommentsTableViewController.m; sourceTree = "<group>"; };
+		AE845A8319670D8200A431A7 /* CDTCommentableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTCommentableViewCell.h; sourceTree = "<group>"; };
+		AE845A8419670D8200A431A7 /* CDTCommentableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTCommentableViewCell.m; sourceTree = "<group>"; };
 		AE8C2BE719496FE80021D1B3 /* SZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTextView.h; sourceTree = "<group>"; };
 		AE8C2BE819496FE80021D1B3 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		AE98515819443C6C0006B785 /* CDLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLeftMenuViewController.h; sourceTree = "<group>"; };
@@ -383,8 +389,6 @@
 				AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */,
 				AED43E8219490F4D0098C080 /* CDComposingViewController.h */,
 				AED43E8319490F4D0098C080 /* CDComposingViewController.m */,
-				AEC0119B1962689500F280BE /* CDDetailViewController.h */,
-				AEC0119C1962689500F280BE /* CDDetailViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -550,6 +554,8 @@
 			children = (
 				AEA7135B1951497B0078FBA6 /* CDTuCaoTableViewCell.h */,
 				AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */,
+				AE845A8319670D8200A431A7 /* CDTCommentableViewCell.h */,
+				AE845A8419670D8200A431A7 /* CDTCommentableViewCell.m */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -566,12 +572,16 @@
 		AED43E8119490F260098C080 /* NavigationViews */ = {
 			isa = PBXGroup;
 			children = (
+				AEC0119B1962689500F280BE /* CDDetailViewController.h */,
+				AEC0119C1962689500F280BE /* CDDetailViewController.m */,
 				AEF7CEE119443DCD00FA112A /* CDFeedViewController.h */,
 				AEF7CEE219443DCD00FA112A /* CDFeedViewController.m */,
 				AE9E2BC6194914460062175A /* CDNavigationViewController.h */,
 				AE9E2BC7194914460062175A /* CDNavigationViewController.m */,
 				AE9E2BCD194923290062175A /* CDProfileViewController.h */,
 				AE9E2BCE194923290062175A /* CDProfileViewController.m */,
+				AE845A8019670B1700A431A7 /* CDCommentsTableViewController.h */,
+				AE845A8119670B1700A431A7 /* CDCommentsTableViewController.m */,
 			);
 			name = NavigationViews;
 			sourceTree = "<group>";
@@ -717,6 +727,7 @@
 				AE03BFA919465801005A81FE /* UIStepper+FlatUI.m in Sources */,
 				AED8348019443A82002556B8 /* RESideMenu.m in Sources */,
 				AED834731943A2BB002556B8 /* Reachability.m in Sources */,
+				AE845A8219670B1700A431A7 /* CDCommentsTableViewController.m in Sources */,
 				AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */,
 				AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */,
 				AE05B6B61953E20900B21629 /* FAImageView.m in Sources */,
@@ -748,6 +759,7 @@
 				AED8348419443B48002556B8 /* CDRootViewController.m in Sources */,
 				AE04482019503C3400370FD8 /* NYSegmentIndicator.m in Sources */,
 				AE03BFA619465801005A81FE /* UIPopoverController+FlatUI.m in Sources */,
+				AE845A8519670D8200A431A7 /* CDTCommentableViewCell.m in Sources */,
 				AE03BFA519465801005A81FE /* UINavigationBar+FlatUI.m in Sources */,
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,
 				AE05B6B71953E20900B21629 /* NSString+FontAwesome.m in Sources */,

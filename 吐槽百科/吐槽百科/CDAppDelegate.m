@@ -65,6 +65,10 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:connectionKey];
     }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:objetcIDKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:objetcIDKey];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -125,7 +129,7 @@
     [PFUser logInWithUsernameInBackground:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey] password:PassWordKey block:^(PFUser *user, NSError *error){
         if (user)
         {
-            NSLog(@"loggedIn Successful");
+            //NSLog(@"loggedIn Successful");
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:UserLoginKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
