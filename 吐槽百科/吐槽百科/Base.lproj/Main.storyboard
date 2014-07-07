@@ -201,7 +201,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="g97-EP-gRM">
-                        <barButtonItem key="leftBarButtonItem" title="Left" id="tVd-4B-khO">
+                        <barButtonItem key="leftBarButtonItem" image="02" id="tVd-4B-khO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="M9n-e2-b3L" id="QOU-Zz-gKX"/>
                             </connections>
@@ -560,7 +561,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="2mf-iY-i2P">
-                        <barButtonItem key="leftBarButtonItem" title="left" id="OMU-nK-lDm">
+                        <barButtonItem key="leftBarButtonItem" image="02" id="OMU-nK-lDm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="UF3-Bg-gbx" id="mmI-eh-TKL"/>
                             </connections>
@@ -598,6 +600,7 @@
     </scenes>
     <resources>
         <image name="01" width="22" height="19"/>
+        <image name="02" width="22" height="21"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

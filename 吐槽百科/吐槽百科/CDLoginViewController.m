@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import "CDAppDelegate.h"
 #import "Reachability.h"
+#import "ProgressHUD.h"
 
 static int count = 1;
 
@@ -236,10 +237,11 @@ static int count = 1;
 
 //changeNameAndLogin
 - (void)changeNameAndLogin{
+    [self.nameField resignFirstResponder];
+    [ProgressHUD show:@"正在处理" Interaction:NO];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-        [alertView show];
+        [ProgressHUD showError:@"网络故障"];
         return;
     }
     else
@@ -262,6 +264,7 @@ static int count = 1;
                     [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                          if (succeeded)
                          {
+                             [ProgressHUD showSuccess:@"取名成功～"];
                              [self performSegueWithIdentifier:@"contents" sender:self];
                              [[NSUserDefaults standardUserDefaults] setObject:self.nameField.text forKey:NickNameKey];
                              [[NSUserDefaults standardUserDefaults] synchronize];
@@ -270,8 +273,7 @@ static int count = 1;
                          {
                              [[NSUserDefaults standardUserDefaults] setObject:self.nameField.text forKey:NickNameKey];
                              [[NSUserDefaults standardUserDefaults] synchronize];
-                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有点问题。。。" message:@"一会儿帮你保存哦，先进去看看吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-                             [alertView show];
+                             [ProgressHUD showSuccess:@"后台更新"];
                              [nameChange saveEventually];
                              //perform the segue
                              [self performSegueWithIdentifier:@"contents" sender:self];
@@ -290,6 +292,7 @@ static int count = 1;
                     {
                         NSLog(@"no collision");
                         //go ahead perform the segue
+                        [ProgressHUD showSuccess:@"取名成功～"];
                         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         [self performSegueWithIdentifier:@"contents" sender:self];
@@ -297,8 +300,7 @@ static int count = 1;
                     else
                     {
                         //the nickname is take prompt the user to choose another one
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"太没创意啦～" message:@"名字已经有人使用了哦" delegate:self cancelButtonTitle:@"换一个吧" otherButtonTitles:nil];
-                        [alertView show];
+                        [ProgressHUD showError:@"被占用咯～"];
                         [self.nameField becomeFirstResponder];
                     }
                 }
