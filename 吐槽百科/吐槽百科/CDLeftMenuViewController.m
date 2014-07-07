@@ -60,9 +60,9 @@
 - (void)commitAnimation:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
-    NSLog(@"userinfo = %@",userInfo);
-    NSLog(@"current page is %@",[userInfo objectForKey:@"indexKey"]);
-    NSLog(@"index value = %d",[[userInfo objectForKey:@"indexKey"] intValue]);
+    //NSLog(@"userinfo = %@",userInfo);
+    //NSLog(@"current page is %@",[userInfo objectForKey:@"indexKey"]);
+    //NSLog(@"index value = %d",[[userInfo objectForKey:@"indexKey"] intValue]);
     [self.tableView reloadDataAnimateWithWave];
     NSArray *cells = [self.tableView visibleCells];
     for (int i = 0; i < cells.count; i++)

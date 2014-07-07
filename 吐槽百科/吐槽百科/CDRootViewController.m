@@ -50,13 +50,13 @@
              }
             if ([navigationController.visibleViewController isKindOfClass:[CDSettingTableViewController class]])
             {
-                NSLog(@"its me here");
+                //NSLog(@"its me here");
                 [userInfo setObject:@1 forKey:@"indexKey"];
-                NSLog(@"userinfo = %@",userInfo);
+                //NSLog(@"userinfo = %@",userInfo);
             }
             else
             {
-                NSLog(@"not get it");
+                //NSLog(@"not get it");
             }
          }
     

@@ -12,6 +12,9 @@
 #import "CDTuCaoTableViewCell.h"
 #import <Parse/Parse.h>
 #import "CDDetailViewController.h"
+#import "ProgressHUD.h"
+#import "CDAppDelegate.h"
+#import "CDSingleton.h"
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NYSegmentedControl *topControl;
@@ -72,6 +75,12 @@
 
 - (void)fetchContent
 {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
+    {
+        //[ProgressHUD dismiss];
+        [ProgressHUD showError:@"无网络"];
+        return;
+    }
     if (topControl.selectedSegmentIndex == 0)
     {
     [self.refreshControl beginRefreshing];
@@ -148,8 +157,7 @@
          }
          else
          {
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Opps" message:@"发生了一些错误" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-             [alert show];
+             [ProgressHUD showError:@"发生了一些错误"];
          }
      }];
     }
@@ -251,7 +259,8 @@
     CDDetailViewController *detailNewsVC = (CDDetailViewController *)vc;
     //if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[CDTuCaoTableViewCell class]])
     //{
-        detailNewsVC.contentText = [self.newsContent objectAtIndex:indexPath.row];
+    [CDSingleton globalData].content = [self.newsContent objectAtIndex:indexPath.row];
+        //detailNewsVC.contentText = [self.newsContent objectAtIndex:indexPath.row];
     //NSLog(@"newsContent = %@",detailNewsVC.contentText);
         detailNewsVC.objectID = [self.newsID objectAtIndex:indexPath.row];
     //NSLog(@"objectID = %@",detailNewsVC.objectID);

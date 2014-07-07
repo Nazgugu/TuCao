@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "Reachability.h"
 #import "CDRootViewController.h"
+#import "ProgressHUD.h"
 
 @interface CDAppDelegate()
 @property (nonatomic) Reachability *netWorkConnection;
@@ -72,7 +73,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Override point for customization after application launch.
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
-    NSLog(@"Unique user ID = %@",[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]);
+    //NSLog(@"Unique user ID = %@",[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]);
     return YES;
 }
 
@@ -188,8 +189,7 @@
         //NSlog(@"status = %@",stats);
         if (stats == NotReachable)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无网络" message:[NSString stringWithFormat:@"无网络连接,请连接至互联网使用"] delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-            [alertView show];
+            [ProgressHUD showError:@"无网络"];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:connectionKey];
         }
         else

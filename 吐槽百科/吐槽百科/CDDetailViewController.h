@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CDDetailViewController : UIViewController
-@property (strong, nonatomic) NSString *contentText;
+//@property (strong, nonatomic) NSString *contentText;
 @property (strong, nonatomic) NSString *objectID;
 @end

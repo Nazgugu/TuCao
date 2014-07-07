@@ -15,6 +15,7 @@
 #import "BBBadgeBarButtonItem.h"
 #import "CDAppDelegate.h"
 #import "CDCommentsTableViewController.h"
+#import "CDSingleton.h"
 
 @interface CDDetailViewController ()<KenBurnsViewDelegate, DCCommentViewDelegate>
 @property (weak, nonatomic) IBOutlet JBKenBurnsView *images;
@@ -179,17 +180,21 @@
     //self.contentTextLabel.text = self.contentText;
     //CGSize maxLabelSize = CGSizeMake(300, 9999);
     //NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
-    self.contentTextLabel.text = self.contentText;
+    self.contentTextLabel.text = [CDSingleton globalData].content;
+    //NSLog(@"contentText = %@",self.contentText);
+    //NSLog(@"height 1 begining = %lf",CGRectGetMaxY(_contentTextLabel.frame));
     [self.contentTextLabel setNeedsLayout];
     [self.contentTextLabel layoutIfNeeded];
     NSDictionary *attribute = @{NSFontAttributeName:self.contentTextLabel.font};
     CGRect textViewFrame = self.contentTextLabel.frame;
-    CGRect rect = [self.contentText boundingRectWithSize:CGSizeMake(textViewFrame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil];
+    CGRect rect = [[CDSingleton globalData].content boundingRectWithSize:CGSizeMake(textViewFrame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attribute context:nil];
     //NSLog(@"text = %@",self.contentText);
     //NSLog(@"rect height = %f",rect.size.height);
     self.contentLayoutConstrait.constant = rect.size.height;
     _detailScroll.contentSize = CGSizeMake(CGRectGetWidth(_detailScroll.frame), CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50);
     _height = CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50;
+    //NSLog(@"height 1 = %lf",CGRectGetMaxY(_contentTextLabel.frame));
+    //NSLog(@"height 2 = %lf",rect.size.height + 50);
     //NSLog(@"Before binding scrollview content size = %f",self.detailScroll.contentSize.height);
     //self.contentTextLabel.frame = textViewFrame;
     [self.commentView bindToScrollView:self.detailScroll superview:self.view];

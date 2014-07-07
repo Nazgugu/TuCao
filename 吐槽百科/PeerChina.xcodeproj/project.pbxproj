@@ -63,6 +63,7 @@
 		AEA5524E196A7C0F0015FABF /* AAPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA5524B196A7C0F0015FABF /* AAPanelView.m */; };
 		AEA55253196AE8650015FABF /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEA55250196AE8650015FABF /* ProgressHUD.bundle */; };
 		AEA55254196AE8650015FABF /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA55252196AE8650015FABF /* ProgressHUD.m */; };
+		AEA55258196B45850015FABF /* CDSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA55257196B45850015FABF /* CDSingleton.m */; };
 		AEA7135D1951497B0078FBA6 /* CDTuCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */; };
 		AEC0119D1962689500F280BE /* CDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC0119C1962689500F280BE /* CDDetailViewController.m */; };
 		AEC011A1196269D700F280BE /* JBKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC011A0196269D700F280BE /* JBKenBurnsView.m */; };
@@ -199,6 +200,8 @@
 		AEA55250196AE8650015FABF /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		AEA55251196AE8650015FABF /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		AEA55252196AE8650015FABF /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		AEA55256196B45850015FABF /* CDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSingleton.h; sourceTree = "<group>"; };
+		AEA55257196B45850015FABF /* CDSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSingleton.m; sourceTree = "<group>"; };
 		AEA7135B1951497B0078FBA6 /* CDTuCaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTuCaoTableViewCell.h; sourceTree = "<group>"; };
 		AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTuCaoTableViewCell.m; sourceTree = "<group>"; };
 		AEC0119B1962689500F280BE /* CDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDetailViewController.h; sourceTree = "<group>"; };
@@ -390,6 +393,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AEA55255196B45570015FABF /* Singleton */,
 				AEA5524F196AE8540015FABF /* ProgressHud */,
 				AEA55245196A7C010015FABF /* AAActivity */,
 				AE9B558E196664C000B63206 /* BarButtonItem */,
@@ -553,6 +557,15 @@
 				AEA55252196AE8650015FABF /* ProgressHUD.m */,
 			);
 			name = ProgressHud;
+			sourceTree = "<group>";
+		};
+		AEA55255196B45570015FABF /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				AEA55256196B45850015FABF /* CDSingleton.h */,
+				AEA55257196B45850015FABF /* CDSingleton.m */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 		AEA713581951492B0078FBA6 /* TableViewCell */ = {
@@ -770,6 +783,7 @@
 				AE03BFA119465801005A81FE /* UIBarButtonItem+FlatUI.m in Sources */,
 				AE03BFA219465801005A81FE /* UIColor+FlatUI.m in Sources */,
 				AE03BF9E19465801005A81FE /* FUISegmentedControl.m in Sources */,
+				AEA55258196B45850015FABF /* CDSingleton.m in Sources */,
 				AED8347F19443A82002556B8 /* RECommonFunctions.m in Sources */,
 				AE03BF9B19465801005A81FE /* FUIButton.m in Sources */,
 				AEA5524E196A7C0F0015FABF /* AAPanelView.m in Sources */,
