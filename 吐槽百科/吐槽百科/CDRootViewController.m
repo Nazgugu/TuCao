@@ -10,7 +10,7 @@
 #import "CDLeftMenuViewController.h"
 #import "UITableView+Wave.h"
 #import "CDFeedViewController.h"
-#import "CDProfileViewController.h"
+#import "CDSettingTableViewController.h"
 
 @interface CDRootViewController ()
 
@@ -48,11 +48,15 @@
              {
                  [userInfo setObject:@0 forKey:@"indexKey"];
              }
-            if ([navigationController.visibleViewController isKindOfClass:[CDProfileViewController class]])
+            if ([navigationController.visibleViewController isKindOfClass:[CDSettingTableViewController class]])
             {
                 NSLog(@"its me here");
                 [userInfo setObject:@1 forKey:@"indexKey"];
                 NSLog(@"userinfo = %@",userInfo);
+            }
+            else
+            {
+                NSLog(@"not get it");
             }
          }
     

@@ -128,7 +128,7 @@
         self.commentCell = [self.tableView dequeueReusableCellWithIdentifier:@"commentCell"];
     }
     NSString *avatarName = [[[self.comments objectAtIndex:indexPath.row] objectForKey:@"avatarNumber"] stringValue];;
-    NSLog(@"avatar name = %@",avatarName);
+    //NSLog(@"avatar name = %@",avatarName);
     NSString *nameString = [avatarName stringByAppendingString:@"a"];
     self.commentCell.avatarImage.image = [UIImage imageNamed:nameString];
     self.commentCell.userNameLabel.text = [[self.comments objectAtIndex:indexPath.row] objectForKey:@"userName"];

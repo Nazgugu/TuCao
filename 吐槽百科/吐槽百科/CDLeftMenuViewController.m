@@ -8,7 +8,7 @@
 
 #import "CDLeftMenuViewController.h"
 #import "CDFeedViewController.h"
-#import "CDProfileViewController.h"
+#import "CDSettingTableViewController.h"
 #import "UIViewController+RESideMenu.h"
 #import "UITableView+Wave.h"
 #import "CDAppDelegate.h"

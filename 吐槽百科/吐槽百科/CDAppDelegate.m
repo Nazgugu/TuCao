@@ -84,6 +84,7 @@
         newUser.username = [[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey];
         newUser.password = PassWordKey;
         newUser[NickNameKey] = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+        newUser[AvatarKey] = [[NSUserDefaults standardUserDefaults] objectForKey:AvatarKey];
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError  *error) {
            if (!error)
            {

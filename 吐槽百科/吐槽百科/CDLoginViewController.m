@@ -263,9 +263,13 @@ static int count = 1;
                          if (succeeded)
                          {
                              [self performSegueWithIdentifier:@"contents" sender:self];
+                             [[NSUserDefaults standardUserDefaults] setObject:self.nameField.text forKey:NickNameKey];
+                             [[NSUserDefaults standardUserDefaults] synchronize];
                          }
                          else
                          {
+                             [[NSUserDefaults standardUserDefaults] setObject:self.nameField.text forKey:NickNameKey];
+                             [[NSUserDefaults standardUserDefaults] synchronize];
                              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有点问题。。。" message:@"一会儿帮你保存哦，先进去看看吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
                              [alertView show];
                              [nameChange saveEventually];
