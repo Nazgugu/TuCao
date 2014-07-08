@@ -16,6 +16,7 @@
 #import "CDAppDelegate.h"
 #import "CDCommentsTableViewController.h"
 #import "CDSingleton.h"
+#import "ProgressHUD.h"
 
 @interface CDDetailViewController ()<KenBurnsViewDelegate, DCCommentViewDelegate>
 @property (weak, nonatomic) IBOutlet JBKenBurnsView *images;
@@ -127,6 +128,7 @@
 - (void)didSendComment:(NSString *)text
 {
     [self.commentView resignFirstResponder];
+    [ProgressHUD show:@"正在发送" Interaction:NO];
     NSLog(@"comment text = %@",text);
     NSString *nameString;
     PFObject *comment = [PFObject objectWithClassName:@"comments"];
@@ -153,6 +155,7 @@
               if (successful)
               {
                   NSLog(@"saved");
+                  [ProgressHUD showSuccess:@"发送成功"];
               }
            }];
        }
@@ -180,6 +183,7 @@
     //self.contentTextLabel.text = self.contentText;
     //CGSize maxLabelSize = CGSizeMake(300, 9999);
     //NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
+    [ProgressHUD show:@"正在载入" Interaction:NO];
     self.contentTextLabel.text = [CDSingleton globalData].content;
     //NSLog(@"contentText = %@",self.contentText);
     //NSLog(@"height 1 begining = %lf",CGRectGetMaxY(_contentTextLabel.frame));
@@ -213,6 +217,7 @@
        if (!error)
        {
            self.detailScroll.contentSize = CGSizeMake(self.detailScroll.frame.size.width, self.height);
+           [ProgressHUD dismiss];
            if (object)
            {
                //NSLog(@"scrollview content size 2 = %f",self.detailScroll.contentSize.height);

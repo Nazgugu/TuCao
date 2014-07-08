@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
@@ -521,6 +521,7 @@
                                                 <constraint firstItem="0w8-0Y-RA1" firstAttribute="top" secondItem="ORv-uj-4FG" secondAttribute="top" constant="10" id="oas-Vj-pmM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="diq-tV-hWI">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -551,6 +552,34 @@
                                                 <constraint firstItem="H1l-oh-SEs" firstAttribute="leading" secondItem="EvZ-AY-rjp" secondAttribute="leading" constant="115" id="tqX-Qw-TKs"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="HOt-2r-lCg">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOt-2r-lCg" id="onx-2M-jzk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60f-uM-uXR">
+                                                    <rect key="frame" x="229" y="16" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleSwitch:" destination="UF3-Bg-gbx" eventType="valueChanged" id="HXE-nR-h4i"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否隐身查看" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-qd-NBG">
+                                                    <rect key="frame" x="20" y="16" width="177" height="31"/>
+                                                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="21"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0a1-qd-NBG" firstAttribute="top" secondItem="onx-2M-jzk" secondAttribute="top" constant="16" id="C7K-9H-Vnf"/>
+                                                <constraint firstAttribute="bottom" secondItem="0a1-qd-NBG" secondAttribute="bottom" constant="17" id="T69-c1-HNU"/>
+                                                <constraint firstItem="0a1-qd-NBG" firstAttribute="leading" secondItem="onx-2M-jzk" secondAttribute="leading" constant="20" id="jsm-O8-6GS"/>
+                                                <constraint firstAttribute="trailing" secondItem="0a1-qd-NBG" secondAttribute="trailing" constant="123" id="w0s-yH-5z4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -569,13 +598,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="anonymousSwitch" destination="60f-uM-uXR" id="4Fd-St-yfX"/>
                         <outlet property="avatarImage" destination="0w8-0Y-RA1" id="P8D-AI-O3l"/>
                         <outlet property="nameLabel" destination="Dcx-i7-z6o" id="J2Z-Ee-Ct8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRH-WK-ceH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="1529"/>
+            <point key="canvasLocation" x="171" y="1528"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="1YQ-EF-CJj">
@@ -596,6 +626,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZk-0X-JTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-17" y="951"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wVZ-45-R73">
+            <objects>
+                <viewController id="isA-Py-rIe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C2R-Kd-md9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Usg-5M-Owh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GDE-XZ-ayg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frf-AQ-UyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

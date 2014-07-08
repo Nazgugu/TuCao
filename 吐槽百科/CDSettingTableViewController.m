@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) NSString *nameString;
 @property (nonatomic) NSUInteger intName;
+@property (weak, nonatomic) IBOutlet UISwitch *anonymousSwitch;
 
 @end
 
@@ -47,10 +48,12 @@
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == YES)
     {
         self.nameLabel.text = @"匿名用户";
+        [self.anonymousSwitch setOn:YES animated:YES];
     }
     else
     {
         self.nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+        [self.anonymousSwitch setOn:NO animated:YES];
     }
 }
 
@@ -70,49 +73,6 @@
 }
 
 #pragma mark - Table view data source
-
-/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{    // Return the number of rows in the section.
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
 - (void)imageAnimation
 {
@@ -195,6 +155,7 @@
                                 //[self performSegueWithIdentifier:@"contents" sender:self];
                                 [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
                                 [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+                                [self.anonymousSwitch setOn:NO animated:YES];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                                 //[ProgressHUD dismiss];
                                 [ProgressHUD showSuccess:@"设置成功"];
@@ -205,6 +166,7 @@
                                 [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
                                 [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
+                                [self.anonymousSwitch setOn:NO animated:YES];
                                 //[ProgressHUD dismiss];
                                 [ProgressHUD showSuccess:@"暂时失败"];
                                 [nameChange saveEventually];
@@ -230,6 +192,7 @@
                             [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
                             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
                             [[NSUserDefaults standardUserDefaults] synchronize];
+                            [self.anonymousSwitch setOn:NO animated:YES];
                             self.nameLabel.text = username.text;
                             //[ProgressHUD dismiss];
                             [ProgressHUD showSuccess:@"设置成功"];
@@ -284,6 +247,22 @@
             [ProgressHUD showError:@"出现了一点问题"];
         }
     }];
+}
+
+- (IBAction)toggleSwitch:(id)sender {
+    NSLog(@"UISwitch is now %hhd",self.anonymousSwitch.isOn);
+    if (self.anonymousSwitch.isOn)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:AnonymousKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        self.nameLabel.text = @"匿名用户";
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        self.nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+    }
 }
 
 /*
