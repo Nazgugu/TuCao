@@ -35,9 +35,15 @@
     return self;
 }
 
+- (void)loadView
+{
+    [super loadView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
     self.title = @"设置";
     // Uncomment the following line to preserve selection between presentations.
