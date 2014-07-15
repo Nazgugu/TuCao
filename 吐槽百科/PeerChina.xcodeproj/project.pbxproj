@@ -47,6 +47,7 @@
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
+		AE5733E319756D6C00B11801 /* CDActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5733E219756D6C00B11801 /* CDActivityTableViewCell.m */; };
 		AE63751619654FB800ECD00A /* DCCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE63751519654FB800ECD00A /* DCCommentView.m */; };
 		AE845A8219670B1700A431A7 /* CDCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE845A8119670B1700A431A7 /* CDCommentsTableViewController.m */; };
 		AE845A8519670D8200A431A7 /* CDTCommentableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE845A8419670D8200A431A7 /* CDTCommentableViewCell.m */; };
@@ -171,6 +172,8 @@
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AE43BCA419495CEF00373FC9 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		AE5733E119756D6C00B11801 /* CDActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDActivityTableViewCell.h; sourceTree = "<group>"; };
+		AE5733E219756D6C00B11801 /* CDActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDActivityTableViewCell.m; sourceTree = "<group>"; };
 		AE63751419654FB800ECD00A /* DCCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommentView.h; sourceTree = "<group>"; };
 		AE63751519654FB800ECD00A /* DCCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCommentView.m; sourceTree = "<group>"; };
 		AE845A8019670B1700A431A7 /* CDCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCommentsTableViewController.h; sourceTree = "<group>"; };
@@ -575,6 +578,8 @@
 				AEA7135C1951497B0078FBA6 /* CDTuCaoTableViewCell.m */,
 				AE845A8319670D8200A431A7 /* CDTCommentableViewCell.h */,
 				AE845A8419670D8200A431A7 /* CDTCommentableViewCell.m */,
+				AE5733E119756D6C00B11801 /* CDActivityTableViewCell.h */,
+				AE5733E219756D6C00B11801 /* CDActivityTableViewCell.m */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 				AE03BF9A19465801005A81FE /* FUIAlertView.m in Sources */,
 				AE01CECF1946C7260028FF11 /* UITableView+Wave.m in Sources */,
 				AEA5524D196A7C0F0015FABF /* AAActivityAction.m in Sources */,
+				AE5733E319756D6C00B11801 /* CDActivityTableViewCell.m in Sources */,
 				AE8C2BE919496FE80021D1B3 /* SZTextView.m in Sources */,
 				AEA55244196A6C0B0015FABF /* CDSettingTableViewController.m in Sources */,
 				AE03BF9C19465801005A81FE /* FUICellBackgroundView.m in Sources */,
