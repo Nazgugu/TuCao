@@ -15,16 +15,21 @@
 #import "ProgressHUD.h"
 #import "CDAppDelegate.h"
 #import "CDSingleton.h"
+#import "CDActivity.h"
+#import "CDPeople.h"
+#import "CDActivityTableViewCell.h"
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NYSegmentedControl *topControl;
 @property (strong, nonatomic) IBOutlet UITableView *newsTable;
 @property (strong, nonatomic) CDTuCaoTableViewCell *newsCell;
+@property (strong, nonatomic) CDActivityTableViewCell *activityCell;
 @property (strong, nonatomic) NSMutableArray *newsTitle;
 @property (strong, nonatomic) NSMutableArray *newsImage;
 @property (strong, nonatomic) NSMutableArray *newsContent;
 @property (strong, nonatomic) NSMutableArray *newsTime;
 @property (strong, nonatomic) NSMutableArray *newsID;
+@property (strong, nonatomic) NSMutableArray *activities;
 @end
 
 @implementation CDFeedViewController
@@ -168,6 +173,66 @@
     }
     else if (topControl.selectedSegmentIndex == 1)
     {
+        if (!_activities)
+        {
+            _activities = [[NSMutableArray alloc] init];
+        }
+        [self.refreshControl beginRefreshing];
+        [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height)];
+        [self.activities removeAllObjects];
+        PFQuery *activityQuery = [PFQuery queryWithClassName:@"activity"];
+        [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+           if (!error)
+           {
+               if (objects)
+               {
+                   for (int i = 0; i < objects.count; i++)
+                   {
+                       PFObject *object = [objects objectAtIndex:i];
+                       CDActivity *newActivity = [[CDActivity alloc] init];
+                       PFRelation *goingPeople = [object relationForKey:@"goPeople"];
+                       PFQuery *peopleQuery = [goingPeople query];
+                       [peopleQuery findObjectsInBackgroundWithBlock:^(NSArray *people, NSError *error){
+                          if (!error)
+                          {
+                              if (people)
+                              {
+                                  for (int j = 0; j < people.count; j ++)
+                                  {
+                                      CDPeople *goingPeople = [[CDPeople alloc] init];
+                                      NSString *name = [[people objectAtIndex:j] objectForKey:@"name"];
+                                      NSInteger avatarNum = [[[people objectAtIndex:j] objectForKey:@""] intValue];
+                                      [goingPeople setName:name];
+                                      [goingPeople setAvatarNumber:avatarNum];
+                                      [newActivity addPeople:goingPeople];
+                                  }
+                                  NSString *title = [object objectForKey:@"title"];
+                                  NSString *time = [object objectForKey:@"activityDate"];
+                                  NSString *location = [object objectForKey:@"location"];
+                                  NSString *body = [object objectForKey:@"body"];
+                                  [newActivity addTitle:title];
+                                  [newActivity addBody:body];
+                                  [newActivity addTime:time];
+                                  [newActivity addLocation:location];
+                                  [self.activities addObject:newActivity];
+                              }
+                          }
+                       }];
+                   }
+                   [self.refreshControl endRefreshing];
+                   [self.tableView setContentOffset:CGPointZero];
+               }
+               else
+               {
+                   [self.refreshControl endRefreshing];
+                   [self.tableView setContentOffset:CGPointZero];
+               }
+           }
+            else
+            {
+               [ProgressHUD showError:@"发生了一些错误"];
+            }
+        }];
         [self.tableView reloadData];
     }
 }
@@ -193,19 +258,36 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.newsCell)
+    if (self.topControl.selectedSegmentIndex == 0)
     {
-        self.newsCell = [self.newsTable dequeueReusableCellWithIdentifier:@"tuCao"];
+        if (!self.newsCell)
+        {
+            self.newsCell = [self.newsTable dequeueReusableCellWithIdentifier:@"tuCao"];
+        }
+        self.newsCell.imageView.image = [self.newsImage objectAtIndex:indexPath.row];
+        self.newsCell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
+        self.newsCell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
+        [self.newsCell setNeedsLayout];
+        [self.newsCell layoutIfNeeded];
+        //GET THE HEIGHT FOR THE CELL
+        CGFloat height = [self.newsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        //PADDING OF 1 POINT FOR THE SEPERATOR
+        return  height + 1;
     }
-    self.newsCell.imageView.image = [self.newsImage objectAtIndex:indexPath.row];
-    self.newsCell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
-    self.newsCell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
-    [self.newsCell setNeedsLayout];
-    [self.newsCell layoutIfNeeded];
-    //GET THE HEIGHT FOR THE CELL
-    CGFloat height = [self.newsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    //PADDING OF 1 POINT FOR THE SEPERATOR
-    return  height + 1;
+    else
+    {
+        if (!self.activityCell)
+        {
+            self.activityCell = [self.newsTable dequeueReusableCellWithIdentifier:@"activity"];
+        }
+        CDActivity *activity = [self.activities objectAtIndex:indexPath.row];
+        self.activityCell.titlelabel.text = [activity getTitle];
+        self.activityCell.timeLabel.text = [activity getTime];
+        self.activityCell.locationLabel.text = [activity getLocation];
+        self.activityCell.bodyLabel.text = [activity getBody];
+        
+    }
+    return 0;
 }
 
 
@@ -224,7 +306,7 @@
     }
     else if (topControl.selectedSegmentIndex == 1)
     {
-        number = 0;
+        number = self.activities.count;
     }
     return number;
 }
@@ -233,30 +315,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CDTuCaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuCao"];
-    if (!cell)
+    if (topControl.selectedSegmentIndex == 0)
     {
-        NSLog(@"create new");
-        cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
+        CDTuCaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuCao"];
+        if (!cell)
+        {
+            NSLog(@"create new");
+            cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
+        }
+        cell.newsImage.image = [self.newsImage objectAtIndex:indexPath.row];
+        if (self.newsImage[indexPath.row])
+        {
+            //NSLog(@"done image");
+        }
+        cell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
+        cell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
+        return cell;
     }
-    cell.newsImage.image = [self.newsImage objectAtIndex:indexPath.row];
-    if (self.newsImage[indexPath.row])
+    else
     {
-        //NSLog(@"done image");
+        
     }
-    cell.newsTitle.text = [self.newsTitle objectAtIndex:indexPath.row];
-    cell.newsTime.text = [self.newsTime objectAtIndex:indexPath.row];
-    return cell;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id detailVC = [self.splitViewController.viewControllers lastObject];
-    if ([detailVC isKindOfClass:[UINavigationController class]])
-         {
-             detailVC  = [((UINavigationController *)detailVC).viewControllers firstObject];
-             [self prepareViewController:detailVC forSegue:nil fromIndexPath:indexPath];
-         }
+    if (self.topControl.selectedSegmentIndex == 0)
+    {
+        id detailVC = [self.splitViewController.viewControllers lastObject];
+        if ([detailVC isKindOfClass:[UINavigationController class]])
+            {
+                detailVC  = [((UINavigationController *)detailVC).viewControllers firstObject];
+                [self prepareViewController:detailVC forSegue:nil fromIndexPath:indexPath];
+            }
+    }
 }
 
 - (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath

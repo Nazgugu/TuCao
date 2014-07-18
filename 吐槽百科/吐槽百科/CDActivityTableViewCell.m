@@ -7,7 +7,7 @@
 //
 
 #import "CDActivityTableViewCell.h"
-#import "FUIButton.h"
+#import "FlatUIKit.h"
 
 @interface CDActivityTableViewCell()
 @property (weak, nonatomic) IBOutlet FUIButton *goButton;
@@ -21,6 +21,20 @@
     if (self) {
         // Initialization code
     }
+    return self;
+}
+
+- (id)init
+{
+    if (!self)
+    {
+        self = [super init];
+    }
+    self.goButton.buttonColor = [UIColor turquoiseColor];
+    self.goButton.shadowColor = [UIColor cloudsColor];
+    self.goButton.highlightedColor = [UIColor greenSeaColor];
+    self.goButton.shadowHeight = 1.0f;
+    self.goButton.cornerRadius = 7.0f;
     return self;
 }
 
