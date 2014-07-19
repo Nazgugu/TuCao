@@ -256,7 +256,7 @@
 }
 
 - (IBAction)toggleSwitch:(id)sender {
-    NSLog(@"UISwitch is now %hhd",self.anonymousSwitch.isOn);
+    //NSLog(@"UISwitch is now %",self.anonymousSwitch.isOn);
     if (self.anonymousSwitch.isOn)
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:AnonymousKey];

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
@@ -201,55 +202,38 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vMV-ex-dBl">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vMV-ex-dBl">
                                             <rect key="frame" x="20" y="18" width="280" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="yCs-D0-dE6"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-Jg-RoC">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-Jg-RoC">
                                             <rect key="frame" x="20" y="47" width="134" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="2UE-su-qGd"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqO-ei-HpR">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="158" translatesAutoresizingMaskIntoConstraints="NO" id="OqO-ei-HpR">
                                             <rect key="frame" x="142" y="47" width="158" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="hYJ-nx-mpM"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="s0r-C9-oXR">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="s0r-C9-oXR">
                                             <rect key="frame" x="20" y="81" width="280" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="qgU-rw-jdA"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="想去的用户：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfj-NP-ssj">
-                                            <rect key="frame" x="125" y="286" width="78" height="22"/>
-                                            <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxr-55-a8D" customClass="FUIButton">
-                                            <rect key="frame" x="7" y="149" width="60" height="22"/>
+                                            <rect key="frame" x="20" y="149" width="60" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="8K0-qu-6xN"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="12"/>
                                             <state key="normal" title="我想去">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -257,43 +241,64 @@
                                             <rect key="frame" x="194" y="146" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="I0K-ov-VSQ"/>
+                                                <constraint firstAttribute="width" constant="30" id="Vd1-Iy-aB9"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FV1-YV-03z">
                                             <rect key="frame" x="242" y="146" width="30" height="30"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="B24-dw-NCx"/>
                                                 <constraint firstAttribute="height" constant="30" id="G3L-Sc-j4c"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI7-XM-hN8">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI7-XM-hN8">
                                             <rect key="frame" x="284" y="150" width="30" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="CQK-5O-BNZ"/>
+                                            </constraints>
                                             <state key="normal" image="disclose">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="想去的用户：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfj-NP-ssj">
+                                            <rect key="frame" x="108" y="149" width="78" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="9vl-Bp-o9Q"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Gfm-Jg-RoC" secondAttribute="trailing" constant="166" id="1D0-HN-KGw"/>
                                         <constraint firstItem="FV1-YV-03z" firstAttribute="leading" secondItem="fYS-UI-SBR" secondAttribute="trailing" constant="18" id="1FI-Wt-1Ck"/>
                                         <constraint firstItem="OqO-ei-HpR" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="142" id="3Bi-wL-D2d"/>
-                                        <constraint firstItem="s0r-C9-oXR" firstAttribute="top" secondItem="Gfm-Jg-RoC" secondAttribute="bottom" constant="13" id="3sG-9e-une"/>
                                         <constraint firstAttribute="trailing" secondItem="vMV-ex-dBl" secondAttribute="trailing" constant="20" id="444-al-kHJ"/>
-                                        <constraint firstItem="lxr-55-a8D" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="7" id="9tf-5a-7sS"/>
-                                        <constraint firstItem="fYS-UI-SBR" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="194" id="DpD-HR-KLa"/>
-                                        <constraint firstItem="fYS-UI-SBR" firstAttribute="top" secondItem="s0r-C9-oXR" secondAttribute="bottom" constant="5" id="GHI-tw-gZk"/>
-                                        <constraint firstItem="lxr-55-a8D" firstAttribute="top" secondItem="s0r-C9-oXR" secondAttribute="bottom" constant="8" id="JKZ-oC-39g"/>
+                                        <constraint firstItem="lxr-55-a8D" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="20" id="9tf-5a-7sS"/>
+                                        <constraint firstItem="fYS-UI-SBR" firstAttribute="leading" secondItem="vfj-NP-ssj" secondAttribute="trailing" constant="8" id="Fnr-VX-6DB"/>
+                                        <constraint firstItem="s0r-C9-oXR" firstAttribute="top" secondItem="Gfm-Jg-RoC" secondAttribute="bottom" constant="13" id="HOY-8o-cOi"/>
+                                        <constraint firstItem="s0r-C9-oXR" firstAttribute="top" secondItem="2b2-on-yKe" secondAttribute="top" constant="81" id="HcS-bv-Xtf"/>
+                                        <constraint firstAttribute="bottom" secondItem="FV1-YV-03z" secondAttribute="bottom" constant="8" id="HsT-3j-QPJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="lxr-55-a8D" secondAttribute="bottom" constant="13" id="JEf-e3-o7t"/>
+                                        <constraint firstAttribute="bottom" secondItem="fYS-UI-SBR" secondAttribute="bottom" constant="8" id="KDW-Zi-oUu"/>
                                         <constraint firstAttribute="trailing" secondItem="s0r-C9-oXR" secondAttribute="trailing" constant="20" id="Mj3-Ag-rd6"/>
-                                        <constraint firstAttribute="trailing" secondItem="fYS-UI-SBR" secondAttribute="trailing" constant="96" id="Qqy-h6-Kgo"/>
+                                        <constraint firstItem="vfj-NP-ssj" firstAttribute="leading" secondItem="lxr-55-a8D" secondAttribute="trailing" constant="28" id="Rk2-vk-5v1"/>
                                         <constraint firstItem="s0r-C9-oXR" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="20" id="UCU-ue-Dn2"/>
-                                        <constraint firstAttribute="trailing" secondItem="lxr-55-a8D" secondAttribute="trailing" constant="253" id="XHG-ZA-Jkb"/>
+                                        <constraint firstAttribute="trailing" secondItem="lxr-55-a8D" secondAttribute="trailing" constant="240" id="XHG-ZA-Jkb"/>
                                         <constraint firstAttribute="trailing" secondItem="OqO-ei-HpR" secondAttribute="trailing" constant="20" id="apQ-iP-ZQu"/>
                                         <constraint firstItem="vMV-ex-dBl" firstAttribute="top" secondItem="2b2-on-yKe" secondAttribute="top" constant="18" id="buh-Lk-OYd"/>
-                                        <constraint firstItem="FV1-YV-03z" firstAttribute="top" secondItem="s0r-C9-oXR" secondAttribute="bottom" constant="5" id="fRa-df-pJv"/>
+                                        <constraint firstAttribute="bottom" secondItem="lI7-XM-hN8" secondAttribute="bottom" constant="12" id="e2z-qq-3th"/>
+                                        <constraint firstAttribute="trailing" secondItem="lI7-XM-hN8" secondAttribute="trailing" constant="6" id="hCG-Y1-wGf"/>
+                                        <constraint firstItem="s0r-C9-oXR" firstAttribute="top" secondItem="OqO-ei-HpR" secondAttribute="bottom" constant="13" id="in7-dr-o32"/>
+                                        <constraint firstItem="s0r-C9-oXR" firstAttribute="top" secondItem="vMV-ex-dBl" secondAttribute="bottom" constant="42" id="lYv-47-PBu"/>
+                                        <constraint firstAttribute="bottom" secondItem="s0r-C9-oXR" secondAttribute="bottom" constant="43" id="mLy-op-6za"/>
                                         <constraint firstItem="OqO-ei-HpR" firstAttribute="top" secondItem="vMV-ex-dBl" secondAttribute="bottom" constant="8" id="nde-Dm-CHE"/>
+                                        <constraint firstItem="lI7-XM-hN8" firstAttribute="leading" secondItem="FV1-YV-03z" secondAttribute="trailing" constant="12" id="nwf-dc-eyp"/>
                                         <constraint firstItem="Gfm-Jg-RoC" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="20" id="o19-SK-C4g"/>
                                         <constraint firstItem="vMV-ex-dBl" firstAttribute="leading" secondItem="2b2-on-yKe" secondAttribute="leading" constant="20" id="qqb-NG-BXg"/>
-                                        <constraint firstAttribute="trailing" secondItem="FV1-YV-03z" secondAttribute="trailing" constant="48" id="reN-5w-E20"/>
                                         <constraint firstItem="Gfm-Jg-RoC" firstAttribute="top" secondItem="vMV-ex-dBl" secondAttribute="bottom" constant="8" id="tCo-qL-W9e"/>
+                                        <constraint firstAttribute="bottom" secondItem="vfj-NP-ssj" secondAttribute="bottom" constant="13" id="vkr-E7-2yb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -615,11 +620,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w8-0Y-RA1">
-                                                    <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0w8-0Y-RA1">
+                                                    <rect key="frame" x="10" y="10" width="60" height="60"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="设置头像" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-QW-Ngd">
-                                                    <rect key="frame" x="72" y="0.0" width="180" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置头像" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-QW-Ngd">
+                                                    <rect key="frame" x="72" y="29" width="180" height="21"/>
                                                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -645,14 +650,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcx-i7-z6o">
-                                                    <rect key="frame" x="60" y="0.0" width="200" height="25"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcx-i7-z6o">
+                                                    <rect key="frame" x="60" y="8" width="200" height="25"/>
                                                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="点击修改昵称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1l-oh-SEs">
-                                                    <rect key="frame" x="115" y="0.0" width="90" height="15"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击修改昵称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1l-oh-SEs">
+                                                    <rect key="frame" x="115" y="41" width="90" height="15"/>
                                                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -678,21 +683,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60f-uM-uXR">
-                                                    <rect key="frame" x="229" y="0.0" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="toggleSwitch:" destination="UF3-Bg-gbx" eventType="valueChanged" id="HXE-nR-h4i"/>
-                                                    </connections>
-                                                </switch>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="是否隐身查看" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-qd-NBG">
-                                                    <rect key="frame" x="20" y="0.0" width="177" height="31"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否隐身查看" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-qd-NBG">
+                                                    <rect key="frame" x="20" y="16" width="177" height="31"/>
                                                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60f-uM-uXR">
+                                                    <rect key="frame" x="234" y="16" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleSwitch:" destination="UF3-Bg-gbx" eventType="valueChanged" id="HXE-nR-h4i"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="60f-uM-uXR" firstAttribute="leading" secondItem="0a1-qd-NBG" secondAttribute="trailing" constant="37" id="6ye-o2-dSx"/>
                                                 <constraint firstItem="0a1-qd-NBG" firstAttribute="top" secondItem="onx-2M-jzk" secondAttribute="top" constant="16" id="C7K-9H-Vnf"/>
+                                                <constraint firstAttribute="bottom" secondItem="60f-uM-uXR" secondAttribute="bottom" constant="17" id="CmS-p9-Rte"/>
+                                                <constraint firstItem="60f-uM-uXR" firstAttribute="top" secondItem="onx-2M-jzk" secondAttribute="top" constant="16" id="JoB-tb-8bR"/>
+                                                <constraint firstAttribute="trailing" secondItem="60f-uM-uXR" secondAttribute="trailing" constant="37" id="Rx2-be-4fV"/>
                                                 <constraint firstAttribute="bottom" secondItem="0a1-qd-NBG" secondAttribute="bottom" constant="17" id="T69-c1-HNU"/>
                                                 <constraint firstItem="0a1-qd-NBG" firstAttribute="leading" secondItem="onx-2M-jzk" secondAttribute="leading" constant="20" id="jsm-O8-6GS"/>
                                                 <constraint firstAttribute="trailing" secondItem="0a1-qd-NBG" secondAttribute="trailing" constant="123" id="w0s-yH-5z4"/>

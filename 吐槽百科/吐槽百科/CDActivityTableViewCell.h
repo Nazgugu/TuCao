@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlatUIKit.h"
 
 @interface CDActivityTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet FUIButton *goButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *moreButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;

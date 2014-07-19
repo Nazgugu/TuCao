@@ -30,6 +30,7 @@
 @property (strong, nonatomic) NSMutableArray *newsTime;
 @property (strong, nonatomic) NSMutableArray *newsID;
 @property (strong, nonatomic) NSMutableArray *activities;
+@property (nonatomic) NSInteger count;
 @end
 
 @implementation CDFeedViewController
@@ -47,6 +48,11 @@
 - (void)loadView
 {
     [super loadView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.count = 0;
 }
 
 - (void)viewDidLoad
@@ -81,6 +87,16 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self fetchContent];
+}
+
+- (void)reloadDataWithCount:(NSInteger)count
+{
+    //NSLog(@"count is = %ld",count);
+    if (self.count - 1 == count)
+    {
+        //NSLog(@"reloading");
+        [self.newsTable reloadData];
+    }
 }
 
 - (void)fetchContent
@@ -125,6 +141,8 @@
              }
              if (objects.count > 0)
              {
+                 self.count = objects.count;
+                 //NSLog(@"self.count = %ld",(long)self.count);
                  //NSLog(@"I got something");
                  [self.newsTitle removeAllObjects];
                  [self.newsImage removeAllObjects];
@@ -151,11 +169,12 @@
                            [self.newsID addObject:news.objectId];
                            //NSLog(@"content = %@",self.newsContent[i]);
                            //NSLog(@"title = %@",self.newsTitle[i]);
-                           [self.newsTable reloadData];
+                           [self reloadDataWithCount:i];
                        }
                    }
                  }];
-             }
+                 //NSLog(@"done %d",i);
+            }
              [self.refreshControl endRefreshing];
                  [self.tableView setContentOffset:CGPointZero];
              }
@@ -173,6 +192,7 @@
     }
     else if (topControl.selectedSegmentIndex == 1)
     {
+        //NSLog(@"now activities");
         if (!_activities)
         {
             _activities = [[NSMutableArray alloc] init];
@@ -186,6 +206,9 @@
            {
                if (objects)
                {
+                   //NSLog(@"got objects");
+                   //NSLog(@"object count = %ld",objects.count);
+                   self.count = objects.count;
                    for (int i = 0; i < objects.count; i++)
                    {
                        PFObject *object = [objects objectAtIndex:i];
@@ -197,6 +220,8 @@
                           {
                               if (people)
                               {
+                                  //NSLog(@"got people");
+                                  //NSLog(@"people count = %ld",people.count);
                                   for (int j = 0; j < people.count; j ++)
                                   {
                                       CDPeople *goingPeople = [[CDPeople alloc] init];
@@ -215,8 +240,10 @@
                                   [newActivity addTime:time];
                                   [newActivity addLocation:location];
                                   [self.activities addObject:newActivity];
+                                  [self reloadDataWithCount:i];
                               }
                           }
+                        
                        }];
                    }
                    [self.refreshControl endRefreshing];
@@ -271,6 +298,7 @@
         [self.newsCell layoutIfNeeded];
         //GET THE HEIGHT FOR THE CELL
         CGFloat height = [self.newsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        NSLog(@"height = %lf",height + 1);
         //PADDING OF 1 POINT FOR THE SEPERATOR
         return  height + 1;
     }
@@ -278,14 +306,45 @@
     {
         if (!self.activityCell)
         {
+            //NSLog(@"no cell");
             self.activityCell = [self.newsTable dequeueReusableCellWithIdentifier:@"activity"];
+        }
+        if (self.activityCell)
+        {
+            //NSLog(@"got cell");
         }
         CDActivity *activity = [self.activities objectAtIndex:indexPath.row];
         self.activityCell.titlelabel.text = [activity getTitle];
         self.activityCell.timeLabel.text = [activity getTime];
         self.activityCell.locationLabel.text = [activity getLocation];
         self.activityCell.bodyLabel.text = [activity getBody];
-        
+        NSArray *people = [activity getPeople];
+        if (people.count >= 2)
+        {
+            CDPeople *user1 = [people objectAtIndex:0];
+            CDPeople *user2 = [people objectAtIndex:1];
+            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)[user1 getAvatarNumber]] stringByAppendingString:@"a"];
+            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)[user2 getAvatarNumber]] stringByAppendingString:@"a"];
+            [self.activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
+            [self.activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
+            self.activityCell.moreButton.hidden = NO;
+        }
+        else if (people.count == 0)
+        {
+            self.activityCell.moreButton.hidden = YES;
+        }
+        else
+        {
+            CDPeople *user = [people objectAtIndex:0];
+            NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)[user getAvatarNumber]] stringByAppendingString:@"a"];
+            [self.activityCell.user1 setImage:[UIImage imageNamed:nameString]];
+            self.activityCell.moreButton.hidden = YES;
+        }
+        [self.activityCell setNeedsLayout];
+        [self.activityCell layoutIfNeeded];
+        CGFloat height = [self.activityCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        NSLog(@"height = %lf",height + 1);
+        return height + 1;
     }
     return 0;
 }
@@ -334,7 +393,44 @@
     }
     else
     {
-        
+        CDActivityTableViewCell *activityCell = [tableView dequeueReusableCellWithIdentifier:@"activity"];
+        if (!activityCell)
+        {
+            activityCell = [[CDActivityTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"activity"];
+        }
+        CDActivity *activity = [self.activities objectAtIndex:indexPath.row];
+        activityCell.titlelabel.text = [activity getTitle];
+        activityCell.timeLabel.text = [activity getTime];
+        activityCell.locationLabel.text = [activity getLocation];
+        activityCell.bodyLabel.text = [activity getBody];
+        NSArray *people = [activity getPeople];
+        if (people.count >= 2)
+        {
+            CDPeople *user1 = [people objectAtIndex:0];
+            CDPeople *user2 = [people objectAtIndex:1];
+            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)[user1 getAvatarNumber]] stringByAppendingString:@"a"];
+            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)[user2 getAvatarNumber]] stringByAppendingString:@"a"];
+            [activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
+            [activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
+            activityCell.moreButton.hidden = NO;
+        }
+        else if (people.count == 0)
+        {
+            activityCell.moreButton.hidden = YES;
+        }
+        else
+        {
+            CDPeople *user = [people objectAtIndex:0];
+            NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)[user getAvatarNumber]] stringByAppendingString:@"a"];
+            [activityCell.user1 setImage:[UIImage imageNamed:nameString]];
+            activityCell.moreButton.hidden = YES;
+        }
+        activityCell.goButton.buttonColor = [UIColor turquoiseColor];
+        activityCell.goButton.shadowColor = [UIColor cloudsColor];
+        activityCell.goButton.highlightedColor = [UIColor greenSeaColor];
+        activityCell.goButton.shadowHeight = 1.0f;
+        activityCell.goButton.cornerRadius = 7.0f;
+        return activityCell;
     }
     return nil;
 }
