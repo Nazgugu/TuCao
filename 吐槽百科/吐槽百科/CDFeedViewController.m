@@ -95,6 +95,8 @@
     if (self.count - 1 == count)
     {
         //NSLog(@"reloading");
+        [self.refreshControl endRefreshing];
+        [self.tableView setContentOffset:CGPointZero];
         [self.newsTable reloadData];
     }
 }
@@ -174,10 +176,8 @@
                    }
                  }];
                  //NSLog(@"done %d",i);
-            }
-             [self.refreshControl endRefreshing];
-                 [self.tableView setContentOffset:CGPointZero];
              }
+            }
              else
              {
                  [self.refreshControl endRefreshing];
@@ -226,7 +226,8 @@
                                   {
                                       CDPeople *goingPeople = [[CDPeople alloc] init];
                                       NSString *name = [[people objectAtIndex:j] objectForKey:@"name"];
-                                      NSInteger avatarNum = [[[people objectAtIndex:j] objectForKey:@""] intValue];
+                                      NSInteger avatarNum = [[[people objectAtIndex:j] objectForKey:@"avatarNumber"] intValue];
+                                      //[goingPeople setName:name];
                                       [goingPeople setName:name];
                                       [goingPeople setAvatarNumber:avatarNum];
                                       [newActivity addPeople:goingPeople];
@@ -239,6 +240,7 @@
                                   [newActivity addBody:body];
                                   [newActivity addTime:time];
                                   [newActivity addLocation:location];
+                                  [newActivity addObject:object];
                                   [self.activities addObject:newActivity];
                                   [self reloadDataWithCount:i];
                               }
@@ -246,8 +248,6 @@
                         
                        }];
                    }
-                   [self.refreshControl endRefreshing];
-                   [self.tableView setContentOffset:CGPointZero];
                }
                else
                {
@@ -323,8 +323,8 @@
         {
             CDPeople *user1 = [people objectAtIndex:0];
             CDPeople *user2 = [people objectAtIndex:1];
-            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)[user1 getAvatarNumber]] stringByAppendingString:@"a"];
-            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)[user2 getAvatarNumber]] stringByAppendingString:@"a"];
+            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
+            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)user2.avatarNumber] stringByAppendingString:@"a"];
             [self.activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
             [self.activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
             self.activityCell.moreButton.hidden = NO;
@@ -336,7 +336,7 @@
         else
         {
             CDPeople *user = [people objectAtIndex:0];
-            NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)[user getAvatarNumber]] stringByAppendingString:@"a"];
+            NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)user.avatarNumber] stringByAppendingString:@"a"];
             [self.activityCell.user1 setImage:[UIImage imageNamed:nameString]];
             self.activityCell.moreButton.hidden = YES;
         }
@@ -404,25 +404,39 @@
         activityCell.locationLabel.text = [activity getLocation];
         activityCell.bodyLabel.text = [activity getBody];
         NSArray *people = [activity getPeople];
-        if (people.count >= 2)
+        if (people.count > 2)
         {
+            NSLog(@"case 1");
             CDPeople *user1 = [people objectAtIndex:0];
             CDPeople *user2 = [people objectAtIndex:1];
-            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)[user1 getAvatarNumber]] stringByAppendingString:@"a"];
-            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)[user2 getAvatarNumber]] stringByAppendingString:@"a"];
+            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
+            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)user2.avatarNumber] stringByAppendingString:@"a"];
             [activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
             [activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
             activityCell.moreButton.hidden = NO;
         }
         else if (people.count == 0)
         {
+            NSLog(@"case 2");
+            activityCell.moreButton.hidden = YES;
+        }
+        else if (people.count == 1)
+        {
+            NSLog(@"case 3");
+            CDPeople *user = [people objectAtIndex:0];
+            NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)user.avatarNumber] stringByAppendingString:@"a"];
+            NSLog(@"nameString = %@",nameString);
+            [activityCell.user1 setImage:[UIImage imageNamed:nameString]];
             activityCell.moreButton.hidden = YES;
         }
         else
         {
-            CDPeople *user = [people objectAtIndex:0];
-            NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)[user getAvatarNumber]] stringByAppendingString:@"a"];
-            [activityCell.user1 setImage:[UIImage imageNamed:nameString]];
+            CDPeople *user1 = [people objectAtIndex:0];
+            CDPeople *user2 = [people objectAtIndex:1];
+            NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
+            NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)user2.avatarNumber] stringByAppendingString:@"a"];
+            [activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
+            [activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
             activityCell.moreButton.hidden = YES;
         }
         activityCell.goButton.buttonColor = [UIColor turquoiseColor];
@@ -459,6 +473,77 @@
         detailNewsVC.objectID = [self.newsID objectAtIndex:indexPath.row];
     //NSLog(@"objectID = %@",detailNewsVC.objectID);
     //}
+}
+
+- (IBAction)wantToGo:(id)sender forEvent:(UIEvent *)event
+{
+    NSLog(@"user = %@",[PFUser currentUser]);
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:self.newsTable];
+    NSIndexPath *indexPath = [self.newsTable indexPathForRowAtPoint:location];
+    if (indexPath)
+    {
+        [self wantToGoAtPoint:indexPath];
+    }
+}
+
+//implement for want to go
+- (void)wantToGoAtPoint:(NSIndexPath *)indexPath
+{
+    [ProgressHUD show:@"正在处理"];
+    PFRelation *relation = [[[self.activities objectAtIndex:indexPath.row] getObject] relationForKey:@"goPeople"];
+    PFQuery *getPeople = [relation query];
+    [getPeople whereKey:@"user" equalTo:[PFUser currentUser]];
+    [getPeople findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (!error)
+        {
+            if (objects.count == 0)
+            {
+                //could involve
+                PFObject *userGoing = [PFObject objectWithClassName:@"peopleInterested"];
+                if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == YES)
+                {
+                    userGoing[@"name"] = @"匿名用户";
+                }
+                else
+                {
+                    userGoing[@"name"] = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+                }
+                userGoing[@"avatarNumber"] = [[NSUserDefaults standardUserDefaults] objectForKey:AvatarKey];
+                userGoing[@"user"] = [PFUser currentUser];
+                [userGoing saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+                    if (succeed)
+                    {
+                        [relation addObject:userGoing];
+                        [[[self.activities objectAtIndex:indexPath.row] getObject] saveInBackgroundWithBlock:^(BOOL successful, NSError *newError){
+                            if (successful)
+                            {
+                                [ProgressHUD showSuccess:@"成功加入！"];
+                                //reload this cell
+                                CDPeople *newPeople = [[CDPeople alloc] init];
+                                if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == YES)
+                                {
+                                    [newPeople setName:@"匿名用户"];
+                                }
+                                else
+                                {
+                                    [newPeople setName:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey]];
+                                }
+                                [[self.activities objectAtIndex:indexPath.row] addPeople: newPeople];
+                                NSArray *indexArray = [NSArray arrayWithObject:indexPath];
+                                [self.newsTable reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationAutomatic];
+                            }
+                        }];
+                    }
+                }];
+            }
+            else
+            {
+                [ProgressHUD showSuccess:@"重复选择"];
+            }
+        }
+    }];
 }
 
 

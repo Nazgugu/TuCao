@@ -14,6 +14,8 @@
 @property (strong, nonatomic) NSString *activityTime;
 @property (strong, nonatomic) NSString *activityLocation;
 @property (strong, nonatomic) NSMutableArray *goingPeople;
+//@property (strong, nonatomic) PFRelation *peopleRelation;
+@property (strong, nonatomic) PFObject *object;
 @end
 
 @implementation CDActivity
@@ -31,6 +33,16 @@
         goingPeople = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)addObject:(PFObject *)object
+{
+    self.object = object;
+}
+
+- (PFObject *)getObject
+{
+    return self.object;
 }
 
 - (void)addTitle:(NSString *)title

@@ -10,12 +10,7 @@
 
 @interface CDPeople : NSObject
 
-- (void)setName:(NSString *)name;
-
-- (void)setAvatarNumber:(NSInteger)avatarNumber;
-
-- (NSString *)getName;
-
-- (NSInteger)getAvatarNumber;
+@property (strong, nonatomic) NSString *name;
+@property (nonatomic) NSInteger avatarNumber;
 
 @end

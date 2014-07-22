@@ -209,7 +209,7 @@
                             //the nickname is take prompt the user to choose another one
                             //[ProgressHUD dismiss];
                             [ProgressHUD showError:@"重名咯～"];
-                            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"修改名称" message:@"请输入新昵称" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"重名啦" message:@"换个新名字吧～" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
                             alert.alertViewStyle = UIAlertViewStylePlainTextInput;
                             [alert show];
                             //[username becomeFirstResponder];
@@ -265,9 +265,19 @@
     }
     else
     {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey]])
+        {
+            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"取个名字吧～" message:@"请输入昵称" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            //alert.tag = 1;
+            [alert show];
+        }
+        else
+        {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         self.nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey];
+        }
     }
 }
 
