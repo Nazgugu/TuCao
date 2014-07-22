@@ -19,7 +19,7 @@
 #import "CDPeople.h"
 #import "CDActivityTableViewCell.h"
 
-@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong,nonatomic) NYSegmentedControl *topControl;
 @property (strong, nonatomic) IBOutlet UITableView *newsTable;
 @property (strong, nonatomic) CDTuCaoTableViewCell *newsCell;
@@ -30,6 +30,7 @@
 @property (strong, nonatomic) NSMutableArray *newsTime;
 @property (strong, nonatomic) NSMutableArray *newsID;
 @property (strong, nonatomic) NSMutableArray *activities;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) NSInteger count;
 @end
 
@@ -412,7 +413,9 @@
             NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
             NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)user2.avatarNumber] stringByAppendingString:@"a"];
             [activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
+            //[self imageAnimationWithImageView:activityCell.user1];
             [activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
+            //[self imageAnimationWithImageView:activityCell.user2];
             activityCell.moreButton.hidden = NO;
         }
         else if (people.count == 0)
@@ -427,16 +430,20 @@
             NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)user.avatarNumber] stringByAppendingString:@"a"];
             NSLog(@"nameString = %@",nameString);
             [activityCell.user1 setImage:[UIImage imageNamed:nameString]];
+            //[self imageAnimationWithImageView:activityCell.user1];
             activityCell.moreButton.hidden = YES;
         }
         else
         {
+            NSLog(@"case 4");
             CDPeople *user1 = [people objectAtIndex:0];
             CDPeople *user2 = [people objectAtIndex:1];
             NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
             NSString *nameString2 = [[NSString stringWithFormat:@"%ld",(long)user2.avatarNumber] stringByAppendingString:@"a"];
             [activityCell.user1 setImage:[UIImage imageNamed:nameString1]];
+            //[self imageAnimationWithImageView:activityCell.user1];
             [activityCell.user2 setImage:[UIImage imageNamed:nameString2]];
+            //[self imageAnimationWithImageView:activityCell.user2];
             activityCell.moreButton.hidden = YES;
         }
         activityCell.goButton.buttonColor = [UIColor turquoiseColor];
@@ -477,21 +484,175 @@
 
 - (IBAction)wantToGo:(id)sender forEvent:(UIEvent *)event
 {
-    NSLog(@"user = %@",[PFUser currentUser]);
     NSSet *touches = [event allTouches];
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:self.newsTable];
     NSIndexPath *indexPath = [self.newsTable indexPathForRowAtPoint:location];
-    if (indexPath)
+    self.indexPath = indexPath;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == YES)
     {
-        [self wantToGoAtPoint:indexPath];
+        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"需要名称才能加入" message:@"选择昵称" delegate:self cancelButtonTitle:nil otherButtonTitles:@"以前名称", nil];
+        [alert addButtonWithTitle:@"新名称"];
+        //alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        //alert.tag = 1;
+        alert.tag = 0;
+        [alert show];
+    }
+    else
+    {
+        [ProgressHUD show:@"正在处理"];
+        NSLog(@"user = %@",[PFUser currentUser]);
+        if (indexPath)
+        {
+            [self wantToGoAtPoint:indexPath];
+        }
+    }
+}
+
+//delegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 0)
+    {
+        //NSLog(@"index = %ld",(long)buttonIndex);
+        if (buttonIndex == 0)
+        {
+            //no nick name yet
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey]])
+            {
+                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"还没有名字哦" message:@"取个名字吧～" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                alert.tag = 1;
+                [alert show];
+            }
+            else
+            {
+                [ProgressHUD show:@"正在处理"];
+                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self wantToGoAtPoint:self.indexPath];
+            }
+        }
+        else
+        {
+            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"换新名字咯～" message:@"请输入名称" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+            alert.tag = 1;
+            [alert show];
+        }
+    }
+    else
+    {
+        if (buttonIndex == 1)
+        {
+            [ProgressHUD show:@"正在处理" Interaction:NO];
+            //rename and proceed
+            UITextField *username = [alertView textFieldAtIndex:0];
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
+            {
+                //[ProgressHUD dismiss];
+                [ProgressHUD showError:@"无网络"];
+                return;
+            }
+            else
+            {
+                PFQuery *nickNameQuery = [PFUser query];
+                [nickNameQuery whereKey:NickNameKey equalTo:username.text];
+                NSLog(@"%@",username.text);
+                [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+                    if (!error)
+                    {
+                        NSLog(@"%@",objects);
+                        if (objects.count == 0)
+                        {
+                            NSLog(@"situation 1");
+                            //ok to set this nickname since no one used it
+                            PFUser *nameChange = [PFUser currentUser];
+                            nameChange[NickNameKey] = username.text;
+                            //[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+                            //[[NSUserDefaults standardUserDefaults] synchronize];
+                            [nameChange saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                                if (succeeded)
+                                {
+                                    //[self performSegueWithIdentifier:@"contents" sender:self];
+                                    [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
+                                    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+                                    //[self.anonymousSwitch setOn:NO animated:YES];
+                                    [[NSUserDefaults standardUserDefaults] synchronize];
+                                    //[ProgressHUD dismiss];
+                                    //[ProgressHUD showSuccess:@"设置成功"];
+                                    [self wantToGoAtPoint:self.indexPath];
+                                    //self.nameLabel.text = username.text;
+                                }
+                                else
+                                {
+                                    [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
+                                    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+                                    [[NSUserDefaults standardUserDefaults] synchronize];
+                                    //[self.anonymousSwitch setOn:NO animated:YES];
+                                    //[ProgressHUD dismiss];
+                                    //[ProgressHUD showSuccess:@"暂时失败"];
+                                    [nameChange saveEventually];
+                                    [self wantToGoAtPoint:self.indexPath];
+                                    //self.nameLabel.text = username.text;
+                                    //perform the segue
+                                    //[self performSegueWithIdentifier:@"contents" sender:self];
+                                }
+                                //performsegue
+                            }];
+                        }
+                        else
+                        {
+                            NSLog(@"situation 2");
+                            //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
+                            PFObject *tempObject = [objects lastObject];
+                            //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
+                            //NSLog(@"current user = %@",[PFUser currentUser].objectId);
+                            if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
+                            {
+                                NSLog(@"no collision");
+                                //go ahead perform the segue
+                                //[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
+                                [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
+                                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
+                                [[NSUserDefaults standardUserDefaults] synchronize];
+                                //[self.anonymousSwitch setOn:NO animated:YES];
+                                //self.nameLabel.text = username.text;
+                                //[ProgressHUD dismiss];
+                                //[ProgressHUD showSuccess:@"设置成功"];
+                                [self wantToGoAtPoint:self.indexPath];
+                                //[self performSegueWithIdentifier:@"contents" sender:self];
+                            }
+                            else
+                            {
+                                //the nickname is take prompt the user to choose another one
+                                //[ProgressHUD dismiss];
+                                [ProgressHUD showError:@"重名咯～"];
+                                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"重名啦" message:@"换个新名字吧～" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                                alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                                alert.tag = 1;
+                                [alert show];
+                                //[username becomeFirstResponder];
+                            }
+                        }
+                    }
+                    else
+                    {
+                        NSLog(@": %@ %@", error, [error userInfo]);
+                    }
+                }];
+            }
+        }
+        else
+        {
+            [ProgressHUD dismiss];
+        }
     }
 }
 
 //implement for want to go
 - (void)wantToGoAtPoint:(NSIndexPath *)indexPath
 {
-    [ProgressHUD show:@"正在处理"];
     PFRelation *relation = [[[self.activities objectAtIndex:indexPath.row] getObject] relationForKey:@"goPeople"];
     PFQuery *getPeople = [relation query];
     [getPeople whereKey:@"user" equalTo:[PFUser currentUser]];
@@ -522,17 +683,11 @@
                                 [ProgressHUD showSuccess:@"成功加入！"];
                                 //reload this cell
                                 CDPeople *newPeople = [[CDPeople alloc] init];
-                                if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == YES)
-                                {
-                                    [newPeople setName:@"匿名用户"];
-                                }
-                                else
-                                {
-                                    [newPeople setName:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey]];
-                                }
+                                [newPeople setName:[[NSUserDefaults standardUserDefaults] objectForKey:NickNameKey]];
+                                [newPeople setAvatarNumber:[[[NSUserDefaults standardUserDefaults] objectForKey:AvatarKey] intValue]];
                                 [[self.activities objectAtIndex:indexPath.row] addPeople: newPeople];
                                 NSArray *indexArray = [NSArray arrayWithObject:indexPath];
-                                [self.newsTable reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationAutomatic];
+                                [self.newsTable reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
                             }
                         }];
                     }

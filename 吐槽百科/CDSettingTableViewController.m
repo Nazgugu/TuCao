@@ -128,9 +128,9 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    [ProgressHUD show:@"正在更新名称" Interaction:NO];
     NSLog(@"Button Index =%ld",(long)buttonIndex);
     if (buttonIndex == 1) {  //Login
+        [ProgressHUD show:@"正在更新名称" Interaction:NO];
         UITextField *username = [alertView textFieldAtIndex:0];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
         {
