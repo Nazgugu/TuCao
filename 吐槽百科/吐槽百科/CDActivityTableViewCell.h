@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet FUIButton *goButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *moreButton;
-
+@property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;

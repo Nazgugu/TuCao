@@ -18,6 +18,7 @@
 #import "CDActivity.h"
 #import "CDPeople.h"
 #import "CDActivityTableViewCell.h"
+#import "UIColor+MLPFlatColors.h"
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong,nonatomic) NYSegmentedControl *topControl;
@@ -30,6 +31,7 @@
 @property (strong, nonatomic) NSMutableArray *newsTime;
 @property (strong, nonatomic) NSMutableArray *newsID;
 @property (strong, nonatomic) NSMutableArray *activities;
+@property (strong, nonatomic) NSArray *colorArray;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) NSInteger count;
 @end
@@ -63,6 +65,7 @@
     self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
+    self.colorArray = [[NSArray alloc] initWithObjects:[UIColor flatRedColor], [UIColor flatGreenColor], [UIColor flatBlueColor], [UIColor flatYellowColor], [UIColor flatPurpleColor], [UIColor flatTealColor], [UIColor flatGrayColor], nil];
     topControl = [[NYSegmentedControl alloc] initWithItems:@[@"新闻",@"活动"]];
     [topControl addTarget:self action:@selector(segmentControlChanged) forControlEvents:UIControlEventValueChanged];
     //topControl.borderColor = [UIColor colorWithWhite:0.20f alpha:1.0f];
@@ -273,7 +276,7 @@
 
 - (void)segmentControlChanged
 {
-    NSLog(@"selectedIndex = %ld",(unsigned long)topControl.selectedSegmentIndex);
+    //NSLog(@"selectedIndex = %ld",(unsigned long)topControl.selectedSegmentIndex);
     [self.refreshControl endRefreshing];
     [self fetchContent];
 }
@@ -299,7 +302,7 @@
         [self.newsCell layoutIfNeeded];
         //GET THE HEIGHT FOR THE CELL
         CGFloat height = [self.newsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-        NSLog(@"height = %lf",height + 1);
+        //NSLog(@"height = %lf",height + 1);
         //PADDING OF 1 POINT FOR THE SEPERATOR
         return  height + 1;
     }
@@ -319,6 +322,7 @@
         self.activityCell.timeLabel.text = [activity getTime];
         self.activityCell.locationLabel.text = [activity getLocation];
         self.activityCell.bodyLabel.text = [activity getBody];
+        self.activityCell.colorView.backgroundColor = [self.colorArray objectAtIndex:indexPath.row%self.colorArray.count];
         NSArray *people = [activity getPeople];
         if (people.count >= 2)
         {
@@ -344,7 +348,7 @@
         [self.activityCell setNeedsLayout];
         [self.activityCell layoutIfNeeded];
         CGFloat height = [self.activityCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-        NSLog(@"height = %lf",height + 1);
+        //NSLog(@"height = %lf",height + 1);
         return height + 1;
     }
     return 0;
@@ -367,6 +371,7 @@
     else if (topControl.selectedSegmentIndex == 1)
     {
         number = self.activities.count;
+        NSLog(@"number of cell = %lu",(unsigned long)self.activities.count);
     }
     return number;
 }
@@ -380,7 +385,7 @@
         CDTuCaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tuCao"];
         if (!cell)
         {
-            NSLog(@"create new");
+            //NSLog(@"create new");
             cell = [[CDTuCaoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tuCao"];
         }
         cell.newsImage.image = [self.newsImage objectAtIndex:indexPath.row];
@@ -404,10 +409,11 @@
         activityCell.timeLabel.text = [activity getTime];
         activityCell.locationLabel.text = [activity getLocation];
         activityCell.bodyLabel.text = [activity getBody];
+        activityCell.colorView.backgroundColor = [self.colorArray objectAtIndex:indexPath.row%self.colorArray.count];
         NSArray *people = [activity getPeople];
         if (people.count > 2)
         {
-            NSLog(@"case 1");
+            //NSLog(@"case 1");
             CDPeople *user1 = [people objectAtIndex:0];
             CDPeople *user2 = [people objectAtIndex:1];
             NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
@@ -420,22 +426,22 @@
         }
         else if (people.count == 0)
         {
-            NSLog(@"case 2");
+            //NSLog(@"case 2");
             activityCell.moreButton.hidden = YES;
         }
         else if (people.count == 1)
         {
-            NSLog(@"case 3");
+            //NSLog(@"case 3");
             CDPeople *user = [people objectAtIndex:0];
             NSString *nameString = [[NSString stringWithFormat:@"%ld",(long)user.avatarNumber] stringByAppendingString:@"a"];
-            NSLog(@"nameString = %@",nameString);
+            //NSLog(@"nameString = %@",nameString);
             [activityCell.user1 setImage:[UIImage imageNamed:nameString]];
             //[self imageAnimationWithImageView:activityCell.user1];
             activityCell.moreButton.hidden = YES;
         }
         else
         {
-            NSLog(@"case 4");
+            //NSLog(@"case 4");
             CDPeople *user1 = [people objectAtIndex:0];
             CDPeople *user2 = [people objectAtIndex:1];
             NSString *nameString1 = [[NSString stringWithFormat:@"%ld",(long)user1.avatarNumber] stringByAppendingString:@"a"];
@@ -501,7 +507,7 @@
     else
     {
         [ProgressHUD show:@"正在处理"];
-        NSLog(@"user = %@",[PFUser currentUser]);
+        //NSLog(@"user = %@",[PFUser currentUser]);
         if (indexPath)
         {
             [self wantToGoAtPoint:indexPath];

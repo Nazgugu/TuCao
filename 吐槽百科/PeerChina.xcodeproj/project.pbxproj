@@ -46,6 +46,7 @@
 		AE04B67F1976AD9700777E18 /* CDActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04B67E1976AD9700777E18 /* CDActivity.m */; };
 		AE04B6821976B76100777E18 /* CDPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04B6811976B76100777E18 /* CDPeople.m */; };
 		AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
+		AE19485F197F820E005DC66A /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = AE19485E197F820E005DC66A /* UIColor+MLPFlatColors.m */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
@@ -173,6 +174,8 @@
 		AE04B67E1976AD9700777E18 /* CDActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDActivity.m; sourceTree = "<group>"; };
 		AE04B6801976B76100777E18 /* CDPeople.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPeople.h; sourceTree = "<group>"; };
 		AE04B6811976B76100777E18 /* CDPeople.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPeople.m; sourceTree = "<group>"; };
+		AE19485D197F820E005DC66A /* UIColor+MLPFlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MLPFlatColors.h"; sourceTree = "<group>"; };
+		AE19485E197F820E005DC66A /* UIColor+MLPFlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MLPFlatColors.m"; sourceTree = "<group>"; };
 		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -430,6 +433,8 @@
 		AE02C91C19427AAE00AC16AE /* FlatUI */ = {
 			isa = PBXGroup;
 			children = (
+				AE19485D197F820E005DC66A /* UIColor+MLPFlatColors.h */,
+				AE19485E197F820E005DC66A /* UIColor+MLPFlatColors.m */,
 				AE03BF7319465801005A81FE /* FlatUIKit.h */,
 				AE03BF7419465801005A81FE /* FUIAlertView.h */,
 				AE03BF7519465801005A81FE /* FUIAlertView.m */,
@@ -799,6 +804,7 @@
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,
 				AEC011A1196269D700F280BE /* JBKenBurnsView.m in Sources */,
 				AE03BFA119465801005A81FE /* UIBarButtonItem+FlatUI.m in Sources */,
+				AE19485F197F820E005DC66A /* UIColor+MLPFlatColors.m in Sources */,
 				AE03BFA219465801005A81FE /* UIColor+FlatUI.m in Sources */,
 				AE03BF9E19465801005A81FE /* FUISegmentedControl.m in Sources */,
 				AEA55258196B45850015FABF /* CDSingleton.m in Sources */,
