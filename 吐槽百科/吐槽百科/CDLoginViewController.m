@@ -56,17 +56,17 @@ static int count = 1;
     [self.noNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     self.noNameButton.buttonColor = [UIColor clearColor];
     self.noNameButton.layer.cornerRadius = 12.0f;
-    self.noNameButton.layer.backgroundColor = [[UIColor concreteColor] colorWithAlphaComponent:0.3f].CGColor;
+    self.noNameButton.layer.backgroundColor = [[UIColor peterRiverColor] colorWithAlphaComponent:1.0f].CGColor;
     self.noNameButton.highlightedColor = [[UIColor asbestosColor] colorWithAlphaComponent:0.2f];
-    self.noNameButton.shadowColor = [[UIColor asbestosColor] colorWithAlphaComponent:0.6];
+    self.noNameButton.shadowColor = [[UIColor asbestosColor] colorWithAlphaComponent:0.6f];
     self.noNameButton.cornerRadius = 12.0f;
     self.noNameButton.shadowHeight = 1.5f;
-    [self.nickNameButton setTitleColor:[[UIColor midnightBlueColor] colorWithAlphaComponent:0.3f] forState:UIControlStateNormal];
+    [self.nickNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     self.nickNameButton.buttonColor = [UIColor clearColor];
-    self.nickNameButton.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f].CGColor;
+    self.nickNameButton.layer.backgroundColor = [[UIColor pumpkinColor] colorWithAlphaComponent:1.0f].CGColor;
     self.nickNameButton.layer.cornerRadius = 12.0f;
-    self.nickNameButton.highlightedColor = [[UIColor silverColor] colorWithAlphaComponent:0.8];
-    self.nickNameButton.shadowColor = [UIColor silverColor];
+    self.nickNameButton.highlightedColor = [[UIColor silverColor] colorWithAlphaComponent:0.2f];
+    self.nickNameButton.shadowColor = [[UIColor silverColor] colorWithAlphaComponent:0.6f];
     self.nickNameButton.shadowHeight = 1.5f;
     self.nickNameButton.cornerRadius = 12.0f;
     //NSLog(@"%f, %f",self.nickNameButton.center.x,self.nickNameButton.center.y);
@@ -77,7 +77,7 @@ static int count = 1;
     self.nameField.borderWidth = 1.0f;
     self.nameField.borderColor = [UIColor clearColor];
     self.nameField.cornerRadius = 12.0f;
-    self.nameField.textFieldColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.5f];
+    self.nameField.textFieldColor = [[UIColor cloudsColor] colorWithAlphaComponent:1.0f];
     self.nameField.placeholder = @"输入昵称";
     self.nameField.hidden = YES;
     self.nameField.delegate = self;
@@ -87,7 +87,7 @@ static int count = 1;
     [self.topField addSubview:self.nameField];
     //add cancel button
     self.cancelButton = [[FUIButton alloc] initWithFrame:CGRectMake(220, yposition + 23, 50, 30)];
-    self.cancelButton.layer.backgroundColor = [[UIColor alizarinColor] colorWithAlphaComponent:0.7f].CGColor;
+    self.cancelButton.layer.backgroundColor = [[UIColor alizarinColor] colorWithAlphaComponent:1.0f].CGColor;
     [self.cancelButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
     self.cancelButton.buttonColor = [UIColor clearColor];
     self.cancelButton.highlightedColor = [[UIColor alizarinColor] colorWithAlphaComponent:0.8f];
@@ -106,15 +106,16 @@ static int count = 1;
     self.imageArray = @[[UIImage imageNamed:@"loginImage"], [UIImage imageNamed:@"loginimage2"], [UIImage imageNamed:@"loginimage3"]];
     self.imageLayer1.image = [self.imageArray objectAtIndex:0];
     self.textArray = @[
-                       @"PEER毅恒挚友计划，是致力于促进中国城乡教育公平、改善中国欠发达地区教育资源、并发展博雅、人文与素质教育的非营利组织。毅恒挚友的前身PEER挚友计划于2007年成立，2009年于美国马赛诸塞州波士顿市注册，2011年正式与友成企业家扶贫基金会设立专项基金。",
-                       @"截至2012年8月，毅恒挚友在湖南、贵州、陕西、甘肃、广西和湖北的10所初高中累计举行了23次夏令营活动以及2次冬令营活动，总共有千余名中学生从中获益，“挚愿者”达到三百多名。从2011年春季开始，毅恒挚友亦致力于长期教育实验的开发与实践，在湖南省城步苗族自治县第一民族中学开展了第一期的“田野代言人”长期支教试点项目。截至2012年，已有三名“田野代言人”在湖南与贵州完成为期半年的支教活动。",
-                       @"我们的愿景是希望中国所有的学生都能获得应有的教育，开发自身的潜力，了解社区的需求，共创中国的未来。为了达成这个愿景，长久以来，PEER毅恒挚友一直秉承着博雅、人文与素质教育的核心理念，在推动直接支教服务项目的基础上，全力开展相关的课程、教材开发与实践，努力带动地方社区服务领域的发展，并协助地方学校及老师共同探索更好服务学生的方法。",
-                       @"最终，我们希望中国所有的学生无论在人生中选择走上何样的道路，都可以拥有自主、独立的思想与人生，取得理想的成果，并参与到其家乡与社区的发展中去。"
+                       @"希望中国所有的学生都能获得应有的教育，开发自身的潜力，了解社区的需求，共创中国的未来。",
+                       @"学习，分享，尊重，共创。",
+                       @"让每一名中国欠发达地区的青年人有机会选择优质的人文素质教育。",
+                       @"创造力，批判性思维，团结协作，社区参与。"
                        ];
     _textIndex = 0;
     self.shineLabel.backgroundColor = [UIColor clearColor];
     self.shineLabel.text = [self.textArray objectAtIndex:self.textIndex];
-    self.shineLabel.font = [UIFont systemFontOfSize:13.0f];
+    //self.shineLabel.textColor = [UIColor concreteColor];
+    self.shineLabel.font = [UIFont systemFontOfSize:18.0f];
     [self.shineLabel sizeToFit];
     self.netWorkConnection = [Reachability reachabilityForInternetConnection];
     [self.netWorkConnection startNotifier];
@@ -166,11 +167,11 @@ static int count = 1;
     [self.view endEditing:YES];
     [UIView animateWithDuration:0.2f animations:^{
         self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.nameButtonPreviousY);
-        [self.nickNameButton setTitle:@"让我开个小号" forState:UIControlStateNormal];
+        [self.nickNameButton setTitle:@"输入昵称" forState:UIControlStateNormal];
         self.nickNameButton.buttonColor = [UIColor clearColor];
-        self.nickNameButton.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f].CGColor;
-        self.nickNameButton.shadowColor = [UIColor silverColor];
-        [self.nickNameButton setTitleColor:[[UIColor midnightBlueColor] colorWithAlphaComponent:0.3f] forState:UIControlStateNormal];
+        self.nickNameButton.layer.backgroundColor = [[UIColor pumpkinColor] colorWithAlphaComponent:1.0f].CGColor;
+        self.nickNameButton.shadowColor = [[UIColor silverColor] colorWithAlphaComponent:0.6f];
+        [self.nickNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [self.nickNameButton setNeedsDisplay];
     }
                      completion:^(BOOL complete)
@@ -205,10 +206,10 @@ static int count = 1;
         [UIView animateWithDuration:0.2f animations:^{
         //self.noNameButton.center = CGPointMake(self.noNameButton.center.x, buttonY + 25);
        self.nickNameButton.center = CGPointMake(self.nickNameButton.center.x, self.nameButtonPreviousY - 25);
-            [self.nickNameButton setTitle:@"就是它了" forState:UIControlStateNormal];
+            [self.nickNameButton setTitle:@"确认" forState:UIControlStateNormal];
             self.nickNameButton.buttonColor = [UIColor clearColor];
             self.nickNameButton.shadowColor = [[UIColor emerlandColor] colorWithAlphaComponent:0.5f];
-            self.nickNameButton.layer.backgroundColor = [[UIColor emerlandColor] colorWithAlphaComponent:0.3f].CGColor;
+            self.nickNameButton.layer.backgroundColor = [[UIColor emerlandColor] colorWithAlphaComponent:1.0f].CGColor;
             [self.nickNameButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
             [self.nickNameButton setNeedsDisplay];
         } completion:^(BOOL complete){
@@ -397,7 +398,7 @@ static int count = 1;
              UIImage *image = [self.imageArray objectAtIndex:(count % [self.imageArray count])];
              if (self.isBlured)
              {
-                 image = [image blurredImageWithRadius:20.0f
+                 image = [image blurredImageWithRadius:15.0f
                                               iterations:2
                                                tintColor:[UIColor cloudsColor]];
              }

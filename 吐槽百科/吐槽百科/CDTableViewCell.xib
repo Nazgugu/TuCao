@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="peopleCell" rowHeight="76" id="KGk-i7-Jjw" customClass="CDTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n4R-b8-r1U">
+                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="QgC-yN-OG4"/>
+                        </constraints>
+                    </imageView>
+                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-vh-zaf">
+                        <rect key="frame" x="58" y="19" width="168" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="n4R-b8-r1U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Dkg-lD-9QQ"/>
+                    <constraint firstItem="OMh-vh-zaf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="N3v-S9-hzS"/>
+                    <constraint firstAttribute="bottom" secondItem="OMh-vh-zaf" secondAttribute="bottom" constant="18" id="SFB-54-oKo"/>
+                    <constraint firstItem="n4R-b8-r1U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dwr-vo-LXG"/>
+                    <constraint firstAttribute="trailing" secondItem="OMh-vh-zaf" secondAttribute="trailing" constant="24" id="e1v-yH-L8W"/>
+                    <constraint firstItem="OMh-vh-zaf" firstAttribute="leading" secondItem="n4R-b8-r1U" secondAttribute="trailing" constant="8" id="sCu-q0-7Fh"/>
+                    <constraint firstAttribute="bottom" secondItem="n4R-b8-r1U" secondAttribute="bottom" constant="9" id="vi2-5q-cm3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="image" destination="n4R-b8-r1U" id="2Zg-R1-vV3"/>
+                <outlet property="name" destination="OMh-vh-zaf" id="Htx-p4-cIc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

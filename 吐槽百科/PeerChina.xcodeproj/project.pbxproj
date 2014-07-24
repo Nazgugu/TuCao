@@ -47,6 +47,11 @@
 		AE04B6821976B76100777E18 /* CDPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = AE04B6811976B76100777E18 /* CDPeople.m */; };
 		AE122F87194CCAD4008C727A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8345419438ECA002556B8 /* Parse.framework */; };
 		AE19485F197F820E005DC66A /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = AE19485E197F820E005DC66A /* UIColor+MLPFlatColors.m */; };
+		AE19486A1980FA34005DC66A /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1948691980FA34005DC66A /* UIViewController+CWPopup.m */; };
+		AE19486E1980FBCB005DC66A /* CDPeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE19486C1980FBCB005DC66A /* CDPeopleTableViewController.m */; };
+		AE19486F1980FBCB005DC66A /* CDPeopleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE19486D1980FBCB005DC66A /* CDPeopleTableViewController.xib */; };
+		AE19487319810592005DC66A /* CDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE19487119810592005DC66A /* CDTableViewCell.m */; };
+		AE19487419810592005DC66A /* CDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE19487219810592005DC66A /* CDTableViewCell.xib */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
@@ -176,6 +181,14 @@
 		AE04B6811976B76100777E18 /* CDPeople.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPeople.m; sourceTree = "<group>"; };
 		AE19485D197F820E005DC66A /* UIColor+MLPFlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MLPFlatColors.h"; sourceTree = "<group>"; };
 		AE19485E197F820E005DC66A /* UIColor+MLPFlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MLPFlatColors.m"; sourceTree = "<group>"; };
+		AE1948681980FA34005DC66A /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
+		AE1948691980FA34005DC66A /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
+		AE19486B1980FBCB005DC66A /* CDPeopleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPeopleTableViewController.h; sourceTree = "<group>"; };
+		AE19486C1980FBCB005DC66A /* CDPeopleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPeopleTableViewController.m; sourceTree = "<group>"; };
+		AE19486D1980FBCB005DC66A /* CDPeopleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDPeopleTableViewController.xib; sourceTree = "<group>"; };
+		AE19487019810592005DC66A /* CDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTableViewCell.h; sourceTree = "<group>"; };
+		AE19487119810592005DC66A /* CDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTableViewCell.m; sourceTree = "<group>"; };
+		AE19487219810592005DC66A /* CDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDTableViewCell.xib; sourceTree = "<group>"; };
 		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -398,6 +411,9 @@
 				AE98515919443C6C0006B785 /* CDLeftMenuViewController.m */,
 				AED43E8219490F4D0098C080 /* CDComposingViewController.h */,
 				AED43E8319490F4D0098C080 /* CDComposingViewController.m */,
+				AE19486B1980FBCB005DC66A /* CDPeopleTableViewController.h */,
+				AE19486C1980FBCB005DC66A /* CDPeopleTableViewController.m */,
+				AE19486D1980FBCB005DC66A /* CDPeopleTableViewController.xib */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -405,6 +421,7 @@
 		AE02C91B19427A9C00AC16AE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AE1948671980FA2A005DC66A /* PopUp */,
 				AEA55255196B45570015FABF /* Singleton */,
 				AEA5524F196AE8540015FABF /* ProgressHud */,
 				AEA55245196A7C010015FABF /* AAActivity */,
@@ -483,6 +500,15 @@
 			children = (
 			);
 			name = "UIButton+Image";
+			sourceTree = "<group>";
+		};
+		AE1948671980FA2A005DC66A /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				AE1948681980FA34005DC66A /* UIViewController+CWPopup.h */,
+				AE1948691980FA34005DC66A /* UIViewController+CWPopup.m */,
+			);
+			name = PopUp;
 			sourceTree = "<group>";
 		};
 		AE2478AD19428FB70059EC3F /* BlurView */ = {
@@ -595,6 +621,9 @@
 				AE845A8419670D8200A431A7 /* CDTCommentableViewCell.m */,
 				AE5733E119756D6C00B11801 /* CDActivityTableViewCell.h */,
 				AE5733E219756D6C00B11801 /* CDActivityTableViewCell.m */,
+				AE19487019810592005DC66A /* CDTableViewCell.h */,
+				AE19487119810592005DC66A /* CDTableViewCell.m */,
+				AE19487219810592005DC66A /* CDTableViewCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -732,10 +761,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE19487419810592005DC66A /* CDTableViewCell.xib in Resources */,
 				AEA55253196AE8650015FABF /* ProgressHUD.bundle in Resources */,
 				AE02C8FB1942784500AC16AE /* Images.xcassets in Resources */,
 				AE02C8ED1942784500AC16AE /* InfoPlist.strings in Resources */,
 				AE02C8F61942784500AC16AE /* Main.storyboard in Resources */,
+				AE19486F1980FBCB005DC66A /* CDPeopleTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +803,7 @@
 				AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */,
 				AEA55254196AE8650015FABF /* ProgressHUD.m in Sources */,
 				AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */,
+				AE19486E1980FBCB005DC66A /* CDPeopleTableViewController.m in Sources */,
 				AE02C8EF1942784500AC16AE /* main.m in Sources */,
 				AE9B5591196664E000B63206 /* BBBadgeBarButtonItem.m in Sources */,
 				AE04B67F1976AD9700777E18 /* CDActivity.m in Sources */,
@@ -787,6 +819,7 @@
 				AEA5524C196A7C0F0015FABF /* AAActivity.m in Sources */,
 				AE04481F19503C3400370FD8 /* NYSegmentedControl.m in Sources */,
 				AE03BF9D19465801005A81FE /* FUIPopoverBackgroundView.m in Sources */,
+				AE19487319810592005DC66A /* CDTableViewCell.m in Sources */,
 				AE9E2BCB1949174F0062175A /* MBSwitch.m in Sources */,
 				AE9E2BC8194914460062175A /* CDNavigationViewController.m in Sources */,
 				AE03BFA419465801005A81FE /* UIImage+FlatUI.m in Sources */,
@@ -799,6 +832,7 @@
 				AED8348419443B48002556B8 /* CDRootViewController.m in Sources */,
 				AE04482019503C3400370FD8 /* NYSegmentIndicator.m in Sources */,
 				AE03BFA619465801005A81FE /* UIPopoverController+FlatUI.m in Sources */,
+				AE19486A1980FA34005DC66A /* UIViewController+CWPopup.m in Sources */,
 				AE845A8519670D8200A431A7 /* CDTCommentableViewCell.m in Sources */,
 				AE03BFA519465801005A81FE /* UINavigationBar+FlatUI.m in Sources */,
 				AEA063061942A23C00EA9856 /* RQShineLabel.m in Sources */,

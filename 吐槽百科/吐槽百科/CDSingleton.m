@@ -9,7 +9,7 @@
 #import "CDSingleton.h"
 
 @implementation CDSingleton
-@synthesize content;
+@synthesize content,people;
 
 + (CDSingleton *)globalData
 {
@@ -31,6 +31,7 @@
     if (self)
     {
         content = @"";
+        people = [NSArray new];
     }
     return self;
 }

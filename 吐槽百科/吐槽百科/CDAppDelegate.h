@@ -7,7 +7,7 @@
 //
 
 //API KEYS
-static NSString * const UserLoginKey = @"isLoggedIn";
+static NSString * const UserLoginKey = @"isLoggedInUser";
 static NSString * const UserNameKey = @"uniqueDeviceID";
 static NSString * const NickNameKey = @"userNickName";
 static NSString * const RegisterKey = @"isRegistered";

@@ -10,6 +10,6 @@
 
 @interface CDSingleton : NSObject
 @property (strong, nonatomic) NSString *content;
-
+@property (strong, nonatomic) NSArray *people;
 +(CDSingleton *)globalData;
 @end

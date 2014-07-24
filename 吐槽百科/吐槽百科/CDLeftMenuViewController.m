@@ -16,6 +16,7 @@
 @interface CDLeftMenuViewController ()
 @end
 
+
 @implementation CDLeftMenuViewController
 
 
@@ -138,16 +139,20 @@
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2:
-            [self performSegueWithIdentifier:@"mainMenu" sender:self];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            [self performSelector:@selector(logOut) withObject:nil afterDelay:0.2f];
             break;
         default:
             break;
     }
 }
 
+- (void)logOut
+{
+    [self performSegueWithIdentifier:@"mainMenu" sender:self];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -19,8 +19,11 @@
 #import "CDPeople.h"
 #import "CDActivityTableViewCell.h"
 #import "UIColor+MLPFlatColors.h"
+#import "UIViewController+CWPopup.h"
+#import "CDPeopleTableViewController.h"
 
-@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@property (nonatomic) BOOL isShown;
 @property (strong,nonatomic) NYSegmentedControl *topControl;
 @property (strong, nonatomic) IBOutlet UITableView *newsTable;
 @property (strong, nonatomic) CDTuCaoTableViewCell *newsCell;
@@ -56,13 +59,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.count = 0;
+    self.isShown = NO;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.newsTable.tag = 1;
+    //UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+    //tapRecognizer.numberOfTapsRequired = 1;
+    //tapRecognizer.delegate = self;
+    //[self.view addGestureRecognizer:tapRecognizer];
+    //[self.tableView addGestureRecognizer:tapRecognizer];
+    self.useBlurForPopup = YES;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
     self.colorArray = [[NSArray alloc] initWithObjects:[UIColor flatRedColor], [UIColor flatGreenColor], [UIColor flatBlueColor], [UIColor flatYellowColor], [UIColor flatPurpleColor], [UIColor flatTealColor], [UIColor flatGrayColor], nil];
@@ -99,10 +111,15 @@
     if (self.count - 1 == count)
     {
         //NSLog(@"reloading");
-        [self.refreshControl endRefreshing];
-        [self.tableView setContentOffset:CGPointZero];
-        [self.newsTable reloadData];
+        [self performSelector:@selector(loadContent) withObject:nil afterDelay:0.1f];
     }
+}
+
+- (void)loadContent
+{
+    [self.newsTable reloadData];
+    [self.refreshControl endRefreshing];
+    [self.tableView setContentOffset:CGPointZero];
 }
 
 - (void)fetchContent
@@ -464,6 +481,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.isShown)
+    {
+        [self dismissPopup];
+        return;
+    }
     if (self.topControl.selectedSegmentIndex == 0)
     {
         id detailVC = [self.splitViewController.viewControllers lastObject];
@@ -486,6 +508,22 @@
         detailNewsVC.objectID = [self.newsID objectAtIndex:indexPath.row];
     //NSLog(@"objectID = %@",detailNewsVC.objectID);
     //}
+}
+
+//show popUp
+- (IBAction)loadPeople:(id)sender forEvent:(UIEvent *)event
+{
+    self.isShown = YES;
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:self.newsTable];
+    NSIndexPath *indexPath = [self.newsTable indexPathForRowAtPoint:location];
+    [CDSingleton globalData].people = [[self.activities objectAtIndex:indexPath.row] getPeople];
+    self.newsTable.scrollEnabled = NO;
+    CDPeopleTableViewController *peopleViewController = [[CDPeopleTableViewController alloc] initWithNibName:@"CDPeopleTableViewController" bundle:nil];
+    [self presentPopupViewController:peopleViewController animated:YES completion:^(void) {
+        NSLog(@"popup view presented");
+    }];
 }
 
 - (IBAction)wantToGo:(id)sender forEvent:(UIEvent *)event
@@ -705,6 +743,34 @@
             }
         }
     }];
+}
+
+
+
+- (void)dismissPopup {
+    if (self.popupViewController != nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^{
+            self.isShown = NO;
+            self.tableView.scrollEnabled = YES;
+            NSLog(@"popup view dismissed");
+        }];
+    }
+}
+
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.tag == 1)
+    {
+        //NSLog(@"It's Me!");
+        [self dismissPopup];
+    }
+}*/
+
+#pragma mark - gesture recognizer delegate functions
+
+// so that tapping popup view doesnt dismiss it
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == self.view;
 }
 
 
