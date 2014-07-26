@@ -142,16 +142,11 @@
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:isLoggedInKey];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:AnonymousKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            [self performSelector:@selector(logOut) withObject:nil afterDelay:0.2f];
+            [self performSegueWithIdentifier:@"mainMenu" sender:self];
             break;
         default:
             break;
     }
-}
-
-- (void)logOut
-{
-    [self performSegueWithIdentifier:@"mainMenu" sender:self];
 }
 
 /*

@@ -69,11 +69,12 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.newsTable.tag = 1;
-    //UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
-    //tapRecognizer.numberOfTapsRequired = 1;
-    //tapRecognizer.delegate = self;
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.cancelsTouchesInView = NO;
+    tapRecognizer.delegate = self;
     //[self.view addGestureRecognizer:tapRecognizer];
-    //[self.tableView addGestureRecognizer:tapRecognizer];
+    [self.tableView addGestureRecognizer:tapRecognizer];
     self.useBlurForPopup = YES;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
@@ -107,11 +108,15 @@
 
 - (void)reloadDataWithCount:(NSInteger)count
 {
-    //NSLog(@"count is = %ld",count);
+    NSLog(@"count is = %ld",count);
     if (self.count - 1 == count)
     {
         //NSLog(@"reloading");
-        [self performSelector:@selector(loadContent) withObject:nil afterDelay:0.1f];
+        if (self.activities.count > 0)
+        {
+            NSLog(@"items = %@",self.activities);
+        }
+        [self performSelector:@selector(loadContent) withObject:nil afterDelay:0.15f];
     }
 }
 
@@ -138,6 +143,7 @@
         //PFFile *imageFile;
         formatter.dateFormat = @"yyyy-MM-dd";
     PFQuery *newsQuery = [PFQuery queryWithClassName:@"news"];
+        [newsQuery orderByAscending:@"createdAt"];
     [newsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
          if (!error)
@@ -222,13 +228,14 @@
         [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height)];
         [self.activities removeAllObjects];
         PFQuery *activityQuery = [PFQuery queryWithClassName:@"activity"];
+        [activityQuery orderByAscending:@"createdAT"];
         [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
            if (!error)
            {
                if (objects)
                {
                    //NSLog(@"got objects");
-                   //NSLog(@"object count = %ld",objects.count);
+                   NSLog(@"object count = %ld",objects.count);
                    self.count = objects.count;
                    for (int i = 0; i < objects.count; i++)
                    {
@@ -388,7 +395,7 @@
     else if (topControl.selectedSegmentIndex == 1)
     {
         number = self.activities.count;
-        NSLog(@"number of cell = %lu",(unsigned long)self.activities.count);
+        //NSLog(@"number of cell = %lu",(unsigned long)self.activities.count);
     }
     return number;
 }
@@ -748,6 +755,7 @@
 
 
 - (void)dismissPopup {
+    NSLog(@"tapped");
     if (self.popupViewController != nil) {
         [self dismissPopupViewControllerAnimated:YES completion:^{
             self.isShown = NO;
@@ -770,7 +778,7 @@
 
 // so that tapping popup view doesnt dismiss it
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return touch.view == self.view;
+    return YES;
 }
 
 

@@ -52,6 +52,7 @@
 		AE19486F1980FBCB005DC66A /* CDPeopleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE19486D1980FBCB005DC66A /* CDPeopleTableViewController.xib */; };
 		AE19487319810592005DC66A /* CDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE19487119810592005DC66A /* CDTableViewCell.m */; };
 		AE19487419810592005DC66A /* CDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE19487219810592005DC66A /* CDTableViewCell.xib */; };
+		AE194877198206F6005DC66A /* CDAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE194876198206F6005DC66A /* CDAboutMeViewController.m */; };
 		AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2478AF19428FC30059EC3F /* FXBlurView.m */; };
 		AE2478B2194291FE0059EC3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2478B1194291FE0059EC3F /* QuartzCore.framework */; };
 		AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AE43BCA519495CEF00373FC9 /* HMSegmentedControl.m */; };
@@ -95,6 +96,11 @@
 		AED8348019443A82002556B8 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8347C19443A82002556B8 /* RESideMenu.m */; };
 		AED8348119443A82002556B8 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8347E19443A82002556B8 /* UIViewController+RESideMenu.m */; };
 		AED8348419443B48002556B8 /* CDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8348319443B48002556B8 /* CDRootViewController.m */; };
+		AEDCC47C1982A74D00BF749E /* HTPressableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDCC4751982A74D00BF749E /* HTPressableButton.m */; };
+		AEDCC47D1982A74D00BF749E /* UIImage+HTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDCC4771982A74D00BF749E /* UIImage+HTButton.m */; };
+		AEDCC47E1982A74D00BF749E /* HTPressableButtonPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDCC4791982A74D00BF749E /* HTPressableButtonPrefs.m */; };
+		AEDCC47F1982A74D00BF749E /* UIColor+HTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDCC47B1982A74D00BF749E /* UIColor+HTColor.m */; };
+		AEE2592A1983AFBC00E6B9FE /* CDAboutPeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE259291983AFBC00E6B9FE /* CDAboutPeerViewController.m */; };
 		AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF7CEE219443DCD00FA112A /* CDFeedViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +195,8 @@
 		AE19487019810592005DC66A /* CDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTableViewCell.h; sourceTree = "<group>"; };
 		AE19487119810592005DC66A /* CDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTableViewCell.m; sourceTree = "<group>"; };
 		AE19487219810592005DC66A /* CDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDTableViewCell.xib; sourceTree = "<group>"; };
+		AE194875198206F6005DC66A /* CDAboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAboutMeViewController.h; sourceTree = "<group>"; };
+		AE194876198206F6005DC66A /* CDAboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAboutMeViewController.m; sourceTree = "<group>"; };
 		AE2478AE19428FC30059EC3F /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		AE2478AF19428FC30059EC3F /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		AE2478B1194291FE0059EC3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -259,6 +267,16 @@
 		AED8347E19443A82002556B8 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		AED8348219443B48002556B8 /* CDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDRootViewController.h; sourceTree = "<group>"; };
 		AED8348319443B48002556B8 /* CDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDRootViewController.m; sourceTree = "<group>"; };
+		AEDCC4741982A74D00BF749E /* HTPressableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButton.h; sourceTree = "<group>"; };
+		AEDCC4751982A74D00BF749E /* HTPressableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButton.m; sourceTree = "<group>"; };
+		AEDCC4761982A74D00BF749E /* UIImage+HTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HTButton.h"; sourceTree = "<group>"; };
+		AEDCC4771982A74D00BF749E /* UIImage+HTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HTButton.m"; sourceTree = "<group>"; };
+		AEDCC4781982A74D00BF749E /* HTPressableButtonPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPressableButtonPrefs.h; sourceTree = "<group>"; };
+		AEDCC4791982A74D00BF749E /* HTPressableButtonPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPressableButtonPrefs.m; sourceTree = "<group>"; };
+		AEDCC47A1982A74D00BF749E /* UIColor+HTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTColor.h"; sourceTree = "<group>"; };
+		AEDCC47B1982A74D00BF749E /* UIColor+HTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTColor.m"; sourceTree = "<group>"; };
+		AEE259281983AFBC00E6B9FE /* CDAboutPeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAboutPeerViewController.h; sourceTree = "<group>"; };
+		AEE259291983AFBC00E6B9FE /* CDAboutPeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAboutPeerViewController.m; sourceTree = "<group>"; };
 		AEF7CEE119443DCD00FA112A /* CDFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFeedViewController.h; sourceTree = "<group>"; };
 		AEF7CEE219443DCD00FA112A /* CDFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFeedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -498,6 +516,14 @@
 		AE05B6A51953E1CC00B21629 /* UIButton+Image */ = {
 			isa = PBXGroup;
 			children = (
+				AEDCC4741982A74D00BF749E /* HTPressableButton.h */,
+				AEDCC4751982A74D00BF749E /* HTPressableButton.m */,
+				AEDCC4761982A74D00BF749E /* UIImage+HTButton.h */,
+				AEDCC4771982A74D00BF749E /* UIImage+HTButton.m */,
+				AEDCC4781982A74D00BF749E /* HTPressableButtonPrefs.h */,
+				AEDCC4791982A74D00BF749E /* HTPressableButtonPrefs.m */,
+				AEDCC47A1982A74D00BF749E /* UIColor+HTColor.h */,
+				AEDCC47B1982A74D00BF749E /* UIColor+HTColor.m */,
 			);
 			name = "UIButton+Image";
 			sourceTree = "<group>";
@@ -650,6 +676,10 @@
 				AE9E2BC7194914460062175A /* CDNavigationViewController.m */,
 				AE845A8019670B1700A431A7 /* CDCommentsTableViewController.h */,
 				AE845A8119670B1700A431A7 /* CDCommentsTableViewController.m */,
+				AE194875198206F6005DC66A /* CDAboutMeViewController.h */,
+				AE194876198206F6005DC66A /* CDAboutMeViewController.m */,
+				AEE259281983AFBC00E6B9FE /* CDAboutPeerViewController.h */,
+				AEE259291983AFBC00E6B9FE /* CDAboutPeerViewController.m */,
 			);
 			name = NavigationViews;
 			sourceTree = "<group>";
@@ -800,6 +830,7 @@
 				AED8348019443A82002556B8 /* RESideMenu.m in Sources */,
 				AED834731943A2BB002556B8 /* Reachability.m in Sources */,
 				AE845A8219670B1700A431A7 /* CDCommentsTableViewController.m in Sources */,
+				AE194877198206F6005DC66A /* CDAboutMeViewController.m in Sources */,
 				AE2478B019428FC30059EC3F /* FXBlurView.m in Sources */,
 				AEA55254196AE8650015FABF /* ProgressHUD.m in Sources */,
 				AE43BCA619495CEF00373FC9 /* HMSegmentedControl.m in Sources */,
@@ -809,11 +840,15 @@
 				AE04B67F1976AD9700777E18 /* CDActivity.m in Sources */,
 				AEF7CEE319443DCD00FA112A /* CDFeedViewController.m in Sources */,
 				AE02C8F31942784500AC16AE /* CDAppDelegate.m in Sources */,
+				AEE2592A1983AFBC00E6B9FE /* CDAboutPeerViewController.m in Sources */,
+				AEDCC47C1982A74D00BF749E /* HTPressableButton.m in Sources */,
 				AE03BFA319465801005A81FE /* UIFont+FlatUI.m in Sources */,
 				AEA7135D1951497B0078FBA6 /* CDTuCaoTableViewCell.m in Sources */,
 				AED43E8419490F4D0098C080 /* CDComposingViewController.m in Sources */,
 				AE63751619654FB800ECD00A /* DCCommentView.m in Sources */,
+				AEDCC47D1982A74D00BF749E /* UIImage+HTButton.m in Sources */,
 				AE03BF9F19465801005A81FE /* FUISwitch.m in Sources */,
+				AEDCC47F1982A74D00BF749E /* UIColor+HTColor.m in Sources */,
 				AE03BFA719465801005A81FE /* UIProgressView+FlatUI.m in Sources */,
 				AE03BFAC19465801005A81FE /* UIToolbar+FlatUI.m in Sources */,
 				AEA5524C196A7C0F0015FABF /* AAActivity.m in Sources */,
@@ -826,6 +861,7 @@
 				AE02C91A194278DE00AC16AE /* CDLoginViewController.m in Sources */,
 				AED8348119443A82002556B8 /* UIViewController+RESideMenu.m in Sources */,
 				AE03BFAB19465801005A81FE /* UITableViewCell+FlatUI.m in Sources */,
+				AEDCC47E1982A74D00BF749E /* HTPressableButtonPrefs.m in Sources */,
 				AE04481E19503C3400370FD8 /* NYSegment.m in Sources */,
 				AE98515A19443C6C0006B785 /* CDLeftMenuViewController.m in Sources */,
 				AE03BFA819465801005A81FE /* UISlider+FlatUI.m in Sources */,

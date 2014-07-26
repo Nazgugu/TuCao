@@ -468,8 +468,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="KsI-e2-Pau"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="12"/>
+                                            <color key="textColor" red="0.18256634999158794" green="1" blue="0.59684822436445228" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xn-vF-iid">
@@ -728,6 +728,52 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="关于作者" id="fee-H3-lvt">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ULa-0p-Chd" rowHeight="65" style="IBUITableViewCellStyleDefault" id="40X-aH-mWi">
+                                        <rect key="frame" x="0.0" y="377" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="40X-aH-mWi" id="Ida-EN-nMl">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="意见反馈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ULa-0p-Chd">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Gw2-sX-OE7" kind="push" id="kQQ-QJ-6H3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="RjZ-wC-m2c" rowHeight="65" style="IBUITableViewCellStyleDefault" id="hZl-4O-2Xj">
+                                        <rect key="frame" x="0.0" y="442" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hZl-4O-2Xj" id="HZP-Wt-Xnd">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="关于Peer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RjZ-wC-m2c">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="SVW-9h-IMt" kind="push" id="fko-sb-f5b"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="UF3-Bg-gbx" id="Qo7-PG-RLr"/>
@@ -750,7 +796,165 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRH-WK-ceH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="1528"/>
+            <point key="canvasLocation" x="144" y="1617"/>
+        </scene>
+        <!--About Peer View Controller-->
+        <scene sceneID="zOB-91-61E">
+            <objects>
+                <viewController id="SVW-9h-IMt" customClass="CDAboutPeerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6pi-UW-hH6"/>
+                        <viewControllerLayoutGuide type="bottom" id="fn0-B5-ptm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7zm-tQ-9l2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-op-mye">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="751"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">【基本情况】
+
+PEER毅恒挚友计划，是致力于促进中国城乡教育公平、改善中国欠发达地区教育资源、并发展博雅、人文与素质教育的非营利组织。毅恒挚友的前身PEER挚友计划于2007年成立，2009年于美国马赛诸塞州波士顿市注册，2011年正式与友成企业家扶贫基金会设立专项基金。截至2012年8月，毅恒挚友在湖南、贵州、陕西、甘肃、广西和湖北的10所初高中累计举行了23次夏令营活动以及2次冬令营活动，总共有千余名中学生从中获益，“挚愿者”达到三百多名。从2011年春季开始，毅恒挚友亦致力于长期教育实验的开发与实践，在湖南省城步苗族自治县第一民族中学开展了第一期的“田野代言人”长期支教试点项目。截至2012年，已有三名“田野代言人”在湖南与贵州完成为期半年的支教活动。我们的愿景是希望中国所有的学生都能获得应有的教育，开发自身的潜力，了解社区的需求，共创中国的未来。
+
+为了达成这个愿景，长久以来，PEER毅恒挚友一直秉承着博雅、人文与素质教育的核心理念，在推动直接支教服务项目的基础上，全力开展相关的课程、教材开发与实践，努力带动地方社区服务领域的发展，并协助地方学校及老师共同探索更好服务学生的方法。最终，我们希望中国所有的学生无论在人生中选择走上何样的道路，都可以拥有自主、独立的思想与人生，取得理想的成果，并参与到其家乡与社区的发展中去。
+
+目前，毅恒挚友的高级顾问委员会成员包括有：
+
+· 北京大学光华管理学院研究院陈浩武先生；
+· 中国人民大学经济研究所所长、中国诚信信用有限公司董事长毛振华博士；
+· 哈佛大学东亚语言文明系罗柏松(James Robson)教授；
+· 美中教育基金会理事邵子平博士；
+· 岭南基金会执行主任石蕾(Leslie Stone)女士；
+· 哈佛大学东亚语言文明系本科部主任兼中国历史教授宋怡明(Michael Szonyi)教授；
+· 爱佑华夏慈善基金会理事长王兵先生；
+· 亚洲常青藤工作室教务及教导主任Stephen Wilmarth先生。</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ffR-iO-5xA"/>
+                    <connections>
+                        <outlet property="aboutText" destination="Pgg-op-mye" id="Ikx-b2-0lh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzb-ih-CKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="1886"/>
+        </scene>
+        <!--About Me View Controller-->
+        <scene sceneID="85h-fl-yTG">
+            <objects>
+                <viewController id="Gw2-sX-OE7" customClass="CDAboutMeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6hc-8u-qEW"/>
+                        <viewControllerLayoutGuide type="bottom" id="JuF-wq-BXu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fr1-M4-dkO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MxZ-yJ-TCQ">
+                                <rect key="frame" x="10" y="174" width="300" height="271"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">大家好，我是这个APP的设计者Farrell。在2014年暑假加入Peer，设计并开发了这个APP的雏形。希望大家能够积极地提供一些反馈意见，为下一次的版本更新做准备。最初，对于Peer的了解仅限于我女朋友在Peer实习的经历，通过为Peer设计这个APP，在付剑的支持与鼓励下，刘宏的积极指导下，才有了现在这个雏形。希望在今后的日子里，Peer可以越走越远，我也会为此献出我的一份力量。希望通过这个APP能让更多的人了解Peer，加入Peer大家庭，将博雅教育传递到更多偏远的地区。</string>
+                                        <attributes>
+                                            <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Wu-81-HRB">
+                                <rect key="frame" x="125" y="80" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-xQ-hDw" customClass="HTPressableButton">
+                                <rect key="frame" x="18" y="464" width="75" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="1hQ-8d-xPD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                                <state key="normal" title="Email Me">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newEmail:" destination="Gw2-sX-OE7" eventType="touchUpInside" id="4Er-gy-vxq"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKG-oJ-kH0" customClass="HTPressableButton">
+                                <rect key="frame" x="122" y="464" width="76" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="c4l-Vh-Iob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                                <state key="normal" title="Rate App">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rateApp:" destination="Gw2-sX-OE7" eventType="touchUpInside" id="aXN-0J-6Ch"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fkj-P2-tbn" customClass="HTPressableButton">
+                                <rect key="frame" x="227" y="464" width="75" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="86Z-EW-7EW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                                <state key="normal" title="LinkedIn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openWeb:" destination="Gw2-sX-OE7" eventType="touchUpInside" id="qEL-rv-pSH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kKG-oJ-kH0" firstAttribute="leading" secondItem="MHw-xQ-hDw" secondAttribute="trailing" constant="29" id="1ZI-P3-fIN"/>
+                            <constraint firstItem="MxZ-yJ-TCQ" firstAttribute="top" secondItem="2Wu-81-HRB" secondAttribute="bottom" constant="24" id="3f2-0R-HzM"/>
+                            <constraint firstAttribute="trailing" secondItem="MxZ-yJ-TCQ" secondAttribute="trailing" constant="10" id="4h1-IT-bCJ"/>
+                            <constraint firstItem="kKG-oJ-kH0" firstAttribute="top" secondItem="MxZ-yJ-TCQ" secondAttribute="bottom" constant="19" id="ADj-Lx-L2L"/>
+                            <constraint firstItem="Fkj-P2-tbn" firstAttribute="top" secondItem="MxZ-yJ-TCQ" secondAttribute="bottom" constant="19" id="F1g-3S-2zl"/>
+                            <constraint firstItem="MHw-xQ-hDw" firstAttribute="top" secondItem="MxZ-yJ-TCQ" secondAttribute="bottom" constant="19" id="MVQ-RV-CM8"/>
+                            <constraint firstAttribute="trailing" secondItem="MHw-xQ-hDw" secondAttribute="trailing" constant="227" id="RmM-BJ-Lgr"/>
+                            <constraint firstItem="MxZ-yJ-TCQ" firstAttribute="leading" secondItem="fr1-M4-dkO" secondAttribute="leading" constant="10" id="XMM-ad-eYH"/>
+                            <constraint firstItem="2Wu-81-HRB" firstAttribute="top" secondItem="6hc-8u-qEW" secondAttribute="bottom" constant="16" id="aj6-pd-OAy"/>
+                            <constraint firstAttribute="trailing" secondItem="Fkj-P2-tbn" secondAttribute="trailing" constant="18" id="eMq-Oe-qEM"/>
+                            <constraint firstItem="JuF-wq-BXu" firstAttribute="top" secondItem="MxZ-yJ-TCQ" secondAttribute="bottom" constant="123" id="kJg-dk-SxQ"/>
+                            <constraint firstItem="2Wu-81-HRB" firstAttribute="leading" secondItem="fr1-M4-dkO" secondAttribute="leading" constant="125" id="nD5-0l-beX"/>
+                            <constraint firstItem="MHw-xQ-hDw" firstAttribute="leading" secondItem="fr1-M4-dkO" secondAttribute="leading" constant="18" id="nM8-db-Ukw"/>
+                            <constraint firstItem="Fkj-P2-tbn" firstAttribute="leading" secondItem="kKG-oJ-kH0" secondAttribute="trailing" constant="29" id="ou7-6a-2px"/>
+                            <constraint firstAttribute="trailing" secondItem="kKG-oJ-kH0" secondAttribute="trailing" constant="122" id="pXH-PB-I0g"/>
+                            <constraint firstItem="MxZ-yJ-TCQ" firstAttribute="top" secondItem="6hc-8u-qEW" secondAttribute="bottom" constant="110" id="toR-qG-M4F"/>
+                            <constraint firstAttribute="trailing" secondItem="2Wu-81-HRB" secondAttribute="trailing" constant="125" id="wlx-c7-jVq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YKg-G9-BIS"/>
+                    <connections>
+                        <outlet property="appLinkButton" destination="kKG-oJ-kH0" id="oi2-Gw-AXP"/>
+                        <outlet property="avatarImage" destination="2Wu-81-HRB" id="S6W-Ag-ms7"/>
+                        <outlet property="emailButton" destination="MHw-xQ-hDw" id="K3q-hK-P5i"/>
+                        <outlet property="linkedInButton" destination="Fkj-P2-tbn" id="9og-up-593"/>
+                        <outlet property="meText" destination="MxZ-yJ-TCQ" id="X5S-0Y-bFH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aG6-pc-KBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="1179"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="1YQ-EF-CJj">

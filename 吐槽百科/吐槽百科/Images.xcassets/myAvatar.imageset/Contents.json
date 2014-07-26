@@ -3,12 +3,11 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "disclose.png"
+      "filename" : "myAvatar.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "disclose@2x.png"
+      "scale" : "2x"
     }
   ],
   "info" : {

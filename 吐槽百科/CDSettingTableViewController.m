@@ -69,7 +69,7 @@
     NSString *avatarName = [[[NSUserDefaults standardUserDefaults] objectForKey:AvatarKey] stringValue];
     NSString *nameString = [avatarName stringByAppendingString:@"a"];
     [self.avatarImage setImage:[UIImage imageNamed:nameString]];
-    [self imageAnimation];
+    //[self imageAnimation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,7 +94,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected row at %ld",(long)indexPath.row);
+    //NSLog(@"selected row at %ld",(long)indexPath.row);
+    if (indexPath.section == 0)
+    {
     if (indexPath.row == 0)
     {
         NSString *nameString;
@@ -123,6 +125,7 @@
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         //alert.tag = 1;
         [alert show];
+    }
     }
 }
 
