@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"About Me";
+    self.title = @"意见反馈";
     // Do any additional setup after loading the view.
     self.avatarImage.layer.cornerRadius = 35.0f;
     self.avatarImage.layer.masksToBounds = YES;

@@ -8,7 +8,7 @@
 
 #import "CDAboutPeerViewController.h"
 
-@interface CDAboutPeerViewController ()
+@interface CDAboutPeerViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *aboutText;
 
 @end
@@ -41,14 +41,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"关于Peer";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     // Do any additional setup after loading the view.
-    self.aboutText.contentSize = CGSizeMake(self.aboutText.frame.size.width, 900);
-    [self.aboutText layoutIfNeeded];
+    //[self.aboutText setContentSize:CGSizeMake(self.aboutText.frame.size.width, 1200)];
+    //NSLog(@"height = %f",self.aboutText.contentSize.height);
+    //[self.aboutText.layoutManager ensureLayoutForTextContainer:self.aboutText.textContainer];
+    //[self.aboutText layoutIfNeeded];
 }
 
 - (void)didReceiveMemoryWarning

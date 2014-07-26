@@ -728,7 +728,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="关于作者" id="fee-H3-lvt">
+                            <tableViewSection headerTitle="关于" id="fee-H3-lvt">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ULa-0p-Chd" rowHeight="65" style="IBUITableViewCellStyleDefault" id="40X-aH-mWi">
                                         <rect key="frame" x="0.0" y="377" width="320" height="65"/>
@@ -810,11 +810,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-op-mye">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="751"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1O-39-Gms">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">【基本情况】
+                                <string key="text">【基本情况】
 
 PEER毅恒挚友计划，是致力于促进中国城乡教育公平、改善中国欠发达地区教育资源、并发展博雅、人文与素质教育的非营利组织。毅恒挚友的前身PEER挚友计划于2007年成立，2009年于美国马赛诸塞州波士顿市注册，2011年正式与友成企业家扶贫基金会设立专项基金。截至2012年8月，毅恒挚友在湖南、贵州、陕西、甘肃、广西和湖北的10所初高中累计举行了23次夏令营活动以及2次冬令营活动，总共有千余名中学生从中获益，“挚愿者”达到三百多名。从2011年春季开始，毅恒挚友亦致力于长期教育实验的开发与实践，在湖南省城步苗族自治县第一民族中学开展了第一期的“田野代言人”长期支教试点项目。截至2012年，已有三名“田野代言人”在湖南与贵州完成为期半年的支教活动。我们的愿景是希望中国所有的学生都能获得应有的教育，开发自身的潜力，了解社区的需求，共创中国的未来。
 
@@ -829,7 +829,7 @@ PEER毅恒挚友计划，是致力于促进中国城乡教育公平、改善中�
 · 岭南基金会执行主任石蕾(Leslie Stone)女士；
 · 哈佛大学东亚语言文明系本科部主任兼中国历史教授宋怡明(Michael Szonyi)教授；
 · 爱佑华夏慈善基金会理事长王兵先生；
-· 亚洲常青藤工作室教务及教导主任Stephen Wilmarth先生。</mutableString>
+· 亚洲常青藤工作室教务及教导主任Stephen Wilmarth先生。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -838,7 +838,7 @@ PEER毅恒挚友计划，是致力于促进中国城乡教育公平、改善中�
                     </view>
                     <navigationItem key="navigationItem" id="ffR-iO-5xA"/>
                     <connections>
-                        <outlet property="aboutText" destination="Pgg-op-mye" id="Ikx-b2-0lh"/>
+                        <outlet property="aboutText" destination="A1O-39-Gms" id="Ns0-vc-rsd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzb-ih-CKA" userLabel="First Responder" sceneMemberID="firstResponder"/>

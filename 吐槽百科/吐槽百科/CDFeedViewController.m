@@ -108,7 +108,7 @@
 
 - (void)reloadDataWithCount:(NSInteger)count
 {
-    NSLog(@"count is = %ld",count);
+    NSLog(@"count is = %ld",(long)count);
     if (self.count - 1 == count)
     {
         //NSLog(@"reloading");
@@ -235,7 +235,7 @@
                if (objects)
                {
                    //NSLog(@"got objects");
-                   NSLog(@"object count = %ld",objects.count);
+                   NSLog(@"object count = %ld",(unsigned long)objects.count);
                    self.count = objects.count;
                    for (int i = 0; i < objects.count; i++)
                    {
