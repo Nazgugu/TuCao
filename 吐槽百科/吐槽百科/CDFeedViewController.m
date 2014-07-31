@@ -21,6 +21,7 @@
 #import "UIColor+MLPFlatColors.h"
 #import "UIViewController+CWPopup.h"
 #import "CDPeopleTableViewController.h"
+#import "UIColor+HTColor.h"
 
 @interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 @property (nonatomic) BOOL isShown;
@@ -77,14 +78,14 @@
     [self.tableView addGestureRecognizer:tapRecognizer];
     self.useBlurForPopup = YES;
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
+    self.navigationController.navigationBar.barTintColor = [UIColor ht_aquaColor];
     self.colorArray = [[NSArray alloc] initWithObjects:[UIColor flatRedColor], [UIColor flatGreenColor], [UIColor flatBlueColor], [UIColor flatYellowColor], [UIColor flatPurpleColor], [UIColor flatTealColor], [UIColor flatGrayColor], nil];
     topControl = [[NYSegmentedControl alloc] initWithItems:@[@"新闻",@"活动"]];
     [topControl addTarget:self action:@selector(segmentControlChanged) forControlEvents:UIControlEventValueChanged];
     //topControl.borderColor = [UIColor colorWithWhite:0.20f alpha:1.0f];
     topControl.titleTextColor = [UIColor colorWithRed:0.38f green:0.68f blue:0.93f alpha:1.0f];
     topControl.selectedTitleTextColor = [UIColor whiteColor];
-    topControl.segmentIndicatorBackgroundColor = [UIColor colorFromHexCode:@"00BDEF"];
+    topControl.segmentIndicatorBackgroundColor = [UIColor ht_aquaColor];
     topControl.borderWidth = 1.0f;
     topControl.segmentIndicatorBorderWidth = 0.0f;
     topControl.segmentIndicatorInset = 1.0f;
@@ -99,22 +100,22 @@
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSStrokeColorAttributeName:[UIColor grayColor]}];
     [refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+    [self fetchContent];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self fetchContent];
 }
 
 - (void)reloadDataWithCount:(NSInteger)count
 {
-    NSLog(@"count is = %ld",(long)count);
+    //NSLog(@"count is = %ld",(long)count);
     if (self.count - 1 == count)
     {
         //NSLog(@"reloading");
         if (self.activities.count > 0)
         {
-            NSLog(@"items = %@",self.activities);
+            //NSLog(@"items = %@",self.activities);
         }
         [self performSelector:@selector(loadContent) withObject:nil afterDelay:0.15f];
     }
@@ -235,7 +236,7 @@
                if (objects)
                {
                    //NSLog(@"got objects");
-                   NSLog(@"object count = %ld",(unsigned long)objects.count);
+                   //NSLog(@"object count = %ld",(unsigned long)objects.count);
                    self.count = objects.count;
                    for (int i = 0; i < objects.count; i++)
                    {
@@ -529,7 +530,7 @@
     self.newsTable.scrollEnabled = NO;
     CDPeopleTableViewController *peopleViewController = [[CDPeopleTableViewController alloc] initWithNibName:@"CDPeopleTableViewController" bundle:nil];
     [self presentPopupViewController:peopleViewController animated:YES completion:^(void) {
-        NSLog(@"popup view presented");
+        //NSLog(@"popup view presented");
     }];
 }
 
@@ -609,14 +610,14 @@
             {
                 PFQuery *nickNameQuery = [PFUser query];
                 [nickNameQuery whereKey:NickNameKey equalTo:username.text];
-                NSLog(@"%@",username.text);
+                //NSLog(@"%@",username.text);
                 [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
                     if (!error)
                     {
-                        NSLog(@"%@",objects);
+                        //NSLog(@"%@",objects);
                         if (objects.count == 0)
                         {
-                            NSLog(@"situation 1");
+                            //NSLog(@"situation 1");
                             //ok to set this nickname since no one used it
                             PFUser *nameChange = [PFUser currentUser];
                             nameChange[NickNameKey] = username.text;
@@ -654,14 +655,14 @@
                         }
                         else
                         {
-                            NSLog(@"situation 2");
+                            //NSLog(@"situation 2");
                             //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
                             PFObject *tempObject = [objects lastObject];
                             //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
                             //NSLog(@"current user = %@",[PFUser currentUser].objectId);
                             if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
                             {
-                                NSLog(@"no collision");
+                                //NSLog(@"no collision");
                                 //go ahead perform the segue
                                 //[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
                                 [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
@@ -689,7 +690,8 @@
                     }
                     else
                     {
-                        NSLog(@": %@ %@", error, [error userInfo]);
+                        //NSLog(@": %@ %@", error, [error userInfo]);
+                        [ProgressHUD showError:@"发生了错误"];
                     }
                 }];
             }
@@ -755,12 +757,12 @@
 
 
 - (void)dismissPopup {
-    NSLog(@"tapped");
+    //NSLog(@"tapped");
     if (self.popupViewController != nil) {
         [self dismissPopupViewControllerAnimated:YES completion:^{
             self.isShown = NO;
             self.tableView.scrollEnabled = YES;
-            NSLog(@"popup view dismissed");
+            //NSLog(@"popup view dismissed");
         }];
     }
 }

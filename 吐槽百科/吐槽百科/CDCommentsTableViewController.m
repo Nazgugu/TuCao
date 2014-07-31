@@ -10,6 +10,7 @@
 #import "CDTCommentableViewCell.h"
 #import "FlatUIKit.h"
 #import "CDAppDelegate.h"
+#import "UIColor+HTColor.h"
 
 @interface CDCommentsTableViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray *comments;
@@ -54,7 +55,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.navigationController.navigationBar.barTintColor = [UIColor turquoiseColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor ht_mintColor];
     self.title = @"评论";
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"正在更新" attributes:@{NSStrokeColorAttributeName:[UIColor grayColor]}];

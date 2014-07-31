@@ -17,6 +17,7 @@
 #import "CDCommentsTableViewController.h"
 #import "CDSingleton.h"
 #import "ProgressHUD.h"
+#import "UIColor+HTColor.h"
 
 @interface CDDetailViewController ()<KenBurnsViewDelegate, DCCommentViewDelegate>
 @property (weak, nonatomic) IBOutlet JBKenBurnsView *images;
@@ -77,7 +78,7 @@
     self.commentView.delegate = self;
     self.commentView.tintColor = [UIColor peterRiverColor];
     BBBadgeBarButtonItem *commentButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:self.rightButton];
-    commentButton.badgeBGColor = [UIColor emerlandColor];
+    commentButton.badgeBGColor = [UIColor ht_mintColor];
     commentButton.badgeTextColor = [UIColor whiteColor];
     commentButton.shouldHideBadgeAtZero = NO;
     commentButton.badgeOriginX = 13;
@@ -130,7 +131,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
+    self.navigationController.navigationBar.barTintColor = [UIColor ht_aquaColor];
     [[NSUserDefaults standardUserDefaults] setObject:self.objectID forKey:objetcIDKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
@@ -147,7 +148,7 @@
 {
     [self.commentView resignFirstResponder];
     [ProgressHUD show:@"正在发送" Interaction:NO];
-    NSLog(@"comment text = %@",text);
+    //NSLog(@"comment text = %@",text);
     NSString *nameString;
     PFObject *comment = [PFObject objectWithClassName:@"comments"];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:AnonymousKey] boolValue] == YES)
@@ -172,7 +173,7 @@
            [self.news saveInBackgroundWithBlock:^(BOOL successful, NSError *error){
               if (successful)
               {
-                  NSLog(@"saved");
+                  //NSLog(@"saved");
                   [ProgressHUD showSuccess:@"发送成功"];
               }
            }];
@@ -198,13 +199,8 @@
 //
 - (void)viewDidAppear:(BOOL)animated
 {
-    //self.contentTextLabel.text = self.contentText;
-    //CGSize maxLabelSize = CGSizeMake(300, 9999);
-    //NSLog(@"view did appear scrollview content size = %f",self.detailScroll.contentSize.height);
     [ProgressHUD show:@"正在载入" Interaction:NO];
     self.contentTextLabel.text = [CDSingleton globalData].content;
-    //NSLog(@"contentText = %@",self.contentText);
-    //NSLog(@"height 1 begining = %lf",CGRectGetMaxY(_contentTextLabel.frame));
     [self.contentTextLabel setNeedsLayout];
     [self.contentTextLabel layoutIfNeeded];
     NSDictionary *attribute = @{NSFontAttributeName:self.contentTextLabel.font};
@@ -213,7 +209,7 @@
     //NSLog(@"text = %@",self.contentText);
     //NSLog(@"rect height = %f",rect.size.height);
     self.contentLayoutConstrait.constant = rect.size.height;
-    _detailScroll.contentSize = CGSizeMake(CGRectGetWidth(_detailScroll.frame), CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50);
+    //_detailScroll.contentSize = CGSizeMake(CGRectGetWidth(_detailScroll.frame), CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50);
     _height = CGRectGetMaxY(_contentTextLabel.frame) + rect.size.height + 50;
     //NSLog(@"height 1 = %lf",CGRectGetMaxY(_contentTextLabel.frame));
     //NSLog(@"height 2 = %lf",rect.size.height + 50);
@@ -323,7 +319,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareforSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"got called");
+    //NSLog(@"got called");
 }
 
 

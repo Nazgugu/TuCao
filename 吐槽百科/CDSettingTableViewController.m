@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import "FlatUIKit.h"
 #import "ProgressHUD.h"
+#import "UIColor+HTColor.h"
 
 @interface CDSettingTableViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
@@ -44,7 +45,7 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.barTintColor = [UIColor colorFromHexCode:@"59BAF3"];
+    self.navigationController.navigationBar.barTintColor = [UIColor ht_aquaColor];
     self.title = @"设置";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -108,7 +109,7 @@
             AAActivity *activity = [[AAActivity alloc] initWithTitle:[@"头像" stringByAppendingFormat:@"%ld", (long)i]
                                                                image:[UIImage imageNamed:nameString]
                                                          actionBlock:^(AAActivity *activity, NSArray *activityItems) {
-                                                             NSLog(@"doing activity = %@, activityItems = %@", activity, activityItems);
+                                                             //NSLog(@"doing activity = %@, activityItems = %@", activity, activityItems);
                                                              [self settingAvatarWithName:nameString andIntName:i];
                                                          }];
             [array addObject:activity];
@@ -131,7 +132,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Button Index =%ld",(long)buttonIndex);
+    //NSLog(@"Button Index =%ld",(long)buttonIndex);
     if (buttonIndex == 1) {  //Login
         [ProgressHUD show:@"正在更新名称" Interaction:NO];
         UITextField *username = [alertView textFieldAtIndex:0];
@@ -145,14 +146,14 @@
         {
             PFQuery *nickNameQuery = [PFUser query];
             [nickNameQuery whereKey:NickNameKey equalTo:username.text];
-            NSLog(@"%@",username.text);
+            //NSLog(@"%@",username.text);
             [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
                 if (!error)
                 {
-                    NSLog(@"%@",objects);
+                    //NSLog(@"%@",objects);
                     if (objects.count == 0)
                     {
-                        NSLog(@"situation 1");
+                        //NSLog(@"situation 1");
                         //ok to set this nickname since no one used it
                         PFUser *nameChange = [PFUser currentUser];
                         nameChange[NickNameKey] = username.text;
@@ -188,14 +189,14 @@
                     }
                     else
                     {
-                        NSLog(@"situation 2");
+                        //NSLog(@"situation 2");
                         //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
                         PFObject *tempObject = [objects lastObject];
                         //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
                         //NSLog(@"current user = %@",[PFUser currentUser].objectId);
                         if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
                         {
-                            NSLog(@"no collision");
+                            //NSLog(@"no collision");
                             //go ahead perform the segue
                             //[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
                             [[NSUserDefaults standardUserDefaults] setObject:username.text forKey:NickNameKey];
@@ -221,7 +222,8 @@
                 }
                 else
                 {
-                    NSLog(@": %@ %@", error, [error userInfo]);
+                    [ProgressHUD showError:[error userInfo][@"error"]];
+                    //NSLog(@": %@ %@", error, [error userInfo]);
                 }
             }];
         }

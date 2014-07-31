@@ -89,7 +89,7 @@
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError  *error) {
            if (!error)
            {
-               NSLog(@"succeeded");
+               //NSLog(@"succeeded");
                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
                [[NSUserDefaults standardUserDefaults] synchronize];
                /*
@@ -115,7 +115,8 @@
             {
                 NSString *errorString = [error userInfo][@"error"];
                 // Show the errorString somewhere and let the user try again.
-                NSLog(@"error occurred: %@",errorString);
+                //NSLog(@"error occurred: %@",errorString);
+                [ProgressHUD showError:errorString];
                 [self loginUser];
             }
         }];
@@ -138,8 +139,10 @@
         }
         else
         {
-            NSLog(@"fatal error occured: %@, check server status",[error userInfo][@"error"]);
+            //NSLog(@"fatal error occured: %@, check server status",[error userInfo][@"error"]);
+            [ProgressHUD showError:[error userInfo][@"error"]];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:UserLoginKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }];
 }

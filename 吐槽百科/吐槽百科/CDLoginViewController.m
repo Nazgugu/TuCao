@@ -219,7 +219,7 @@ static int count = 1;
                 self.cancelButton.hidden = NO;
             }
         }];
-        NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
+        //NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
     }
     else
     {
@@ -249,14 +249,14 @@ static int count = 1;
     {
         PFQuery *nickNameQuery = [PFUser query];
         [nickNameQuery whereKey:NickNameKey equalTo:self.nameField.text];
-        NSLog(@"%@",self.nameField.text);
+        //NSLog(@"%@",self.nameField.text);
         [nickNameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
             if (!error)
             {
-                NSLog(@"%@",objects);
+                //NSLog(@"%@",objects);
                 if (objects.count == 0)
                 {
-                    NSLog(@"situation 1");
+                    //NSLog(@"situation 1");
                     //ok to set this nickname since no one used it
                     PFUser *nameChange = [PFUser currentUser];
                     nameChange[NickNameKey] = self.nameField.text;
@@ -284,14 +284,14 @@ static int count = 1;
                 }
                 else
                 {
-                    NSLog(@"situation 2");
+                    //NSLog(@"situation 2");
                     //have to check if the user using this nick name is the same as the current user, if it is then proceed to go to contents, else promt user to change to a different name
                     PFObject *tempObject = [objects lastObject];
                     //NSLog(@"tempObject[userKey] = %@",[tempObject[userKey] objectId]);
                     //NSLog(@"current user = %@",[PFUser currentUser].objectId);
                     if ([tempObject[@"username"] isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:UserNameKey]])
                     {
-                        NSLog(@"no collision");
+                        //NSLog(@"no collision");
                         //go ahead perform the segue
                         [ProgressHUD showSuccess:@"取名成功～"];
                         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:isLoggedInKey];
@@ -308,7 +308,8 @@ static int count = 1;
             }
             else
             {
-                NSLog(@": %@ %@", error, [error userInfo]);
+                [ProgressHUD showError:[error userInfo][@"error"]];
+                //NSLog(@": %@ %@", error, [error userInfo]);
             }
         }];
     }
@@ -350,7 +351,7 @@ static int count = 1;
     self.nameField.frame = rect;
     self.cancelButton.frame = cancelButtonRect;
     [UIView commitAnimations];
-    NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
+    //NSLog(@"original namebutton center position y = %f",self.nameButtonPreviousY);
 }
 
 

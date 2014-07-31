@@ -11,6 +11,7 @@
 #import "CDAboutMeViewController.h"
 #import "HTPressableButton.h"
 #import "UIColor+HTColor.h"
+#import "RFRateMe.h"
 
 @interface CDAboutMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
@@ -74,7 +75,7 @@
 
 - (IBAction)rateApp:(id)sender
 {
-    
+    [RFRateMe showRateAlert];
 }
 
 - (IBAction)openWeb:(id)sender

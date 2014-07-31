@@ -49,7 +49,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"view will appear");
+    //NSLog(@"view will appear");
 }
 
 - (void)viewDidAppear:(BOOL)animated
