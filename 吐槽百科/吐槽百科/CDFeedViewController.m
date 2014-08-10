@@ -22,8 +22,11 @@
 #import "UIViewController+CWPopup.h"
 #import "CDPeopleTableViewController.h"
 #import "UIColor+HTColor.h"
+#import "BDBSpinKitRefreshControl.h"
 
-@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+
+
+@interface CDFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, BDBSpinKitRefreshControlDelegate>
 @property (nonatomic) BOOL isShown;
 @property (strong,nonatomic) NYSegmentedControl *topControl;
 @property (strong, nonatomic) IBOutlet UITableView *newsTable;
@@ -38,6 +41,8 @@
 @property (strong, nonatomic) NSArray *colorArray;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) NSInteger count;
+@property (nonatomic) BDBSpinKitRefreshControl *refreshControl;
+@property (nonatomic) NSTimer *colorTimer;
 @end
 
 @implementation CDFeedViewController
@@ -96,12 +101,41 @@
     topControl.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = topControl;
     //refresh control
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSStrokeColorAttributeName:[UIColor grayColor]}];
-    [refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+    UIColor *color = [UIColor colorWithRed:0.937f green:0.263f blue:0.157f alpha:1.f];
+    self.refreshControl = [BDBSpinKitRefreshControl refreshControlWithStyle:RTSpinKitViewStyleBounce
+                                                                      color:color];
+    self.refreshControl.delegate = self;
+    self.refreshControl.shouldChangeColorInstantly = YES;
+    [self.refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
+
+    
     [self fetchContent];
 }
+
+- (void)doubleRainbow
+{
+    CGFloat h, s, v, a;
+    [self.refreshControl.tintColor getHue:&h saturation:&s brightness:&v alpha:&a];
+    
+    h = fmodf((h + 0.025f), 1.f);
+    self.refreshControl.tintColor = [UIColor colorWithHue:h saturation:s brightness:v alpha:a];
+}
+
+#pragma mark BDBSpinKitRefreshControl Delegate Methods
+- (void)didShowRefreshControl
+{
+    self.colorTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f
+                                                       target:self
+                                                     selector:@selector(doubleRainbow)
+                                                     userInfo:nil
+                                                      repeats:YES];
+}
+
+- (void)didHideRefreshControl
+{
+    [self.colorTimer invalidate];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {

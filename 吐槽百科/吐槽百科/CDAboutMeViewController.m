@@ -12,6 +12,7 @@
 #import "HTPressableButton.h"
 #import "UIColor+HTColor.h"
 #import "RFRateMe.h"
+#import "TOWebViewController.h"
 
 @interface CDAboutMeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
@@ -80,7 +81,9 @@
 
 - (IBAction)openWeb:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.linkedin.com/profile/view?id=297531322&trk=nav_responsive_tab_profile_pic"]];
+    NSURL *url = [NSURL URLWithString:@"http://www.linkedin.com/profile/view?id=297531322&trk=nav_responsive_tab_profile_pic"];
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
