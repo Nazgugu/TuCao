@@ -20,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"1F9uIP0IYOVb0NmjAfaEx4XmwoAL3Nmh7W6C41B1"
-                  clientKey:@"c6UFwjvcddbszUd3n5XupdBKwTk4Hwght4sQMdBJ"];
+    [Parse setApplicationId:@"hFrIbEbJcgyMPiDs9ODFoAZNDCGKDamsbAWdAFMg"
+                  clientKey:@"KOcdFIkHRTHrXk8bTPNw0TKTaCAGaCbPj1hGG2cJ"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:isLoggedInKey] boolValue]== YES)
     {
@@ -89,7 +89,7 @@
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError  *error) {
            if (!error)
            {
-               //NSLog(@"succeeded");
+               NSLog(@"succeeded");
                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:RegisterKey];
                [[NSUserDefaults standardUserDefaults] synchronize];
                /*
