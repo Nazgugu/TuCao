@@ -167,7 +167,10 @@
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:connectionKey] boolValue] == NO)
     {
         //[ProgressHUD dismiss];
+        //NSLog(@"no network");
         [ProgressHUD showError:@"无网络"];
+        [self.refreshControl endRefreshing];
+        [self.tableView setContentOffset:CGPointZero];
         return;
     }
     if (topControl.selectedSegmentIndex == 0)
