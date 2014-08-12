@@ -514,9 +514,9 @@
             //[self imageAnimationWithImageView:activityCell.user2];
             activityCell.moreButton.hidden = YES;
         }
-        activityCell.goButton.buttonColor = [UIColor turquoiseColor];
+        activityCell.goButton.buttonColor = [UIColor ht_jayColor];
         activityCell.goButton.shadowColor = [UIColor cloudsColor];
-        activityCell.goButton.highlightedColor = [UIColor greenSeaColor];
+        activityCell.goButton.highlightedColor = [UIColor ht_jayDarkColor];
         activityCell.goButton.shadowHeight = 1.0f;
         activityCell.goButton.cornerRadius = 7.0f;
         return activityCell;
