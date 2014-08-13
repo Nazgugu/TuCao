@@ -11,12 +11,15 @@
 #import "FlatUIKit.h"
 #import "CDAppDelegate.h"
 #import "UIColor+HTColor.h"
+#import "BDBSpinKitRefreshControl.h"
 
-@interface CDCommentsTableViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface CDCommentsTableViewController ()<UITableViewDataSource, UITableViewDelegate, BDBSpinKitRefreshControlDelegate>
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (strong, nonatomic) NSMutableArray *date;
 @property (strong, nonatomic) CDTCommentableViewCell *commentCell;
 @property (strong, nonatomic) NSString *objectID;
+@property (nonatomic) BDBSpinKitRefreshControl *refreshControl;
+@property (nonatomic) NSTimer *colorTimer;
 @end
 
 @implementation CDCommentsTableViewController
@@ -57,13 +60,42 @@
     self.tableView.dataSource = self;
     self.navigationController.navigationBar.barTintColor = [UIColor ht_mintColor];
     self.title = @"评论";
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"正在更新" attributes:@{NSStrokeColorAttributeName:[UIColor grayColor]}];
-    [refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+    UIColor *color = [UIColor colorWithRed:0.937f green:0.263f blue:0.157f alpha:1.f];
+    self.refreshControl = [BDBSpinKitRefreshControl refreshControlWithStyle:RTSpinKitViewStyleBounce
+                                                                      color:color];
+    self.refreshControl.delegate = self;
+    self.refreshControl.shouldChangeColorInstantly = YES;
+    [self.refreshControl addTarget:self action:@selector(fetchContent) forControlEvents:UIControlEventValueChanged];
+    //[self fetchContent];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void)doubleRainbow
+{
+    CGFloat h, s, v, a;
+    [self.refreshControl.tintColor getHue:&h saturation:&s brightness:&v alpha:&a];
+    
+    h = fmodf((h + 0.025f), 1.f);
+    self.refreshControl.tintColor = [UIColor colorWithHue:h saturation:s brightness:v alpha:a];
+}
+
+#pragma mark BDBSpinKitRefreshControl Delegate Methods
+- (void)didShowRefreshControl
+{
+    self.colorTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f
+                                                       target:self
+                                                     selector:@selector(doubleRainbow)
+                                                     userInfo:nil
+                                                      repeats:YES];
+}
+
+- (void)didHideRefreshControl
+{
+    [self.colorTimer invalidate];
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -100,6 +132,8 @@
                            {
                                _date = [[NSMutableArray alloc] init];
                            }
+                           [self.comments removeAllObjects];
+                           [self.date removeAllObjects];
                            [self.comments addObjectsFromArray:array];
                            for (int i = 0; i < array.count; i++)
                            {
@@ -121,6 +155,8 @@
         }
     }];
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated
 {

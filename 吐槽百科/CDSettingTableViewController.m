@@ -228,6 +228,10 @@
             }];
         }
     }
+    else
+    {
+        [self.anonymousSwitch setOn:YES animated:YES];
+    }
 }
 
 - (void)settingAvatarWithName:(NSString *)nameString andIntName:(NSInteger)intName

@@ -515,7 +515,7 @@
             activityCell.moreButton.hidden = YES;
         }
         activityCell.goButton.buttonColor = [UIColor ht_jayColor];
-        activityCell.goButton.shadowColor = [UIColor cloudsColor];
+        activityCell.goButton.shadowColor = [UIColor whiteColor];
         activityCell.goButton.highlightedColor = [UIColor ht_jayDarkColor];
         activityCell.goButton.shadowHeight = 1.0f;
         activityCell.goButton.cornerRadius = 7.0f;
