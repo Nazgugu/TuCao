@@ -10,7 +10,7 @@
 #import "UIAlertView+NSCookbook.h"
 
 #define kNumberOfDaysUntilShowAgain 3
-#define kAppStoreAddress @"https://itunes.apple.com/us/app/jobsy/id687059035"
+#define kAppStoreAddress @"https://itunes.apple.com/us/app/peerchina/id910474725?ls=1&mt=8"
 #define kAppName @"PeerChina"
 
 @implementation RFRateMe
